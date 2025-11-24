@@ -458,9 +458,33 @@
                             
                             <!-- 요청하신 솔루션 이미지 반영 -->
                             <div class="mt-8">
-                                <img src="https://media2.sanbangjeju.com/%EC%82%B0%EB%B0%A9%EC%8B%9D%EB%8B%B9%EC%86%94%EB%A3%A8%EC%85%98.png" loading="lazy" decoding="async" alt="산방식당 메뉴 솔루션 구조" class="w-full h-auto rounded-lg shadow-sm border border-gray-100">
+                                <img 
+                                    src="https://media2.sanbangjeju.com/%EC%82%B0%EB%B0%A9%EC%8B%9D%EB%8B%B9%EC%86%94%EB%A3%A8%EC%85%98.png"
+                                    loading="lazy"
+                                    decoding="async"
+                                    alt="산방식당 메뉴 솔루션 구조"
+                                    class="w-full h-auto rounded-lg shadow-sm border border-gray-100"
+                                    style="max-width:100vw; width:100vw; margin-left:calc(-1 * ((100vw - 100%) / 2));"
+                                >
                             </div>
-                        </div>
+                            <style>
+                                @media (max-width: 768px) {
+                                    .sanbang-solution-img-fullbleed {
+                                        border-radius: 0 !important;
+                                        max-width: 100vw !important;
+                                        width: 100vw !important;
+                                        height: auto !important;
+                                        margin-left: calc(-1 * ((100vw - 100%) / 2)) !important;
+                                    }
+                                }
+                            </style>
+                            <script>
+                                // JS fallback for adding class in case style above is not sufficient (mainly if using Tailwind JIT)
+                                document.addEventListener('DOMContentLoaded', function() {
+                                    var img = document.querySelector('img[alt="산방식당 메뉴 솔루션 구조"]');
+                                    if(img) img.classList.add('sanbang-solution-img-fullbleed');
+                                });
+                            </script>
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
                             <div class="flex flex-col items-center justify-center p-6 bg-white rounded-xl shadow-sm text-center hover:-translate-y-1 transition">
