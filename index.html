@@ -131,6 +131,21 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        .highlight-marker {
+            background: linear-gradient(180deg, rgba(255,235,59,0.4) 0%, rgba(255,235,59,0.6) 50%, rgba(255,235,59,0.4) 100%);
+            box-shadow: 0 2px 4px rgba(255,235,59,0.3);
+            padding: 2px 6px;
+            display: inline-block;
+        }
+
+        .highlight-marker-strong {
+            background: linear-gradient(180deg, rgba(255,235,59,0.5) 0%, rgba(255,235,59,0.7) 50%, rgba(255,235,59,0.5) 100%);
+            box-shadow: 0 3px 6px rgba(255,235,59,0.4);
+            padding: 4px 8px;
+            display: inline-block;
+            transform: rotate(-1deg);
+        }
     </style>
 </head>
 <body>
@@ -353,20 +368,32 @@
                 </div>
             </div>
 
-            <div class="mt-16 p-8 md:p-12 bg-white rounded-3xl border border-gray-200 text-center fade-in-up">
-                <h3 class="text-2xl font-bold text-gray-800 mb-4">"브랜드 이름보다 중요한 건 <span class="text-[#B03A24]">검증된 맛</span>입니다."</h3>
-                <p class="text-gray-600 leading-relaxed max-w-3xl mx-auto text-lg">
-                    지난 10여 년 동안 산방식당은 다양한 방식으로 맛을 나누고자 했습니다.
-                    그 과정에서 더 많은 독립 사장님들이 브랜드 이름보다 오직 <span class="font-bold text-[#B03A24]">'손님을 사로잡을 맛'</span>을 원한다는 사실을 알게 되었습니다.
+            <div class="mt-16 p-10 md:p-16 bg-[#FFFEF8] rounded-3xl border-4 border-gray-300 shadow-2xl text-center fade-in-up relative overflow-hidden" style="box-shadow: 0 20px 60px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.9);">
+                <!-- 액자 장식 효과 -->
+                <div class="absolute inset-0 border-2 border-gray-200 rounded-3xl pointer-events-none"></div>
+                
+                <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 relative z-10">
+                    브랜드의 이름보다 
+                    <span class="highlight-marker font-bold text-gray-900">진정한 검증</span>과 
+                    <span class="highlight-marker font-bold text-gray-900">맛</span>이 더 중요합니다.
+                </h3>
+                <p class="text-gray-900 leading-relaxed max-w-3xl mx-auto text-lg md:text-xl relative z-10">
+                    지난 <span class="font-bold text-gray-900">10여 년</span>간, 산방식당은 '<span class="highlight-marker font-bold text-gray-900">가치 있는 맛의 전달</span>'을 고민해왔습니다.<br>
+                    우리는 계속해서 본질을 지키려 했고,<br>
+                    <span class="font-bold text-gray-900">수많은 독립 사장님들</span> 역시<br>
+                    <span class="font-bold text-gray-900">브랜드 이름</span>이 아니라<br>
+                    <span class="highlight-marker font-bold text-gray-900">손님을 움직일 수 있는, 검증된 맛</span>을 원한다는 사실을 확인했습니다.
                     <br><br>
-                    제주에서는 <span class="font-bold text-[#95BF32]">제주의 가치</span>를 지키고, 육지의 파트너에게는 그에 걸맞은 <span class="font-bold text-[#B03A24]">무기를 드리는 것</span>.
-                    이것이 <span class="relative inline-block font-bold text-gray-900 z-10">
+                    <span class="font-bold text-gray-900">제주에서는 제주의 가치</span>를 지키고,<br>
+                    <span class="font-bold text-gray-900">육지에서는 파트너에게 무기</span>를 드립니다.<br>
+                    그리고<br>
+                    이것이 바로 
+                    <span class="highlight-marker-strong font-bold text-gray-900 z-10">
                         산방식당 파트너십의 출발점
-                        <span class="absolute bottom-1 left-0 w-full h-3 bg-[#F6C775] opacity-40 -z-10"></span>
-                    </span>입니다.
+                    </span>
+                    입니다.
                 </p>
             </div>
-        </div>
     </section>
 
     <!-- 4. Menu Solution Partner -->
