@@ -3,8 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>산방식당 - 55년 전통의 제주 밀면, 파트너십</title>
-    <meta name="description" content="제주 산방식당 메뉴 솔루션 및 파트너십 문의. 55년 전통의 맛을 당신의 매장으로 초대합니다.">
+    
+    <!-- 1. Basic SEO & Keywords -->
+    <title>산방식당 - 55년 전통 제주 밀면 메뉴 솔루션 및 파트너십</title>
+    <meta name="description" content="제주 산방식당의 검증된 맛을 당신의 매장에. 55년 전통 밀면 육수/비빔장 메뉴 솔루션, HMR, 브랜드 파트너십 창업 문의.">
+    <meta name="keywords" content="산방식당, 제주밀면, 밀면창업, 메뉴솔루션, 식당창업, 샵인샵, 업종변경, HMR, 밀키트제조, 김형섭대표">
+    <meta name="author" content="주식회사 산방에프앤비">
+    <link rel="canonical" href="https://sanbangjeju.com">
+
+    <!-- 2. Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="산방식당 - 제주의 55년 전통, 파트너십 제안">
+    <meta property="og:description" content="검증된 육수와 비빔장으로 사장님의 매장에 '줄 서는 맛'을 더해드립니다. 가맹비/로열티 없는 메뉴 솔루션.">
+    <meta property="og:image" content="https://media2.sanbangjeju.com/%EB%A7%88%EC%A7%80%EB%A7%89%EC%9E%A5%EB%A9%B4.png">
+    <meta property="og:url" content="https://sanbangjeju.com">
+    <meta property="og:site_name" content="산방식당 파트너십">
+
+    <!-- 3. Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="산방식당 파트너십 - 메뉴 솔루션 & 창업">
+    <meta name="twitter:description" content="제주 55년 전통의 맛, 이제 사장님의 브랜드가 됩니다.">
+    <meta name="twitter:image" content="https://media2.sanbangjeju.com/%EB%A7%88%EC%A7%80%EB%A7%89%EC%9E%A5%EB%A9%B4.png">
+
+    <!-- 4. AEO (Answer Engine Optimization) - JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "name": "주식회사 산방에프앤비",
+          "url": "https://sanbangjeju.com",
+          "logo": "https://media.sanbangjeju.com/%EC%82%B0%EB%B0%A9%EC%8B%9D%EB%8B%B9%20%EB%A1%9C%EA%B3%A0_%EB%B0%B0%EA%B2%BD%EC%A0%9C%EA%B1%B0.png",
+          "founder": { "@type": "Person", "name": "김정일" },
+          "ceo": { "@type": "Person", "name": "김형섭" },
+          "sameAs": [ "https://www.instagram.com/sanbang_official/" ],
+          "contactPoint": { "@type": "ContactPoint", "contactType": "partnership support", "email": "dkfjh1234@gmail.com" }
+        },
+        {
+          "@type": "Restaurant",
+          "name": "산방식당 본점",
+          "image": "https://media.sanbangjeju.com/%5B%EC%A0%9C%EC%A3%BC%EC%82%B0%EB%B0%A9%EC%8B%9D%EB%8B%B9%5D%20%EB%B9%84%EB%B9%94%EB%B0%80%EB%83%89%EB%A9%B4_%EC%9D%B4%EB%AF%B8%EC%A7%801%20(1).JPG",
+          "servesCuisine": "Korean",
+          "priceRange": "₩₩",
+          "address": { "@type": "PostalAddress", "streetAddress": "대정읍 하모이삼로 62", "addressLocality": "서귀포시", "addressRegion": "제주특별자치도", "addressCountry": "KR" }
+        },
+        {
+          "@type": "Service",
+          "name": "산방식당 메뉴 솔루션",
+          "provider": { "@type": "Organization", "name": "산방에프앤비" },
+          "description": "기존 식당 사업자에게 산방식당의 육수, 비빔장 등 핵심 식자재를 공급하고 레시피를 전수하는 B2B 솔루션",
+          "offers": { "@type": "Offer", "price": "1500000", "priceCurrency": "KRW", "description": "초기 세팅 교육비 (가맹비, 로열티 없음)" }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "산방식당 메뉴 솔루션은 가맹점인가요?", "acceptedAnswer": { "@type": "Answer", "text": "아닙니다. 프랜차이즈 가맹점이 아니며, 가맹비와 로열티, 계약기간, 위약금이 없는 자율적인 파트너십 모델입니다." } },
+            { "@type": "Question", "name": "초기 비용은 얼마인가요?", "acceptedAnswer": { "@type": "Answer", "text": "초기 세팅 교육비 150만 원 외에는 추가 비용이 발생하지 않습니다." } }
+          ]
+        }
+      ]
+    }
+    </script>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -33,13 +93,11 @@
             overflow-x: hidden;
         }
 
-        /* Typography Overrides */
         h1, h2, h3, h4, h5, h6 {
             word-break: keep-all;
             letter-spacing: -0.025em;
         }
 
-        /* Button Styles */
         .btn-primary {
             background-color: var(--color-primary);
             color: #1a1a1a;
@@ -60,12 +118,10 @@
             color: #1a1a1a;
         }
 
-        /* Smooth Scroll */
         html {
             scroll-behavior: smooth;
         }
 
-        /* Animations */
         .fade-in-up {
             opacity: 0;
             transform: translateY(20px);
@@ -124,7 +180,8 @@
     <section class="w-full flex flex-col pt-20">
         <!-- Video Area -->
         <div class="w-full h-[50vh] md:h-[65vh] relative overflow-hidden bg-gray-100">
-            <video autoplay muted loop playsinline class="w-full h-full object-cover">
+            <!-- 최적화: poster 속성 추가 (로딩 중 보일 썸네일), muted loop playsinline 필수 유지 -->
+            <video autoplay muted loop playsinline poster="https://media.sanbangjeju.com/%5B%EC%A0%9C%EC%A3%BC%EC%82%B0%EB%B0%A9%EC%8B%9D%EB%8B%B9%5D%20%EB%B9%84%EB%B9%94%EB%B0%80%EB%83%89%EB%A9%B4_%EC%9D%B4%EB%AF%B8%EC%A7%801%20(1).JPG" class="w-full h-full object-cover">
                 <source src="https://media.sanbangjeju.com/%EC%A0%9C%EC%A3%BC%EC%82%B0%EB%B0%A9%EC%8B%9D%EB%8B%B9%20%EC%98%81%EC%83%81%EC%B4%AC%EC%98%81%EB%B6%84.mp4" type="video/mp4">
             </video>
             <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black/20 to-transparent"></div>
@@ -171,7 +228,8 @@
                 <!-- Image Column -->
                 <div class="w-full lg:w-1/2 fade-in-up relative">
                     <div class="relative rounded-2xl overflow-hidden shadow-2xl group z-10">
-                        <img src="https://media.sanbangjeju.com/%5B%EC%A0%9C%EC%A3%BC%EC%82%B0%EB%B0%A9%EC%8B%9D%EB%8B%B9%5D%20%EB%B9%84%EB%B9%94%EB%B0%80%EB%83%89%EB%A9%B4_%EC%9D%B4%EB%AF%B8%EC%A7%801%20(1).JPG" alt="산방식당 모슬포 본점 전경" class="w-full h-auto object-cover transform group-hover:scale-105 transition duration-700">
+                        <!-- 최적화: loading="lazy" 적용 -->
+                        <img src="https://media.sanbangjeju.com/%5B%EC%A0%9C%EC%A3%BC%EC%82%B0%EB%B0%A9%EC%8B%9D%EB%8B%B9%5D%20%EB%B9%84%EB%B9%94%EB%B0%80%EB%83%89%EB%A9%B4_%EC%9D%B4%EB%AF%B8%EC%A7%801%20(1).JPG" loading="lazy" decoding="async" alt="산방식당 모슬포 본점 전경" class="w-full h-auto object-cover transform group-hover:scale-105 transition duration-700">
                         <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-6">
                             <p class="text-white font-bold text-lg">제주 산방식당 본점</p>
                         </div>
@@ -179,7 +237,8 @@
                     <!-- Founder Image -->
                     <div class="absolute -bottom-10 right-2 md:-bottom-12 md:-right-8 z-20 flex flex-col items-center">
                         <div class="w-28 h-28 md:w-48 md:h-48 rounded-full border-4 border-white shadow-xl overflow-hidden bg-gray-200">
-                            <img src="https://media.sanbangjeju.com/%EC%A0%9C%EC%A3%BC%EC%82%B0%EB%B0%A9%EC%8B%9D%EB%8B%B9_%EC%86%8C%EB%AC%98%20(1).jpg" alt="김정일 창업주" class="w-full h-full object-cover">
+                            <!-- 최적화: loading="lazy" 적용 -->
+                            <img src="https://media.sanbangjeju.com/%EC%A0%9C%EC%A3%BC%EC%82%B0%EB%B0%A9%EC%8B%9D%EB%8B%B9_%EC%86%8C%EB%AC%98%20(1).jpg" loading="lazy" decoding="async" alt="김정일 창업주" class="w-full h-full object-cover">
                         </div>
                         <div class="mt-2 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-lg shadow-md border border-gray-100 text-center min-w-[120px]">
                             <p class="text-xs md:text-sm text-gray-500 mb-0.5">산방식당 창업주</p>
@@ -219,7 +278,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 fade-in-up">
                 <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition group">
                     <div class="h-64 overflow-hidden">
-                        <img src="https://media2.sanbangjeju.com/%EB%B0%80%EB%A9%B4%20(1).jpg" alt="산방식당 밀냉면" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500">
+                        <img src="https://media2.sanbangjeju.com/%EB%B0%80%EB%A9%B4%20(1).jpg" loading="lazy" decoding="async" alt="산방식당 밀냉면" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500">
                     </div>
                     <div class="p-6 text-center">
                         <h4 class="text-xl font-bold mb-2">제주식 밀냉면</h4>
@@ -228,7 +287,7 @@
                 </div>
                 <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition group">
                     <div class="h-64 overflow-hidden">
-                        <img src="https://media.sanbangjeju.com/KakaoTalk_20220323_171445736.jpg" alt="비빔밀냉면" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500">
+                        <img src="https://media.sanbangjeju.com/KakaoTalk_20220323_171445736.jpg" loading="lazy" decoding="async" alt="비빔밀냉면" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500">
                     </div>
                     <div class="p-6 text-center">
                         <h4 class="text-xl font-bold mb-2">비빔밀냉면</h4>
@@ -237,7 +296,7 @@
                 </div>
                 <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition group">
                     <div class="h-64 overflow-hidden relative">
-                        <img src="https://media2.sanbangjeju.com/%EC%88%98%EC%9C%A1%EC%9D%B4%EB%AF%B8%EC%A7%80.jpg" alt="산방식당 수육" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500">
+                        <img src="https://media2.sanbangjeju.com/%EC%88%98%EC%9C%A1%EC%9D%B4%EB%AF%B8%EC%A7%80.jpg" loading="lazy" decoding="async" alt="산방식당 수육" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500">
                     </div>
                     <div class="p-6 text-center">
                         <h4 class="text-xl font-bold mb-2">제주 수육</h4>
@@ -246,20 +305,20 @@
                 </div>
             </div>
 
-            <!-- Social Proof (Queue GIFs) -->
+            <!-- Social Proof (Queue GIFs) - 최적화 적용 -->
              <div class="mt-16 p-6 bg-gray-50 rounded-3xl border border-gray-100">
                  <p class="text-center text-gray-600 font-bold mb-8 text-lg">"줄 서서 먹는 맛집, 산방식당의 현장"</p>
                  <div class="space-y-8">
                      <div class="relative group rounded-2xl overflow-hidden shadow-lg">
-                        <img src="https://media.sanbangjeju.com/%EC%A4%84%EC%84%9C%EA%B8%B0%20%EB%AA%A8%EC%8A%AC%ED%8F%AC2.gif" class="w-full h-64 md:h-96 object-cover grayscale hover:grayscale-0 transition duration-700" alt="줄서는 모습 - 모슬포 본점">
+                        <img src="https://media.sanbangjeju.com/%EC%A4%84%EC%84%9C%EA%B8%B0%20%EB%AA%A8%EC%8A%AC%ED%8F%AC2.gif" loading="lazy" decoding="async" class="w-full h-64 md:h-96 object-cover grayscale hover:grayscale-0 transition duration-700" alt="줄서는 모습 - 모슬포 본점">
                         <div class="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm text-white px-4 py-1.5 rounded-full text-sm font-medium">모슬포 본점</div>
                      </div>
                      <div class="relative group rounded-2xl overflow-hidden shadow-lg">
-                        <img src="https://media2.sanbangjeju.com/%EC%A4%84%EC%84%9C%EA%B8%B0%20%EC%A0%9C%EC%A3%BC%EC%A0%90.gif" class="w-full h-64 md:h-96 object-cover grayscale hover:grayscale-0 transition duration-700" alt="줄서는 모습 - 제주점">
+                        <img src="https://media2.sanbangjeju.com/%EC%A4%84%EC%84%9C%EA%B8%B0%20%EC%A0%9C%EC%A3%BC%EC%A0%90.gif" loading="lazy" decoding="async" class="w-full h-64 md:h-96 object-cover grayscale hover:grayscale-0 transition duration-700" alt="줄서는 모습 - 제주점">
                         <div class="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm text-white px-4 py-1.5 rounded-full text-sm font-medium">제주점</div>
                      </div>
                      <div class="relative group rounded-2xl overflow-hidden shadow-lg">
-                        <img src="https://media.sanbangjeju.com/18_%EC%A4%84%EC%84%9C%EA%B8%B03.gif" class="w-full h-64 md:h-96 object-cover grayscale hover:grayscale-0 transition duration-700" alt="줄서는 모습 - 상공회의소점">
+                        <img src="https://media.sanbangjeju.com/18_%EC%A4%84%EC%84%9C%EA%B8%B03.gif" loading="lazy" decoding="async" class="w-full h-64 md:h-96 object-cover grayscale hover:grayscale-0 transition duration-700" alt="줄서는 모습 - 상공회의소점">
                         <div class="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm text-white px-4 py-1.5 rounded-full text-sm font-medium">상공회의소점</div>
                      </div>
                  </div>
@@ -271,7 +330,7 @@
     <section class="py-20 bg-[#FAF8F5]">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col items-center justify-center mb-16 fade-in-up">
-                <img src="https://media2.sanbangjeju.com/%EC%82%B0%EB%B0%A9%EC%8B%9D%EB%8B%B9%EC%B2%A0%ED%95%99.png" alt="산방식당 파트너십 철학" class="w-full max-w-4xl h-auto rounded-2xl shadow-lg border border-gray-100">
+                <img src="https://media2.sanbangjeju.com/%EC%82%B0%EB%B0%A9%EC%8B%9D%EB%8B%B9%EC%B2%A0%ED%95%99.png" loading="lazy" decoding="async" alt="산방식당 파트너십 철학" class="w-full max-w-4xl h-auto rounded-2xl shadow-lg border border-gray-100">
                 <h2 class="text-3xl md:text-4xl font-black text-gray-900 mt-8 mb-4 text-center">
                     산방식당이 55년간 지켜온<br><span class="text-[#F6C775]">단 하나의 철학</span>
                 </h2>
@@ -281,16 +340,16 @@
             <!-- 4 Cards Layout -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10">
                 <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:-translate-y-2 transition duration-300 group fade-in-up h-96 md:h-auto md:min-h-[450px] relative">
-                    <img src="https://media2.sanbangjeju.com/%EB%8F%84%EB%AF%BC%EC%97%90%EB%8C%80%ED%95%9C%EA%B0%80%EC%B9%98.png" alt="도민에게 전하는 가치" class="absolute inset-0 w-full h-full object-cover">
+                    <img src="https://media2.sanbangjeju.com/%EB%8F%84%EB%AF%BC%EC%97%90%EB%8C%80%ED%95%9C%EA%B0%80%EC%B9%98.png" loading="lazy" decoding="async" alt="도민에게 전하는 가치" class="absolute inset-0 w-full h-full object-cover">
                 </div>
                 <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:-translate-y-2 transition duration-300 group fade-in-up h-96 md:h-auto md:min-h-[450px] relative" style="transition-delay: 0.1s;">
-                    <img src="https://media2.sanbangjeju.com/%EC%97%AC%ED%96%89%EC%9D%98%EA%B8%B0%EC%96%B5.png" alt="관광객에게 전하는 기억" class="absolute inset-0 w-full h-full object-cover">
+                    <img src="https://media2.sanbangjeju.com/%EC%97%AC%ED%96%89%EC%9D%98%EA%B8%B0%EC%96%B5.png" loading="lazy" decoding="async" alt="관광객에게 전하는 기억" class="absolute inset-0 w-full h-full object-cover">
                 </div>
                 <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:-translate-y-2 transition duration-300 group fade-in-up h-96 md:h-auto md:min-h-[450px] relative" style="transition-delay: 0.2s;">
-                    <img src="https://media2.sanbangjeju.com/%EA%B3%B5%EC%8B%9D%ED%8C%8C%ED%8A%B8%EB%84%88.png" alt="공식 파트너 파트너십" class="absolute inset-0 w-full h-full object-cover">
+                    <img src="https://media2.sanbangjeju.com/%EA%B3%B5%EC%8B%9D%ED%8C%8C%ED%8A%B8%EB%84%88.png" loading="lazy" decoding="async" alt="공식 파트너 파트너십" class="absolute inset-0 w-full h-full object-cover">
                 </div>
                 <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:-translate-y-2 transition duration-300 group fade-in-up h-96 md:h-auto md:min-h-[450px] relative" style="transition-delay: 0.3s;">
-                    <img src="https://media2.sanbangjeju.com/%EB%A9%94%EB%89%B4%EC%86%94%EB%A3%A8%EC%85%98_%EC%82%B0%EB%B0%A9%EC%8B%9D%EB%8B%B9.png" alt="메뉴 솔루션 파트너십" class="absolute inset-0 w-full h-full object-cover">
+                    <img src="https://media2.sanbangjeju.com/%EB%A9%94%EB%89%B4%EC%86%94%EB%A3%A8%EC%85%98_%EC%82%B0%EB%B0%A9%EC%8B%9D%EB%8B%B9.png" loading="lazy" decoding="async" alt="메뉴 솔루션 파트너십" class="absolute inset-0 w-full h-full object-cover">
                 </div>
             </div>
 
@@ -382,23 +441,25 @@
                         
                         <div class="bg-white p-8 rounded-2xl border-l-8 border-[#B03A24] shadow-md mb-10">
                             <h4 class="text-xl md:text-2xl font-black text-gray-900 mb-6 leading-snug text-center md:text-left">
-                                "원팩으로는 고객의 입맛을 속일 수 없고,<br class="hidden md:block"> 직접 끓이기엔 주방의 현실이 너무 가혹합니다."
+                                "손님은 혀끝으로 압니다.<br class="hidden md:block"> 이것이 '조미료 국물'인지, '제대로 우려낸 육수'인지."
                             </h4>
-                            <div class="space-y-4 text-gray-600 text-base md:text-lg leading-relaxed">
-                                <p>흔한 시판 소스(One-pack)는 편리하지만, 손님들이 귀신같이 알아챕니다. 그렇다고 매일 새벽부터 육수를 끓이고 양념을 숙성시키기엔 인건비와 시간이 허락하지 않습니다.</p>
-                                <p class="font-bold text-gray-900 text-xl py-2">산방식당은 이 딜레마를 해결했습니다.</p>
-                                <p>가장 어려운 <strong class="text-[#B03A24]">'핵심 베이스(육수, 비빔장)'</strong>는 55년 종가의 맛 그대로 공급받고, 사장님은 '삶고, 붓고, 올리는' 간단한 조리만 하세요.</p>
+                            <div class="space-y-4 text-gray-700 text-base md:text-lg leading-relaxed font-medium">
+                                <p>편리하다는 이유로 선택한 원팩 소스, 혹시 '가벼운 맛' 때문에 불안하지 않으셨나요?</p>
+                                <p>진짜 맛집의 국물은 흉내만 낸 소스로는 절대 구현할 수 없습니다.</p>
+                                <p class="font-bold text-gray-900 text-xl py-4 border-y border-gray-100 my-4">
+                                    산방식당 솔루션은 '타협'하지 않았습니다.
+                                </p>
+                                <p>원팩의 편리함은 가져오되, 맛의 깊이는 55년 본점 그대로 유지했습니다.</p>
                             </div>
-                            <div class="mt-8 bg-gray-100 p-4 rounded-xl text-center font-bold text-gray-800 text-lg md:text-xl border border-gray-200">
-                                [ <span class="text-[#B03A24]">검증된 베이스</span> ] + [ <span class="text-[#B03A24]">사장님의 손맛</span> ] = 실패 없는 성공 레시피
+                            <div class="mt-8 bg-[#f8f8f8] p-8 rounded-xl text-center font-bold text-gray-800 text-lg md:text-xl border border-gray-200 leading-relaxed">
+                                시중의 흔한 소스가 아닙니다.<br>
+                                줄 서는 식당의 주방에서 검증된 <span class="border-b-4 border-[#B03A24]">'진짜 무기'</span>를<br class="md:hidden"> 사장님의 냉장고에 채워드립니다.
                             </div>
-                        </div>
-
-                        <div class="text-center mb-10">
-                            <p class="text-gray-600 font-medium text-lg">
-                                가맹점이 아닙니다. 간판이 아니라 '무기'를 드립니다.<br>
-                                사장님의 브랜드에 오직 '맛'을 더해드립니다.
-                            </p>
+                            
+                            <!-- 요청하신 솔루션 이미지 반영 -->
+                            <div class="mt-8">
+                                <img src="https://media2.sanbangjeju.com/%EC%82%B0%EB%B0%A9%EC%8B%9D%EB%8B%B9%EC%86%94%EB%A3%A8%EC%85%98.png" loading="lazy" decoding="async" alt="산방식당 메뉴 솔루션 구조" class="w-full h-auto rounded-lg shadow-sm border border-gray-100">
+                            </div>
                         </div>
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
@@ -441,7 +502,7 @@
                 </div>
             </div>
 
-            <!-- Menu Potential & Social Proof -->
+            <!-- Menu Potential & Social Proof (최적화 적용) -->
             <div class="mt-20 pt-16 border-t border-gray-200 fade-in-up">
                 <div class="text-center mb-12">
                     <span class="text-[#B03A24] font-bold tracking-widest text-xs uppercase mb-2 block">Menu Variation</span>
@@ -453,16 +514,16 @@
                 </div>
 
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-8 max-w-6xl mx-auto">
-                    <!-- Images 1-9 -->
-                    <div class="group relative rounded-xl overflow-hidden shadow-lg aspect-square"><img src="https://media2.sanbangjeju.com/%EB%A7%8C%EB%91%90%EC%98%A8%EB%A9%B4.jpg" alt="만두온면" class="w-full h-full object-cover"><div class="absolute bottom-0 p-4"><span class="text-white font-bold text-lg">만두온면</span></div><div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div></div>
-                    <div class="group relative rounded-xl overflow-hidden shadow-lg aspect-square"><img src="https://media2.sanbangjeju.com/%EB%A7%8C%EB%91%A3%EA%B5%AD.jpg" alt="만둣국" class="w-full h-full object-cover"><div class="absolute bottom-0 p-4"><span class="text-white font-bold text-lg">만둣국</span></div><div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div></div>
-                    <div class="group relative rounded-xl overflow-hidden shadow-lg aspect-square"><img src="https://media2.sanbangjeju.com/%EA%B3%A0%EA%B8%B0%EA%B5%AD%EC%88%98%20%EC%82%AC%EC%A7%843.jpg" alt="고기국수" class="w-full h-full object-cover"><div class="absolute bottom-0 p-4"><span class="text-white font-bold text-lg">고기국수</span></div><div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div></div>
-                    <div class="group relative rounded-xl overflow-hidden shadow-lg aspect-square"><img src="https://media2.sanbangjeju.com/%EC%97%AC%EC%9D%98%EB%8F%84%EA%B3%A0%EA%B8%B0%EB%8D%AE%EB%B0%A5.JPG" alt="고기덮밥" class="w-full h-full object-cover"><div class="absolute bottom-0 p-4"><span class="text-white font-bold text-lg">고기덮밥</span></div><div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div></div>
-                    <div class="group relative rounded-xl overflow-hidden shadow-lg aspect-square"><img src="https://media2.sanbangjeju.com/%EC%97%AC%EC%9D%98%EB%8F%84%EC%88%98%EC%9C%A1%EA%B5%AD%EB%B0%A5.jpg" alt="수육국밥" class="w-full h-full object-cover"><div class="absolute bottom-0 p-4"><span class="text-white font-bold text-lg">수육국밥</span></div><div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div></div>
-                    <div class="group relative rounded-xl overflow-hidden shadow-lg aspect-square"><img src="https://media2.sanbangjeju.com/%EC%A0%9C%EC%9C%A1%EB%A9%98%ED%8A%B8.jpg" alt="제육덮밥" class="w-full h-full object-cover"><div class="absolute bottom-0 p-4"><span class="text-white font-bold text-lg">제육덮밥</span></div><div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div></div>
-                    <div class="group relative rounded-xl overflow-hidden shadow-lg aspect-square"><img src="https://media2.sanbangjeju.com/%EC%97%AC%EC%9D%98%EB%8F%84%EC%88%98%EC%9C%A1.jpg" alt="수육" class="w-full h-full object-cover"><div class="absolute bottom-0 p-4"><span class="text-white font-bold text-lg">수육</span></div><div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div></div>
-                    <div class="group relative rounded-xl overflow-hidden shadow-lg aspect-square"><img src="https://media2.sanbangjeju.com/%EC%97%AC%EC%9D%98%EB%8F%84%EB%82%99%EC%A7%80.jpg" alt="낙지덮밥" class="w-full h-full object-cover"><div class="absolute bottom-0 p-4"><span class="text-white font-bold text-lg">낙지덮밥</span></div><div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div></div>
-                    <div class="group relative rounded-xl overflow-hidden shadow-lg aspect-square"><img src="https://media2.sanbangjeju.com/%EA%B9%80%EC%B9%98%EC%B0%8C%EA%B0%9C%EB%A9%98%ED%8A%B8%ED%8F%AC%ED%95%A8.jpg" alt="김치찌개" class="w-full h-full object-cover"><div class="absolute bottom-0 p-4"><span class="text-white font-bold text-lg">김치찌개</span></div><div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div></div>
+                    <!-- Images 1-9 (Lazy Loading) -->
+                    <div class="group relative rounded-xl overflow-hidden shadow-lg aspect-square"><img src="https://media2.sanbangjeju.com/%EB%A7%8C%EB%91%90%EC%98%A8%EB%A9%B4.jpg" loading="lazy" decoding="async" alt="만두온면" class="w-full h-full object-cover"><div class="absolute bottom-0 p-4"><span class="text-white font-bold text-lg">만두온면</span></div><div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div></div>
+                    <div class="group relative rounded-xl overflow-hidden shadow-lg aspect-square"><img src="https://media2.sanbangjeju.com/%EB%A7%8C%EB%91%A3%EA%B5%AD.jpg" loading="lazy" decoding="async" alt="만둣국" class="w-full h-full object-cover"><div class="absolute bottom-0 p-4"><span class="text-white font-bold text-lg">만둣국</span></div><div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div></div>
+                    <div class="group relative rounded-xl overflow-hidden shadow-lg aspect-square"><img src="https://media2.sanbangjeju.com/%EA%B3%A0%EA%B8%B0%EA%B5%AD%EC%88%98%20%EC%82%AC%EC%A7%843.jpg" loading="lazy" decoding="async" alt="고기국수" class="w-full h-full object-cover"><div class="absolute bottom-0 p-4"><span class="text-white font-bold text-lg">고기국수</span></div><div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div></div>
+                    <div class="group relative rounded-xl overflow-hidden shadow-lg aspect-square"><img src="https://media2.sanbangjeju.com/%EC%97%AC%EC%9D%98%EB%8F%84%EA%B3%A0%EA%B8%B0%EB%8D%AE%EB%B0%A5.JPG" loading="lazy" decoding="async" alt="고기덮밥" class="w-full h-full object-cover"><div class="absolute bottom-0 p-4"><span class="text-white font-bold text-lg">고기덮밥</span></div><div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div></div>
+                    <div class="group relative rounded-xl overflow-hidden shadow-lg aspect-square"><img src="https://media2.sanbangjeju.com/%EC%97%AC%EC%9D%98%EB%8F%84%EC%88%98%EC%9C%A1%EA%B5%AD%EB%B0%A5.jpg" loading="lazy" decoding="async" alt="수육국밥" class="w-full h-full object-cover"><div class="absolute bottom-0 p-4"><span class="text-white font-bold text-lg">수육국밥</span></div><div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div></div>
+                    <div class="group relative rounded-xl overflow-hidden shadow-lg aspect-square"><img src="https://media2.sanbangjeju.com/%EC%A0%9C%EC%9C%A1%EB%A9%98%ED%8A%B8.jpg" loading="lazy" decoding="async" alt="제육덮밥" class="w-full h-full object-cover"><div class="absolute bottom-0 p-4"><span class="text-white font-bold text-lg">제육덮밥</span></div><div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div></div>
+                    <div class="group relative rounded-xl overflow-hidden shadow-lg aspect-square"><img src="https://media2.sanbangjeju.com/%EC%97%AC%EC%9D%98%EB%8F%84%EC%88%98%EC%9C%A1.jpg" loading="lazy" decoding="async" alt="수육" class="w-full h-full object-cover"><div class="absolute bottom-0 p-4"><span class="text-white font-bold text-lg">수육</span></div><div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div></div>
+                    <div class="group relative rounded-xl overflow-hidden shadow-lg aspect-square"><img src="https://media2.sanbangjeju.com/%EC%97%AC%EC%9D%98%EB%8F%84%EB%82%99%EC%A7%80.jpg" loading="lazy" decoding="async" alt="낙지덮밥" class="w-full h-full object-cover"><div class="absolute bottom-0 p-4"><span class="text-white font-bold text-lg">낙지덮밥</span></div><div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div></div>
+                    <div class="group relative rounded-xl overflow-hidden shadow-lg aspect-square"><img src="https://media2.sanbangjeju.com/%EA%B9%80%EC%B9%98%EC%B0%8C%EA%B0%9C%EB%A9%98%ED%8A%B8%ED%8F%AC%ED%95%A8.jpg" loading="lazy" decoding="async" alt="김치찌개" class="w-full h-full object-cover"><div class="absolute bottom-0 p-4"><span class="text-white font-bold text-lg">김치찌개</span></div><div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div></div>
                 </div>
 
                 <!-- Extra Benefit -->
@@ -523,7 +584,7 @@
                 </div>
             </div>
 
-            <!-- Social Proof Showcase -->
+            <!-- Social Proof Showcase (최적화 적용) -->
             <div class="mt-24 pt-16 border-t border-gray-700 fade-in-up">
                 <div class="text-center mb-16">
                     <span class="text-[#F6C775] font-bold tracking-widest text-sm uppercase mb-3 block">Real Success Stories</span>
@@ -538,13 +599,13 @@
                             <p class="text-gray-400 text-sm">대기업 급식 유통망을 통해 검증된 산방식당의 맛과 품질을 전국의 학생들에게 제공하며, 미래 잠재 고객에게 브랜드 경험을 선사합니다.</p>
                         </div>
                         <div class="w-full md:w-7/12 bg-white h-full min-h-[300px] md:min-h-[400px] relative">
-                            <img src="https://media2.sanbangjeju.com/CJ%ED%94%84%EB%A0%88%EC%89%AC%EC%9B%A8%EC%9D%B4SNS.png" alt="CJ프레시웨이 산방식당 급식" class="absolute inset-0 w-full h-full object-cover">
+                            <img src="https://media2.sanbangjeju.com/CJ%ED%94%84%EB%A0%88%EC%89%AC%EC%9B%A8%EC%9D%B4SNS.png" loading="lazy" decoding="async" alt="CJ프레시웨이 산방식당 급식" class="absolute inset-0 w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
                 <div class="bg-gray-800/50 rounded-3xl overflow-hidden border border-gray-700">
                     <div class="p-8 md:p-12 border-b border-gray-700 text-center md:text-left flex flex-col md:flex-row items-center gap-8">
-                        <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-gray-600 shrink-0 bg-white flex items-center justify-center"><img src="https://media2.sanbangjeju.com/%EB%8F%99%EB%9E%98%EC%A0%95%EB%A1%9C%EA%B3%A0.jpg" alt="동래정 로고" class="w-full h-full object-contain p-2"></div>
+                        <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-gray-600 shrink-0 bg-white flex items-center justify-center"><img src="https://media2.sanbangjeju.com/%EB%8F%99%EB%9E%98%EC%A0%95%EB%A1%9C%EA%B3%A0.jpg" loading="lazy" decoding="async" alt="동래정 로고" class="w-full h-full object-contain p-2"></div>
                         <div>
                             <div class="inline-block bg-[#F6C775] text-gray-900 text-xs font-bold px-3 py-1 rounded-full mb-4">프리미엄 외식 브랜드 콜라보</div>
                             <h4 class="text-2xl md:text-3xl font-bold mb-3 text-white">동래정 백탄직화</h4>
@@ -552,9 +613,9 @@
                         </div>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                        <div class="aspect-[4/3] group relative overflow-hidden"><img src="https://media2.sanbangjeju.com/%EB%8F%99%EB%9E%98%EC%A0%95%EA%B0%80%EB%B8%8C%EB%A6%AC%EC%82%B4.jpg" alt="동래정 가브리살" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center"><span class="text-white font-bold text-lg">국내 1등 가브리살</span></div></div>
-                        <div class="aspect-[4/3] group relative overflow-hidden"><img src="https://media2.sanbangjeju.com/%EB%8F%99%EB%9E%98%EC%A0%95%ED%92%80%EC%84%B8%ED%8C%85.jpg" alt="동래정 풀세팅" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center"><span class="text-white font-bold text-lg">완벽한 상차림</span></div></div>
-                        <div class="aspect-[4/3] group relative overflow-hidden md:col-span-2 lg:col-span-1"><img src="https://media2.sanbangjeju.com/%EB%B0%80%EB%A9%B4%EC%BB%A8%EC%85%89%EC%9D%B4%EB%AF%B8%EC%A7%803.jpg" alt="콜라보 밀면" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center"><span class="text-white font-bold text-lg">산방식당 콜라보 밀면</span></div></div>
+                        <div class="aspect-[4/3] group relative overflow-hidden"><img src="https://media2.sanbangjeju.com/%EB%8F%99%EB%9E%98%EC%A0%95%EA%B0%80%EB%B8%8C%EB%A6%AC%EC%82%B4.jpg" loading="lazy" decoding="async" alt="동래정 가브리살" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center"><span class="text-white font-bold text-lg">국내 1등 가브리살</span></div></div>
+                        <div class="aspect-[4/3] group relative overflow-hidden"><img src="https://media2.sanbangjeju.com/%EB%8F%99%EB%9E%98%EC%A0%95%ED%92%80%EC%84%B8%ED%8C%85.jpg" loading="lazy" decoding="async" alt="동래정 풀세팅" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center"><span class="text-white font-bold text-lg">완벽한 상차림</span></div></div>
+                        <div class="aspect-[4/3] group relative overflow-hidden md:col-span-2 lg:col-span-1"><img src="https://media2.sanbangjeju.com/%EB%B0%80%EB%A9%B4%EC%BB%A8%EC%85%89%EC%9D%B4%EB%AF%B8%EC%A7%803.jpg" loading="lazy" decoding="async" alt="콜라보 밀면" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500"><div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center"><span class="text-white font-bold text-lg">산방식당 콜라보 밀면</span></div></div>
                     </div>
                 </div>
             </div>
@@ -578,7 +639,8 @@
     <!-- 6. HMR Section -->
     <section id="hmr" class="py-20 relative overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="https://media.sanbangjeju.com/%EC%A0%9C%EC%A3%BC%EC%82%B0%EB%B0%A9%EC%8B%9D%EB%8B%B9%20%EC%A0%9C%EC%A3%BC%EC%A0%90%20(3).JPG" class="w-full h-full object-cover opacity-20 scale-110 filter blur-sm" alt="배경">
+            <!-- 최적화: loading="lazy" 적용 -->
+            <img src="https://media.sanbangjeju.com/%EC%A0%9C%EC%A3%BC%EC%82%B0%EB%B0%A9%EC%8B%9D%EB%8B%B9%20%EC%A0%9C%EC%A3%BC%EC%A0%90%20(3).JPG" loading="lazy" decoding="async" class="w-full h-full object-cover opacity-20 scale-110 filter blur-sm" alt="배경">
         </div>
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="flex flex-col md:flex-row items-center gap-12">
@@ -587,15 +649,15 @@
                     <p class="text-xl text-[#B03A24] font-medium mb-8">제주의 반세기, 당신의 식탁으로</p>
                     <p class="text-gray-600 mb-6 leading-relaxed">이제 산방식당의 맛은 매장뿐 아니라, 집과 해외에서도 쉽게 만나실 수 있습니다. 프리미엄 온라인 플랫폼을 통해 제주의 깊은 맛을 그대로 담아냈습니다.</p>
                     <div class="flex flex-wrap gap-4 md:gap-8 items-center mt-10">
-                        <img src="https://media2.sanbangjeju.com/%EC%BF%A0%ED%8C%A1.png" alt="쿠팡" class="h-12 md:h-16 w-auto object-contain transition duration-300 hover:-translate-y-1">
-                        <img src="https://media2.sanbangjeju.com/%EC%BB%AC%EB%A6%AC.png" alt="마켓컬리" class="h-12 md:h-16 w-auto object-contain transition duration-300 hover:-translate-y-1">
-                        <img src="https://media2.sanbangjeju.com/%EC%9A%B8%ED%83%80%EB%A6%AC.png" alt="울타리몰" class="h-12 md:h-16 w-auto object-contain transition duration-300 hover:-translate-y-1">
+                        <img src="https://media2.sanbangjeju.com/%EC%BF%A0%ED%8C%A1.png" loading="lazy" decoding="async" alt="쿠팡" class="h-12 md:h-16 w-auto object-contain transition duration-300 hover:-translate-y-1">
+                        <img src="https://media2.sanbangjeju.com/%EC%BB%AC%EB%A6%AC.png" loading="lazy" decoding="async" alt="마켓컬리" class="h-12 md:h-16 w-auto object-contain transition duration-300 hover:-translate-y-1">
+                        <img src="https://media2.sanbangjeju.com/%EC%9A%B8%ED%83%80%EB%A6%AC.png" loading="lazy" decoding="async" alt="울타리몰" class="h-12 md:h-16 w-auto object-contain transition duration-300 hover:-translate-y-1">
                     </div>
                     <div class="mt-10"><a href="https://www.kurly.com" target="_blank" class="text-gray-500 hover:text-[#B03A24] underline text-sm">온라인 구매처 보기 (예시 링크)</a></div>
                 </div>
                 <div class="w-full md:w-1/2 fade-in-up" style="transition-delay: 0.2s;">
                     <div class="rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
-                        <img src="https://media.sanbangjeju.com/%EB%8B%A8%ED%92%88%20%EC%A0%95%EB%A9%B4%EC%9D%B4%EB%AF%B8%EC%A7%80_%EC%A0%9C%EC%A3%BC%EC%82%B0%EB%B0%A9%EC%8B%9D%EB%8B%B9%20%EB%B9%84%EB%B9%94%EB%B0%80%EB%83%89%EB%A9%B4.png" alt="산방식당 HMR 제품 - 비빔밀냉면" class="w-full h-auto object-cover scale-105 hover:scale-110 transition duration-500">
+                        <img src="https://media.sanbangjeju.com/%EB%8B%A8%ED%92%88%20%EC%A0%95%EB%A9%B4%EC%9D%B4%EB%AF%B8%EC%A7%80_%EC%A0%9C%EC%A3%BC%EC%82%B0%EB%B0%A9%EC%8B%9D%EB%8B%B9%20%EB%B9%84%EB%B9%94%EB%B0%80%EB%83%89%EB%A9%B4.png" loading="lazy" decoding="async" alt="산방식당 HMR 제품 - 비빔밀냉면" class="w-full h-auto object-cover scale-105 hover:scale-110 transition duration-500">
                     </div>
                 </div>
             </div>
@@ -605,7 +667,7 @@
     <!-- Closing Section -->
     <section class="py-24 relative overflow-hidden bg-gray-900 text-white">
         <div class="absolute inset-0 z-0">
-            <img src="https://media2.sanbangjeju.com/%EB%A7%88%EC%A7%80%EB%A7%89%EC%9E%A5%EB%A9%B4.png" alt="산방식당의 밤" class="w-full h-full object-cover opacity-60">
+            <img src="https://media2.sanbangjeju.com/%EB%A7%88%EC%A7%80%EB%A7%89%EC%9E%A5%EB%A9%B4.png" loading="lazy" decoding="async" alt="산방식당의 밤" class="w-full h-full object-cover opacity-60">
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
         </div>
         <div class="container mx-auto px-4 relative z-10 text-center fade-in-up">
@@ -617,7 +679,7 @@
                     <span class="border-b-2 border-[#B03A24] font-black pb-1 inline-block mt-3 md:mt-5">지역에서 오랫동안 사랑받는 브랜드</span>가 되세요."
                 </h2>
                 <div class="mt-16">
-                    <img src="https://media.sanbangjeju.com/%EC%82%B0%EB%B0%A9%EC%8B%9D%EB%8B%B9%20%EB%A1%9C%EA%B3%A0_%EB%B0%B0%EA%B2%BD%EC%A0%9C%EA%B1%B0.png" alt="산방식당" class="h-20 md:h-28 w-auto mx-auto brightness-0 invert opacity-70">
+                    <img src="https://media.sanbangjeju.com/%EC%82%B0%EB%B0%A9%EC%8B%9D%EB%8B%B9%20%EB%A1%9C%EA%B3%A0_%EB%B0%B0%EA%B2%BD%EC%A0%9C%EA%B1%B0.png" loading="lazy" decoding="async" alt="산방식당" class="h-20 md:h-28 w-auto mx-auto brightness-0 invert opacity-70">
                 </div>
             </div>
         </div>
@@ -645,8 +707,7 @@
                 
                 <!-- Company Info -->
                 <div class="lg:w-2/3">
-                    <!-- 로고 크기 확대 (h-8 -> h-24) 및 밝은 배경용 필터 제거 -->
-                    <img src="https://media.sanbangjeju.com/%EC%82%B0%EB%B0%A9%EC%8B%9D%EB%8B%B9%20%EB%A1%9C%EA%B3%A0_%EB%B0%B0%EA%B2%BD%EC%A0%9C%EA%B1%B0.png" alt="산방식당 로고" class="h-24 w-auto mb-8">
+                    <img src="https://media.sanbangjeju.com/%EC%82%B0%EB%B0%A9%EC%8B%9D%EB%8B%B9%20%EB%A1%9C%EA%B3%A0_%EB%B0%B0%EA%B2%BD%EC%A0%9C%EA%B1%B0.png" loading="lazy" decoding="async" alt="산방식당 로고" class="h-24 w-auto mb-8">
                     
                     <div class="space-y-1 mb-6">
                         <h5 class="text-gray-900 font-bold text-lg mb-2">주식회사 산방에프앤비</h5>
