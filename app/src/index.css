@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+/* ────────────────────────────────────────────────────────────
+   디자인 토큰
+   고위드(gowid.com) 추출 디자인랭귀지를 뼈대로 삼되, 색만 산방
+   브랜드(따뜻한 흑/크림/테라코타)로 치환했다.
+     · 타입 스케일 40/32/28/24/20/16/14/12, 자간 -3%/-2%
+     · 카드 라운드 24px, 서브틀 섀도우
+     · 트랜지션 0.15~0.3s
+     · 액센트는 아주 드물게 (고위드: 액센트 21회 vs 뉴트럴 634회)
+   ──────────────────────────────────────────────────────────── */
+@theme {
+  --color-ink: #17120f;
+  --color-ink-2: #241d19;
+  --color-body: #6b625c;
+  --color-muted: #9a918a;
+  --color-line: #e6dfd5;
+  --color-paper: #fbf8f4;
+  --color-warm: #f2ebe1;
+  --color-brand: #b8451c;
+  --color-brand-2: #8d3314;
+  --color-gold: #c8933f;
+
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Malgun Gothic", sans-serif;
+
+  --radius-card: 24px;
+
+  --shadow-soft: 0 0 8px rgba(23, 18, 15, 0.06);
+  --shadow-lift: 0 12px 32px rgba(23, 18, 15, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.75;
+  word-break: keep-all;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-brand);
+  color: #fff;
+}
+
+/* ── 타이포 ─────────────────────────────────────────────── */
+.t-hero {
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.16;
+}
+.t-h2 {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.28;
+}
+.t-h3 {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.4;
+}
+.t-body {
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.8;
+  color: var(--color-body);
+}
+.t-label {
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+/* ── 스크롤 리빌 ─────────────────────────────────────────
+   JS가 <html>에 .js를 붙였을 때만 숨긴다. 스크립트가 실패하면
+   전부 그냥 보이는 게 기본값 — 콘텐츠가 영영 안 보이는 사고 방지 */
+.js [data-rv] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.js [data-rv].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .js [data-rv] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .marquee__track {
+    animation: none !important;
+  }
+}
+
+/* ── 확장메뉴 마퀴 ──────────────────────────────────────── */
+.marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee__track {
+  display: flex;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ── 유틸 ───────────────────────────────────────────────── */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}

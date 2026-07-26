@@ -1,0 +1,26 @@
+{
+  "name": "sanbangjeju-landing",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "optimize": "node _optimize.mjs"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.14",
+    "motion": "^12.23.12",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "tailwindcss": "^4.1.14"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.9",
+    "@types/react-dom": "^19.1.7",
+    "@vitejs/plugin-react": "^5.0.0",
+    "sharp": "^0.34.3",
+    "vite": "^7.1.3"
+  }
+}
