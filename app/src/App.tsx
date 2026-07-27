@@ -2,11 +2,16 @@ import { useEffect } from "react";
 import { GA4_ID, META_PIXEL_ID, useReveal } from "./lib/ui";
 import { Hero, Intro, Nav } from "./sections/Hero";
 import { Brand, Compare, Stores } from "./sections/Brand";
-import { Philosophy, Problems, Weapon } from "./sections/Solution";
+import { Problems, Weapon } from "./sections/Solution";
 import { Story } from "./sections/Story";
 import { Items } from "./sections/Items";
-import { BrandPartner, Extensions, NotFranchise, RealPower } from "./sections/Partnership";
+import { BrandMeat, JejuOnly, NineTen, Winter } from "./sections/Side";
+import { BrandPartner, Extensions, NotFranchise } from "./sections/Partnership";
 import { Contact, Footer } from "./sections/Contact";
+
+/* Philosophy(가치 4카드) · RealPower(육수·비빔장 2카드)는 렌더에서 뺐다.
+   전자는 광고 유입에 자기소개로만 읽히고, 후자는 Story·Items와 내용이 겹친다.
+   섹션 수를 줄여야 끝까지 읽힌다. 함수는 남겨 뒀으니 필요하면 다시 끼우면 된다. */
 
 /* ────────────────────────────────────────────────────────────────
    제주산방식당 · 메뉴솔루션 랜딩
@@ -90,30 +95,37 @@ export default function App() {
     <div className="antialiased">
       <Nav />
 
-      {/* ── 표지 · 목차 ─────────────────────────────────── */}
+      {/* ── 표지 ────────────────────────────────────────── */}
       <Hero />
       <Intro />
 
-      {/* ── CHAPTER 01 · 브랜드 ─────────────────────────── */}
+      {/* ── 문제 ────────────────────────────────────────── */}
+      {/* 광고·SNS로 들어온 사람에겐 브랜드 자랑보다 "내 얘기네"가 먼저다.
+          그래서 고민 5개를 브랜드 소개보다 앞에 둔다. */}
+      <Problems />
+
+      {/* ── 왜 산방식당인가 ─────────────────────────────── */}
       <Brand />
       <Compare />
       <Stores />
 
-      {/* ── CHAPTER 02 · 파트너십 철학 ───────────────────── */}
-      <Philosophy />
-
-      {/* ── CHAPTER 03 · 메뉴솔루션 파트너 ───────────────── */}
+      {/* ── 무엇을 드리나 ───────────────────────────────── */}
       <Weapon />
-      <Problems />
-      {/* 고민 5개로 문제를 짚은 직후, 공급 품목을 펼치기 직전.
-          서사의 정점이자 페이지에서 유일한 어두운 화면 = 챕터 전환점 */}
+      {/* 페이지에서 어두운 면은 Story · Winter 둘뿐이다. 리듬을 만든다. */}
       <Story />
       <Items />
-      <NotFranchise />
-      <RealPower />
+      <NineTen />
       <Extensions />
 
-      {/* ── CHAPTER 04 · 브랜드 파트너 ───────────────────── */}
+      {/* ── 1년을 도는 구조 ─────────────────────────────── */}
+      <Winter />
+      <BrandMeat />
+
+      {/* ── 조건 ────────────────────────────────────────── */}
+      <NotFranchise />
+      <JejuOnly />
+
+      {/* ── 프리미엄 트랙 ───────────────────────────────── */}
       <BrandPartner />
 
       {/* ── 문의 ────────────────────────────────────────── */}

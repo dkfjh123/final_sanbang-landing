@@ -1,15 +1,20 @@
 import { A, Label, Rv, Section } from "../lib/ui";
 
-/* ══ ⑬ 가맹점이 아닙니다 — 소개서 17p ═══════════════════════════
-   ⚠️ 원문의 "육지에서"라는 한정어를 절대 빼지 말 것.
-      (주)산방에프앤비는 공정위에 등록된 가맹본부이므로, 지역 한정 없이
-      "가맹사업을 하지 않는다"고 단정하면 사실과 어긋난다.
+/* ══ ⑬ 간판은 드리지 않습니다 ═══════════════════════════════════
+   ⚠️ "가맹 아님 / 가맹비 없음"으로 단정하지 말 것.
+      (주)산방에프앤비는 공정위에 등록된 가맹본부다. 단정하면 사실과 어긋난다.
+      → 대신 "간판을 드리지 않는다"는 사실을 먼저 선언하고,
+        그래서 로열티가 0원이라는 논리로 잇는다.
+        숨기지 않고 앞세우는 편이 법적으로도 마케팅적으로도 유리하다.
+      상세 → 랜딩페이지_기획안/09·10
    ──────────────────────────────────────────────────────────── */
-const NOS = [
-  ["NO 가맹비 & 로열티", "매달 지불하는 고정 비용 0원"],
-  ["NO 계약 기간", "언제든 중단 — 위약금·패널티 없음"],
-  ["NO 인테리어", "사장님의 매장, 그 모습 그대로"],
-  ["NO 브랜드 사용 강제", "간판·인테리어 모두 자율 — ‘내 가게의 정체성’ 우선"],
+const TRADE: [string, string, string][] = [
+  ["로열티", "매달 매출의 일부", "0원"],
+  ["계약 기간", "수년 구속 · 위약금", "없음 — 언제든 중단"],
+  ["간판 · 상호", "본사 지정", "사장님 것 그대로"],
+  ["인테리어", "본사 지정 업체", "자율"],
+  ["메뉴 · 가격", "본사 승인 · 통제", "자율"],
+  ["다른 지점 이슈", "내 매장까지 영향", "내 평판만 내 것"],
 ];
 
 export function NotFranchise() {
@@ -17,39 +22,74 @@ export function NotFranchise() {
     <Section bg="paper">
       <Rv>
         <Label>도입 조건</Label>
-        <h2 className="t-h2 text-[1.9rem] md:text-[2.5rem]">가맹점이 아닙니다</h2>
+        <h2 className="t-h2 text-[1.9rem] md:text-[2.5rem]">
+          산방식당 간판은 <span className="text-brand">드리지 않습니다.</span>
+        </h2>
         <p className="t-body mt-7 max-w-3xl text-[15.5px]">
-          산방식당은 <strong className="font-bold text-ink">육지에서 가맹사업을 진행하지 않습니다</strong> —
-          가맹비·로열티·계약기간, 의무조항 모두 없습니다.
+          그래서 <strong className="font-bold text-ink">로열티가 0원</strong>입니다. 빌려드린 이름이
+          없으니, 이름값을 받을 이유도 없습니다. 사장님 간판 그대로, 검증된 맛만 더합니다.
         </p>
       </Rv>
 
-      <div className="mt-14 grid gap-5 sm:grid-cols-2">
-        {NOS.map(([t, d], i) => (
-          <Rv key={t} d={(i % 2) * 90}>
-            <div className="flex h-full gap-4 rounded-[24px] border border-line bg-warm p-7">
-              <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand text-[13px] font-bold text-white">
-                ✓
-              </span>
-              <div>
-                <h3 className="t-h3 mb-1.5 text-[17px]">{t}</h3>
-                <p className="t-body text-[14px]">{d}</p>
-              </div>
+      <Rv d={110}>
+        <div className="mt-12 overflow-hidden rounded-[24px] border border-line">
+          <div className="grid grid-cols-[0.9fr_1fr_1fr] bg-warm text-[12.5px] font-bold tracking-[0.02em] text-muted">
+            <div className="px-4 py-4 md:px-7">항목</div>
+            <div className="px-4 py-4 md:px-7">간판을 받으면</div>
+            <div className="bg-brand/8 px-4 py-4 text-brand md:px-7">메뉴솔루션</div>
+          </div>
+          {TRADE.map(([k, a, b], i) => (
+            <div
+              key={k}
+              className={`grid grid-cols-[0.9fr_1fr_1fr] text-[13.5px] md:text-[14.5px] ${
+                i ? "border-t border-line" : ""
+              }`}
+            >
+              <div className="px-4 py-5 font-bold text-ink md:px-7">{k}</div>
+              <div className="px-4 py-5 text-muted md:px-7">{a}</div>
+              <div className="bg-brand/8 px-4 py-5 font-semibold text-ink md:px-7">{b}</div>
             </div>
-          </Rv>
-        ))}
-      </div>
+          ))}
+        </div>
+      </Rv>
 
       <Rv d={140}>
         <div className="mt-12 rounded-[24px] border border-gold/30 bg-gradient-to-br from-warm-2 via-warm to-paper px-8 py-10 text-center md:px-14 md:py-12">
-          <p className="text-[20px] font-extrabold tracking-[-0.03em] text-ink md:text-[26px]">
-            ‘간판’이 아니라 <span className="text-brand">‘무기’</span>를 드립니다.
+          <p className="text-[20px] font-extrabold leading-[1.5] tracking-[-0.03em] text-ink md:text-[26px]">
+            이름은 <span className="text-muted">빌리는 것</span>이고,
+            <br />
+            실력은 <span className="text-brand">갖는 것</span>입니다.
           </p>
-          <p className="t-body mt-4 text-[15px]">
-            사장님의 브랜드는 그대로 두고, 산방식당의 검증된 맛만 더합니다.
+          <p className="t-body mx-auto mt-5 max-w-xl text-[15px]">
+            빌린 간판은 계약이 끝나면 반납해야 하지만, 전수받은 레시피와 조리 기술은 사장님께 남습니다.
+            그래서 ‘간판’이 아니라 <strong className="font-bold text-ink">‘무기’</strong>를 드립니다.
           </p>
         </div>
       </Rv>
+
+      {/* 시작 조건 — 교육비·환불 */}
+      <div className="mt-8 grid gap-5 sm:grid-cols-2">
+        <Rv>
+          <div className="h-full rounded-[24px] border border-line bg-warm p-8">
+            <div className="t-label mb-4 text-brand">초기 세팅 교육비</div>
+            <p className="text-[26px] font-extrabold tracking-[-0.03em] text-ink">200만 원</p>
+            <p className="t-body mt-4 text-[14px]">
+              창업자 미팅 · 레시피 전수 · 현장 조리 교육 · 매장 맞춤 초기 메뉴 제안까지. 제주점 또는 서울
+              직영점에서 진행합니다.
+            </p>
+          </div>
+        </Rv>
+        <Rv d={90}>
+          <div className="h-full rounded-[24px] border border-brand/30 bg-paper p-8">
+            <div className="t-label mb-4 text-brand">맞지 않으면</div>
+            <p className="text-[26px] font-extrabold tracking-[-0.03em] text-ink">2개월 100% 환불</p>
+            <p className="t-body mt-4 text-[14px]">
+              도입 후 2개월 이내에 매장과 맞지 않다고 판단하시면, 실비(출장비 등)를 제외하고 전액
+              돌려드립니다.
+            </p>
+          </div>
+        </Rv>
+      </div>
     </Section>
   );
 }

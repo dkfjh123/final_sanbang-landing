@@ -73,11 +73,15 @@ export function Items() {
 
       <div className="mt-16 space-y-24 md:space-y-32">
         {/* ── ① 생밀면 ───────────────────────────────────────── */}
+        {/* ⚠️ 파트너가 받는 것은 전문 제조 생면이다.
+            "매일 뽑는 / 직접 뽑은" 처럼 매장 제면으로 읽히는 표현을 쓰지 말 것.
+            스펙(가수율·자연숙성)으로 말한다. */}
         <Item
           no="01"
           tag="생밀면"
-          img="item-noodle"
-          alt="산방식당 생밀면 — 매일 직접 뽑는 중면 생면"
+          img="noodle-fresh"
+          portrait
+          alt="산방식당 생밀면 — 가수율 45% 이상의 다가수 생면"
           title={
             <>
               끝까지 쫄깃한 이유,
@@ -148,6 +152,9 @@ export function Items() {
         <Item
           no="02"
           tag="산방육수"
+          /* ⚠️ "10년에 걸쳐 완성한 육수"는 공개 출처로 확인되지 않는다.
+             (공식 사이트의 '10여 년'은 파트너십 R&D 언급) → 08_금지선
+             연수를 주장하지 말고 재료와 공정으로 말한다. */
           img="item-broth"
           alt="산방식당 제주식 물밀냉면 — 멸치 육수 베이스"
           flip
@@ -155,16 +162,16 @@ export function Items() {
           anchorBottom
           title={
             <>
-              <span className="text-brand">10년</span>이 걸려 완성한
+              <span className="text-brand">국내산 멸치</span>를
               <br />
-              깔끔한 멸치육수
+              오래 끓인 육수
             </>
           }
           lead={
             <>
-              국내산 <strong className="font-bold text-ink">멸치와 생강</strong>을 오래 끓여 낸, 시원하고
-              담백한 육수. 1971년 첫 그릇부터 10년간의 시행착오 끝에 완성한 산방식당만의 육수 레시피입니다.
-              멸치의 시원함 위에, 오래 끓여 낸 정성스럽고 깊은 감칠맛이 더해집니다.
+              <strong className="font-bold text-ink">멸치와 생강</strong>을 오래 끓여 냅니다. 짜지 않고
+              담백한데, 은근한 단맛과 적당한 산미가 도는 시원한 국물. 부산식 돼지뼈 육수와는 처음부터 다른
+              길이었고, 55년 동안 그 기준을 바꾸지 않았습니다.
             </>
           }
         >

@@ -1,4 +1,5 @@
-import { A, Count, Label, Rv, Section, TEL_JEJU, TEL_MAIN } from "../lib/ui";
+import { Fragment } from "react";
+import { A, Count, GlowCard, Label, Rv, Section, TEL_JEJU, TEL_MAIN } from "../lib/ui";
 
 /* ══ ③ CHAPTER 01 · 브랜드 — 소개서 3·4p ════════════════════════ */
 export function Brand() {
@@ -82,12 +83,103 @@ export function Brand() {
   );
 }
 
-/* ══ ④ 부산식 vs 제주식 — 소개서 5p ═════════════════════════════ */
-const COMPARE: [string, string, string][] = [
-  ["첫인상", "구수함 — 진하고 묵직", "맑고 시원 · 새콤달콤"],
-  ["육수", "돼지뼈 · 사골 육수", "멸치 육수 — 짜지 않고 은은한 단맛·산미"],
-  ["면", "가는 소면", "소면이 아닌 도톰한 중면"],
+/* ══ ④ 부산식 vs 제주식 ═════════════════════════════════════════
+   3열 표는 좌우가 대등해 보여서 우리 쪽이 부각되지 않는다.
+   상세페이지 비교 레이아웃처럼 좌(일반)는 회색으로 눌러 두고,
+   우(산방식당)는 사진 + 그림자로 띄워 올린다. 가운데는 라벨 레일.
+     · 두 헤더의 높이가 다르다 — 우리 쪽만 위로 솟는다(-mt)
+     · 행은 같은 min-height 를 써서 세 열이 정확히 맞물린다
+   ⚠️ "돼지뼈·사골"은 부산식을 설명하는 문맥이라 정상이다.
+      산방 육수를 사골이라 쓰면 안 된다. → 08_금지선
+   ──────────────────────────────────────────────────────────── */
+/* ⚠️ JSX 는 태그 앞뒤 공백을 삼킨다. {" "} 를 반드시 남겨야
+      "국내산멸치" 처럼 붙어 버리지 않는다. */
+const COMPARE: [string, string, React.ReactNode][] = [
+  [
+    "첫인상",
+    "진하고 묵직한 구수함",
+    <>
+      맑고 시원한{" "}
+      <b className="font-extrabold">새콤달콤</b>
+    </>,
+  ],
+  [
+    "육수",
+    "돼지뼈 · 사골",
+    <>
+      국내산{" "}
+      <b className="font-extrabold">멸치 · 생강</b>을 오래
+    </>,
+  ],
+  [
+    "면",
+    "가는 소면",
+    <>
+      <b className="font-extrabold">도톰한 중면</b> 생면
+    </>,
+  ],
+  [
+    "수육 소스",
+    "새우젓 · 된장",
+    <>
+      겨자 +{" "}
+      <b className="font-extrabold">특제 고추장</b>
+    </>,
+  ],
 ];
+
+/** 세 열이 맞물리도록 모든 행이 같은 높이를 쓴다.
+    ⚠️ 셀은 flex 라서 자식 사이의 공백 텍스트 노드가 사라진다
+       ("국내산" + <b>멸치</b> → "국내산멸치").
+       내용은 반드시 <span> 하나로 감싸 인라인 흐름을 되살릴 것. */
+const ROW = "flex items-center justify-center px-3 text-center md:px-5";
+const ROW_H = "min-h-[76px] md:min-h-[84px]";
+
+/* ══ 3대 재료 카드 ══════════════════════════════════════════════
+   테두리를 그라디언트로 칠하는 방법:
+     background: <카드색> padding-box, <그라디언트> border-box
+     + border: Npx solid transparent
+   테두리 자리에만 그라디언트가 보인다. 뒤에는 같은 그라디언트를
+   크게 blur 해서 깔아 은은한 발광을 만든다.
+   원본 레퍼런스는 다크 배경 + 8px 네온이지만, 우리 배경은 밝아서
+   그대로 쓰면 촌스럽다 → 테두리 3px, 글로우 opacity 를 낮춘다. */
+const PILLARS = [
+  {
+    t: "국내산 멸치 육수",
+    d: "멸치와 생강을 오래 끓여 냅니다. 짜지 않고 은근한 단맛과 적당한 산미가 도는, 맑고 시원한 국물.",
+    g: "linear-gradient(137deg, #1d7b86 0%, #7fc4c9 48%, #eaf3f2 100%)",
+    icon: (
+      <>
+        <path d="M3 9c2.2-2.4 4.5-2.4 6.7 0S14.4 11.4 16.6 9 21 6.6 23.2 9" />
+        <path d="M3 16c2.2-2.4 4.5-2.4 6.7 0s4.7 2.4 6.9 0 4.4-2.4 6.6 0" />
+      </>
+    ),
+  },
+  {
+    t: "도톰한 중면 · 생면",
+    d: "건면도 냉동면도 아닌 생면. 가수율 45% 이상이라 국물 속에서도 끝까지 잘 붇지 않습니다.",
+    g: "linear-gradient(137deg, #eda427 0%, #f6c775 48%, #fff6e4 100%)",
+    icon: (
+      <>
+        <path d="M5 3v18M11 3v18M17 3v18" />
+        <path d="M2 12h20" />
+      </>
+    ),
+  },
+  {
+    t: "55년, 원조의 깊이",
+    d: "‘제주 밀냉면의 원조이자 종가집’. 여름이면 오픈런이 일상인, 도민도 관광객도 줄 서는 집입니다.",
+    g: "linear-gradient(137deg, #b03a24 0%, #cf5a1c 48%, #f6c775 100%)",
+    icon: (
+      <>
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 7v5.5l3.5 2" />
+      </>
+    ),
+  },
+];
+
+/* 카드 본체는 lib/ui.tsx 의 GlowCard 가 담당한다 (Side 섹션과 공용) */
 
 export function Compare() {
   return (
@@ -99,54 +191,89 @@ export function Compare() {
           <br />
           <span className="text-brand">‘제주식 밀냉면’</span>
         </h2>
-        <p className="t-body mt-7 max-w-2xl text-[15.5px]">
-          고기 육수가 아닌 <strong className="font-bold text-ink">멸치 육수</strong> — 맑고 시원한
-          새콤달콤함이 정체성입니다.
+        {/* 재료로 말한다. 자극적이지 않다 = 객층이 넓다 = 사장님에겐 매출이다 */}
+        <p
+          className="mt-8 max-w-3xl font-semibold tracking-[-0.02em] text-body"
+          style={{ fontSize: "clamp(17px, 1.7vw, 22px)", lineHeight: 1.65 }}
+        >
+          <strong className="font-extrabold text-ink">국내산 멸치와 생강</strong>을 오래 끓여 내고,{" "}
+          <strong className="font-extrabold text-ink">고운 고춧가루</strong>로 양념을 만듭니다.
+          <br className="hidden md:block" />
+          짜지 않고 맵지 않은데 끝맛이 깊습니다 —{" "}
+          <span className="text-brand">호불호 없이 누구나 좋아하는 맛.</span>
+        </p>
+        <p className="t-body mt-5 max-w-2xl text-[15px]">
+          아이도 어른도 먹습니다. 매장에서는 그게 <strong className="font-bold text-ink">객층이
+          넓다</strong>는 뜻입니다.
         </p>
       </Rv>
 
       <Rv d={120}>
-        <div className="mt-12 overflow-hidden rounded-[24px] border border-line bg-paper">
-          <div className="grid grid-cols-[72px_1fr_1fr] text-[12px] font-bold tracking-[0.04em] text-muted sm:grid-cols-[110px_1fr_1fr]">
-            <div className="px-4 py-4 md:px-7">구분</div>
-            <div className="px-4 py-4 md:px-7">부산 밀면</div>
-            <div className="bg-brand px-4 py-4 text-white md:px-7">제주 산방식당 밀냉면</div>
+        <div className="mx-auto mt-16 grid max-w-[860px] grid-cols-[1fr_auto_1fr] items-end gap-x-2 md:gap-x-3">
+          {/* ── 헤더 ─────────────────────────────────────────── */}
+          <div className="flex h-[112px] items-center justify-center rounded-t-[20px] bg-[#dcd8d3] px-3 text-center md:h-[132px]">
+            <span className="text-[14px] font-bold text-[#7d766e] md:text-[16px]">일반 밀면</span>
           </div>
-          {COMPARE.map(([k, busan, jeju], i) => (
-            <div
-              key={k}
-              className={`grid grid-cols-[72px_1fr_1fr] border-t border-line text-[13px] sm:grid-cols-[110px_1fr_1fr] md:text-[15px] ${
-                i % 2 ? "bg-warm/50" : ""
-              }`}
-            >
-              <div className="px-4 py-5 font-bold text-ink md:px-7">{k}</div>
-              <div className="px-4 py-5 text-muted md:px-7">{busan}</div>
-              <div className="bg-brand/8 px-4 py-5 font-semibold text-ink md:px-7">{jeju}</div>
+
+          <div aria-hidden />
+
+          {/* 우리 쪽만 위로 솟는다 */}
+          <div className="-mt-10 overflow-hidden rounded-t-[20px] bg-brand shadow-[0_18px_44px_rgba(23,18,15,0.16)] md:-mt-12">
+            <div className="px-3 pb-3 pt-4 text-center md:pt-5">
+              <div className="text-[11px] font-bold tracking-[0.14em] text-white/70">
+                SINCE 1971 · 원조
+              </div>
+              <div className="mt-1 text-[15px] font-extrabold text-white md:text-[17px]">
+                제주 산방식당
+              </div>
             </div>
-          ))}
+            <img
+              src={`${A}/menu-mil-oh.webp`}
+              alt="산방식당 물밀냉면 — 멸치 육수에 도톰한 중면"
+              width={700}
+              height={470}
+              loading="lazy"
+              decoding="async"
+              className="aspect-[3/2] w-full object-cover"
+            />
+          </div>
+
+          {/* ── 행 ───────────────────────────────────────────── */}
+          {COMPARE.map(([k, busan, jeju], i) => {
+            const last = i === COMPARE.length - 1;
+            return (
+              <Fragment key={k}>
+                <div
+                  className={`${ROW} ${ROW_H} bg-[#e6e2dd] text-[13.5px] leading-snug text-[#8b847b] md:text-[15px] ${
+                    last ? "rounded-b-[20px]" : ""
+                  }`}
+                >
+                  <span>{busan}</span>
+                </div>
+
+                <div className={`${ROW_H} flex items-center`}>
+                  <span className="flex h-[46px] w-[62px] items-center justify-center rounded-[12px] bg-brand text-[12.5px] font-bold text-white md:h-[52px] md:w-[80px] md:text-[13.5px]">
+                    {k}
+                  </span>
+                </div>
+
+                <div
+                  className={`${ROW} ${ROW_H} bg-paper text-[13.5px] leading-snug text-ink shadow-[0_18px_44px_rgba(23,18,15,0.10)] md:text-[15.5px] ${
+                    last ? "rounded-b-[20px]" : ""
+                  }`}
+                >
+                  <span>{jeju}</span>
+                </div>
+              </Fragment>
+            );
+          })}
         </div>
       </Rv>
 
-      <div className="mt-8 grid gap-5 md:grid-cols-3">
-        {[
-          {
-            t: "멸치 육수",
-            d: "국내산 멸치와 생강을 오래 끓인 시원하고 깔끔한 육수",
-          },
-          {
-            t: "중면 · 자가제면",
-            d: "생면만을 고집하여, 중면으로 그 쫄깃함이 남다른 생면",
-          },
-          {
-            t: "원조의 깊이",
-            d: "‘제주 밀냉면의 원조이자 종가집’으로 불리는 55년",
-          },
-        ].map((c, i) => (
-          <Rv key={c.t} d={i * 90}>
-            <div className="h-full rounded-[24px] border border-line bg-paper p-7">
-              <h3 className="t-h3 mb-2.5 text-[17px] text-brand">{c.t}</h3>
-              <p className="t-body text-[14px]">{c.d}</p>
-            </div>
+      <div className="mt-14 grid gap-10 md:grid-cols-3 md:gap-5">
+        {PILLARS.map((c, i) => (
+          <Rv key={c.t} d={i * 110}>
+            <GlowCard g={c.g} icon={c.icon} title={c.t} body={c.d} minH={280} />
           </Rv>
         ))}
       </div>

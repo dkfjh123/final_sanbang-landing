@@ -6,21 +6,30 @@ import { useEffect, useRef, useState } from "react";
    ──────────────────────────────────────────────────────────────── */
 
 export const A = "/assets/web";
-export const MAIL = "contact@jejusanbang.com";
-export const TEL_MAIN = "064-794-2165";
-export const TEL_JEJU = "064-722-2165";
-export const TALLY = "https://tally.so/r/WOOLLv";
+
+/* ── 연락 창구 ────────────────────────────────────────────────
+   문의 수신처와 화면 표기용을 분리한다.
+   방문자는 문의가 어디로 접수되는지 알 필요가 없다.        */
+export const MAIL_INQUIRY = "dkfjh1234@gmail.com"; // 폼 수신 — 화면에 띄우지 않는다
+export const MAIL_OFFICIAL = "contact@jejusanbang.com"; // 표기용 공식 창구(푸터)
+export const TEL_INQUIRY = "070-8121-5880"; // 도입 문의 — 폼 대신 바로 거는 사람용
+export const TEL_MAIN = "064-794-2165"; // 모슬포 본점 — 매장 안내용
+export const TEL_JEJU = "064-722-2165"; // 제주점
 export const INSTA = "https://www.instagram.com/sanbang_official/";
+
+/** 전화번호를 tel: 링크로 (010-1234-5678 → +821012345678) */
+export const tel = (n: string) => `tel:+82${n.replace(/^0/, "").replace(/-/g, "")}`;
 
 /* ── 측정·전송 설정 ────────────────────────────────────────────
    셋 다 비어 있으면 해당 기능만 조용히 꺼진다. 페이지는 정상 동작한다.
+   발급 절차 → 랜딩페이지_기획안/12_기술준비-가이드.md
 
    GA4_ID          … GA4 속성 만들고 받은 `G-XXXXXXXXXX`
+                     ※ 배포 후 `generate_lead`를 '주요 이벤트'로 표시해야 전환으로 잡힌다
    META_PIXEL_ID   … 메타 이벤트 관리자에서 만든 픽셀 ID (숫자)
                      ※ 픽셀만 만들지 말고 **도메인 인증**까지 해야 광고 최적화가 걸린다
-   WEB3FORMS_KEY   … https://web3forms.com 에서 contact@jejusanbang.com 으로
-                     발급받는 무료 access key. 폼 제출이 이 메일로 바로 온다.
-                     비어 있으면 폼이 메일 앱을 여는 방식으로 대체 동작한다.
+   WEB3FORMS_KEY   … https://web3forms.com 에서 MAIL_INQUIRY 로 발급받는 무료 키.
+                     ⚠️ 비어 있으면 메일 앱 폴백이 뜨면서 수신 주소가 화면에 노출된다.
    ──────────────────────────────────────────────────────────── */
 export const GA4_ID = "";
 export const META_PIXEL_ID = "";
@@ -216,5 +225,85 @@ export function Cta({
       {children}
       <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
     </a>
+  );
+}
+
+/* ══ 글로우 카드 ════════════════════════════════════════════════
+   테두리만 그라디언트로 칠하는 방법:
+     background: <카드색> padding-box, <그라디언트> border-box
+     + border: Npx solid transparent
+   테두리 자리에만 그라디언트가 남는다. 뒤에는 같은 그라디언트를
+   크게 blur 해서 깔아 은은한 발광을 만든다.
+
+   레퍼런스는 다크 배경 + 8px 네온이지만, 밝은 면에 그대로 쓰면
+   촌스러워진다 → 테두리 3px, 글로우 opacity 를 낮춰 쓴다.
+   dark 면에서는 글로우를 조금 더 올린다.
+   ──────────────────────────────────────────────────────────── */
+export function GlowCard({
+  g,
+  icon,
+  title,
+  body,
+  dark = false,
+  minH = 248,
+}: {
+  /** 테두리·글로우에 쓸 CSS 그라디언트 */
+  g: string;
+  icon?: React.ReactNode;
+  title: React.ReactNode;
+  body: React.ReactNode;
+  dark?: boolean;
+  minH?: number;
+}) {
+  const face = dark ? "#221a14" : "var(--color-paper)";
+  return (
+    <div className="relative mx-auto h-full w-full max-w-[360px] md:max-w-none">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-4 top-6 h-[76%] rounded-[40px]"
+        style={{ background: g, filter: "blur(46px)", opacity: dark ? 0.42 : 0.34 }}
+      />
+      <div
+        className="relative z-10 flex h-full flex-col justify-between rounded-[32px] p-7 md:p-8"
+        style={{
+          minHeight: minH,
+          border: "3px solid transparent",
+          background: `linear-gradient(${face}, ${face}) padding-box, ${g} border-box`,
+        }}
+      >
+        {icon ? (
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2.1}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className={`h-8 w-8 ${dark ? "text-gold" : "text-brand"}`}
+            aria-hidden
+          >
+            {icon}
+          </svg>
+        ) : (
+          <span />
+        )}
+
+        <div>
+          <h3
+            className={`font-extrabold tracking-[-0.035em] ${dark ? "text-paper" : "text-ink"}`}
+            style={{ fontSize: "clamp(20px, 2vw, 26px)", lineHeight: 1.32 }}
+          >
+            {title}
+          </h3>
+          <p
+            className={`mt-3.5 text-[14.5px] leading-[1.75] md:text-[15.5px] ${
+              dark ? "text-paper/65" : "text-body"
+            }`}
+          >
+            {body}
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }

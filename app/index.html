@@ -24,20 +24,21 @@
     <meta property="og:url" content="https://sanbangjeju.com/" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
-    />
-
-    <!-- 히어로 제목 전용 — 유한킴벌리 푸른숲 (눈누 CDN) -->
+    <!-- 본문 폰트 — 자체 호스팅 서브셋 (`python _font_pretendard.py` 로 생성)
+         jsDelivr 의 dynamic-subset 은 유니코드 구간이 넓게 걸려 실측 580KB 였다.
+         페이지에 실제로 쓰는 788자만 남기니 165KB. 가변축(wght)은 유지된다.
+         ⚠️ 카피를 바꾸면 스크립트를 다시 돌릴 것. 빠진 글자는 대체 폰트로 떨어진다. -->
     <link
       rel="preload"
       as="font"
       type="font/woff2"
-      href="https://cdn.jsdelivr.net/gh/Project-Noonnu/2607101517@font-2/font-2/font-2-500.woff2"
+      href="/assets/fonts/PretendardVariable-subset.woff2"
       crossorigin
     />
+
+    <!-- 제목 전용 폰트(푸른숲 CDN)는 걷어냈다.
+         히어로를 가운데 정렬로 다시 짜면서 .hero-text 래퍼가 없어져
+         파일만 받고 적용은 안 되는 상태였다 — 순수 낭비였다. -->
 
     <script type="application/ld+json">
       {

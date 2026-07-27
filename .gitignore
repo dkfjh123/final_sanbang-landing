@@ -7,3 +7,9 @@ node_modules/
 #   _deck_src/  (JPG/PNG 2.4MB) → assets/web/*.webp 로 변환 완료
 _fonts_src/
 _deck_src/
+
+# 자동 생성 아티팩트 (재생성 가능하므로 커밋하지 않음)
+#   _shots/ (_shot.mjs 가 찍는 QA 스크린샷 14.5MB)
+#   .bkit/  (bkit 툴링 런타임 로그, 2026-07-25 비활성화됨)
+_shots/
+.bkit/

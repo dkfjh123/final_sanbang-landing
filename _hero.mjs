@@ -3,7 +3,7 @@
  *   node _hero.mjs <저장폴더> [URL]
  * 데스크톱 1440·모바일 390 두 장을 첫 화면 그대로 찍는다.
  */
-import puppeteer from "file:///C:/Users/dkfjh/devnew/projects/nip_landing/node_modules/puppeteer-core/lib/puppeteer/puppeteer-core.js";
+import puppeteer from "file:///C:/Users/dkfjh/devnew/projects/2026billion_20260130_niplanding/node_modules/puppeteer-core/lib/puppeteer/puppeteer-core.js";
 
 const OUT = process.argv[2];
 const URL = process.argv[3] || "http://127.0.0.1:5173/";

@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+/* ── 본문 폰트 (자체 호스팅 서브셋) ──────────────────────────
+   생성: `python _font_pretendard.py`  (원본 → 페이지에 쓰는 글자만)
+   가변축 wght 45~930 을 유지하므로 400/700/800 을 자유롭게 쓴다.
+   ⚠️ 카피를 바꾸면 스크립트를 다시 돌릴 것. */
+@font-face {
+  font-family: "Pretendard Variable";
+  src: url("/assets/fonts/PretendardVariable-subset.woff2") format("woff2-variations");
+  font-weight: 45 930;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ────────────────────────────────────────────────────────────
    디자인 토큰
    고위드(gowid.com) 추출 디자인랭귀지를 뼈대로 삼되, 색만 산방
@@ -10,22 +22,26 @@
      · 액센트는 아주 드물게 (고위드: 액센트 21회 vs 뉴트럴 634회)
    ──────────────────────────────────────────────────────────── */
 @theme {
-  /* 제주 — 유채 주황 / 밝은 크림 / 바다 청록
-     · 배경은 전부 밝게. 어두운 면은 히어로와 푸터만 남긴다
-     · 검정 대신 따뜻한 진갈색(#241a13)을 써서 차갑지 않게 */
+  /* 배경은 화이트를 기본으로. 제주는 '색을 칠해서'가 아니라
+     '포인트로' 낸다 — 감귤 주황, 바다 청록, 유채 골드를 아주 드물게.
+     크림을 넓게 깔면 촌스러워지고 사진·음식 색까지 죽는다.
+       · paper  = 거의 흰색(미세한 온기)  ← 화면의 대부분
+       · warm   = 아주 옅은 크림          ← 교차 배경으로만
+       · 어두운 면은 Story·Winter·푸터 셋뿐 (리듬)
+     검정 대신 따뜻한 진갈색(#241a13)을 써서 차갑지 않게. */
   --color-ink: #241a13;
   --color-ink-2: #33261b;
-  --color-body: #6f6154;
-  --color-muted: #a2958a;
-  --color-line: #eee0cb;
-  --color-paper: #fffdf8; /* 기본 배경 — 크림 화이트 */
-  --color-warm: #fdf3e2; /* 교차 배경 — 유채빛 옅은 크림 */
-  --color-warm-2: #fbe9cd; /* 조금 더 진한 유채빛 */
-  --color-brand: #cf5a1c; /* 감귤·유채 주황 */
+  --color-body: #6b6259;
+  --color-muted: #9e968d;
+  --color-line: #ece7df; /* 덜 노란 뉴트럴 라인 */
+  --color-paper: #fefdfb; /* 기본 배경 — 거의 흰색 */
+  --color-warm: #faf6f0; /* 교차 배경 — 아주 옅은 크림 */
+  --color-warm-2: #f5eee3; /* 카드 그라디언트용, 조금 더 진하게 */
+  --color-brand: #cf5a1c; /* 감귤·유채 주황 — 액센트 */
   --color-brand-2: #a8440f;
-  --color-gold: #eda427; /* 유채꽃 */
+  --color-gold: #eda427; /* 유채꽃 — 어두운 면에서만 */
   --color-sea: #1d7b86; /* 제주 바다 — 아주 드물게 */
-  --color-sea-soft: #e6f2f2; /* 바다빛 옅은 배경 */
+  --color-sea-soft: #eef5f5; /* 바다빛 옅은 배경 */
 
   --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
     "Segoe UI", "Malgun Gothic", sans-serif;
@@ -34,6 +50,27 @@
 
   --shadow-soft: 0 0 8px rgba(23, 18, 15, 0.06);
   --shadow-lift: 0 12px 32px rgba(23, 18, 15, 0.12);
+}
+
+/* ── 제주 노을 배경 ──────────────────────────────────────────
+   레퍼런스: 이호테우 조랑말 등대 일몰 — 라벤더 → 살구 → 바다 청록.
+   그대로 깔면 음식 사진과 카피가 전부 죽는다. 그래서 '속삭이는 수준'으로만
+   쓴다. 세 겹의 아주 옅은 방사형을 흰 바탕 위에 겹쳐, 눈에는 안 띄지만
+   화면이 밋밋하지 않게 한다. 텍스트는 항상 흰 바탕 위에 놓인다.
+   ────────────────────────────────────────────────────────── */
+.bg-dawn {
+  background:
+    radial-gradient(88% 58% at 50% -8%, #fdeee1 0%, rgba(254, 253, 251, 0) 62%),
+    radial-gradient(64% 46% at 88% 2%, #f4edf6 0%, rgba(254, 253, 251, 0) 58%),
+    radial-gradient(72% 50% at 8% 6%, #eaf3f4 0%, rgba(254, 253, 251, 0) 58%), #fefdfb;
+}
+
+/* 노을을 조금 더 보여 주는 면 — '제주' 를 말하는 섹션에만 */
+.bg-dusk {
+  background:
+    radial-gradient(70% 55% at 78% 0%, #f3e9f3 0%, rgba(254, 253, 251, 0) 62%),
+    radial-gradient(80% 60% at 22% 4%, #fdeadb 0%, rgba(254, 253, 251, 0) 60%),
+    linear-gradient(180deg, #fdf6ef 0%, #fefdfb 68%);
 }
 
 html {
@@ -90,14 +127,43 @@ body {
    전부 그냥 보이는 게 기본값 — 콘텐츠가 영영 안 보이는 사고 방지 */
 .js [data-rv] {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(24px);
+  /* expo-out. 끝에서 아주 길게 감속해서 '툭' 끊기지 않는다 */
   transition:
-    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .js [data-rv].is-in {
   opacity: 1;
   transform: none;
+}
+
+/* ── 히어로 앰비언스 ─────────────────────────────────────
+   격자와 커서 글로우. 스크롤을 잠그지 않고 '살아있는' 느낌만 가져온다.
+   포인터가 없는 기기(모바일)에서는 커서 글로우가 아예 렌더되지 않는다. */
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.055;
+  color: var(--color-ink);
+}
+.hero-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  background: radial-gradient(
+    260px circle at var(--gx, 50%) var(--gy, 40%),
+    rgba(207, 90, 28, 0.16) 0%,
+    rgba(237, 164, 39, 0.09) 38%,
+    rgba(29, 123, 134, 0.05) 62%,
+    transparent 78%
+  );
+}
+.hero-glow.is-on {
+  opacity: 1;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -161,27 +227,13 @@ body {
    제목만 제주한라산체. 굵기가 하나(400)뿐이고 획이 가늘어서
    본문 자간(-4%)을 그대로 쓰면 글자가 붙는다 → 자간·행간을 따로 준다.
    폰트 파일은 자체 호스팅 서브셋 (`_font.sh`로 생성) */
-/* 유한킴벌리 푸른숲 — 히어로 제목 전용 (눈누 CDN)
-   굵기 3종이 있는데 제목에 쓰는 하나만 불러온다. 3종을 다 부르면 600KB.
-     300 …-300.woff2  /  500 …-500.woff2  /  700 …-700.woff2 */
-@font-face {
-  font-family: "Pureunsoop";
-  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/2607101517@font-2/font-2/font-2-500.woff2")
-    format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
+/* 제목 전용 CDN 폰트(푸른숲)와 .hero-text 규칙은 걷어냈다.
+   히어로가 가운데 정렬 + 글 아래 영상 구조로 바뀌면서
+     · 래퍼(.hero-text)가 사라져 규칙이 적용되지 않았고
+     · 글이 더 이상 영상 위에 얹히지 않아 text-shadow 도 필요 없다
+   제목은 Pretendard 800 으로 간다. 제주 서체로 되살리려면 _font.sh 참조. */
 
-.hero-text h1 {
-  font-family: "Pureunsoop", var(--font-sans);
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  line-height: 1.32;
-}
-
-/* 데스크톱에서만 글이 영상 위에 얹힌다. 영상이 밝은 장면(본점 드론 등)
-   으로 넘어가도 읽히도록 글자 뒤에 아주 옅은 크림 번짐을 깐다. */
+/* (구) 데스크톱 오버레이용 잔여 규칙 — 지금은 대상이 없다 */
 @media (min-width: 1024px) {
   .hero-text p,
   .hero-text h1 {

@@ -4,7 +4,7 @@
  * 예) node _sec.mjs ./shots "#why" why
  * 데스크톱(1440)·모바일(390) 두 장을 그 요소 기준으로 찍는다.
  */
-import puppeteer from "file:///C:/Users/dkfjh/devnew/projects/nip_landing/node_modules/puppeteer-core/lib/puppeteer/puppeteer-core.js";
+import puppeteer from "file:///C:/Users/dkfjh/devnew/projects/2026billion_20260130_niplanding/node_modules/puppeteer-core/lib/puppeteer/puppeteer-core.js";
 
 const [OUT, SEL, NAME = "sec", URL = "http://127.0.0.1:5173/"] = process.argv.slice(2);
 

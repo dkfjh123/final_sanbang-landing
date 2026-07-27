@@ -1,21 +1,38 @@
 import { useRef, useState } from "react";
-import { A, INSTA, MAIL, Rv, TEL_MAIN, WEB3FORMS_KEY, fireLead, track } from "../lib/ui";
+import {
+  A,
+  INSTA,
+  MAIL_INQUIRY,
+  MAIL_OFFICIAL,
+  Rv,
+  TEL_INQUIRY,
+  WEB3FORMS_KEY,
+  fireLead,
+  tel,
+  track,
+} from "../lib/ui";
 
-/* ══ ⑰ 문의 — 소개서 21p ════════════════════════════════════════
+/* ══ ⑰ 문의 ═════════════════════════════════════════════════════
    폼을 페이지 안에서 처리한다. 외부 폼 서비스로 내보내면
    ① 메타 픽셀·GA4 전환 추적이 그 지점에서 끊기고
    ② 임베드 위젯이 전송량을 4MB 넘게 잡아먹는다.
 
-   전송은 Web3Forms(무료) — 제출 내용이 contact@jejusanbang.com 으로 바로 온다.
-   ⚠️ WEB3FORMS_KEY 가 비어 있으면 메일 앱을 여는 방식으로 자동 대체된다.
-      즉 키가 없어도 문의는 유실되지 않는다.
+   전송은 Web3Forms(무료) — 제출 내용이 MAIL_INQUIRY 로 바로 온다.
+   ⚠️ WEB3FORMS_KEY 가 비어 있으면 메일 앱 폴백이 뜨는데,
+      그때 수신 주소가 화면에 노출된다. 반드시 키를 넣을 것.
    ──────────────────────────────────────────────────────────── */
 
+/* 문의 유형 — 대상 5개 층 + 프리미엄 트랙 + 미정.
+   ⚠️ "공식 브랜드 파트너(산방식당 이름 사용)"는 프리미엄 트랙 문의 창구이며
+      실제로 브랜드를 공유하는 트랙이다(동래정·CJ프레시웨이). 빼지 말 것.
+      단 메뉴솔루션 트랙에는 간판을 주지 않는다. */
 const INTERESTS = [
-  "메뉴솔루션 (검증된 맛 도입)",
+  "기존 매장에 시그니처 메뉴 도입",
+  "밀냉면 · 밀면 도입 (검증된 맛)",
+  "창업 예정 — 프랜차이즈 없이 시작",
+  "급식 · 리조트 · 대량 공급",
+  "자사 브랜드에 접목 (본사 · 제휴)",
   "공식 브랜드 파트너 (산방식당 이름 사용)",
-  "급식 · 대량 공급",
-  "HMR · 밀키트 협업",
   "아직 정하지 못했습니다",
 ];
 
@@ -28,10 +45,10 @@ export function Contact() {
 
   /** 키가 없을 때의 대체 경로 — 입력값을 메일 본문으로 만들어 메일 앱을 연다 */
   const openMail = (fd: FormData) => {
-    const body = ["매장명/브랜드", "성함", "연락처", "관심 분야", "문의 내용"]
+    const body = ["매장명/브랜드", "성함", "연락처", "지역", "관심 분야", "문의 내용"]
       .map((k) => `${k}: ${String(fd.get(k) ?? "")}`)
       .join("\n");
-    window.location.href = `mailto:${MAIL}?subject=${encodeURIComponent(
+    window.location.href = `mailto:${MAIL_INQUIRY}?subject=${encodeURIComponent(
       "[메뉴솔루션] 도입 문의"
     )}&body=${encodeURIComponent(body)}`;
   };
@@ -73,13 +90,7 @@ export function Contact() {
   };
 
   return (
-    <section
-      id="contact"
-      className="px-5 py-24 md:px-8 md:py-[120px]"
-      style={{
-        background: "radial-gradient(120% 90% at 50% 0%, #fbe9cd 0%, #fdf3e2 45%, #fffdf8 100%)",
-      }}
-    >
+    <section id="contact" className="bg-dawn px-5 py-24 md:px-8 md:py-[120px]">
       <div className="mx-auto w-full max-w-[1200px]">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:gap-16">
           {/* 왼쪽 — 인사말과 직통 창구 */}
@@ -91,31 +102,36 @@ export function Contact() {
               함께하겠습니다.
             </h2>
             <p className="t-body mt-7 max-w-md text-[15.5px]">
-              메뉴솔루션 · 공식 브랜드 파트너 · HMR 협업 — 어떤 형태의 협업이라도 좋습니다. 천천히, 그러나
-              꼼꼼하게 함께 고민하겠습니다.
+              지금 운영 중인 매장이든, 준비 중인 창업이든 좋습니다. 매장 상황을 들려주시면{" "}
+              <strong className="font-bold text-ink">맞는 메뉴 구성부터 함께 잡아 드립니다.</strong>
             </p>
 
+            {/* 폼을 안 쓰고 바로 거는 사람이 반드시 있다 → 전화를 1순위로 */}
             <div className="mt-10 space-y-3">
               <a
-                href={`mailto:${MAIL}?subject=${encodeURIComponent("[메뉴솔루션] 도입 문의드립니다")}`}
-                onClick={() => track("contact-mail")}
-                className="flex items-center justify-between gap-4 rounded-[20px] border border-ink/15 bg-paper/70 px-6 py-5 transition-colors duration-150 hover:border-brand hover:bg-paper"
+                href={tel(TEL_INQUIRY)}
+                onClick={() => track("contact-tel")}
+                className="flex items-center justify-between gap-4 rounded-[20px] border border-brand/40 bg-paper px-6 py-5 transition-colors duration-150 hover:border-brand hover:bg-warm"
               >
                 <div>
-                  <div className="text-[12px] font-medium text-muted">이메일</div>
-                  <div className="mt-0.5 text-[15px] font-bold tracking-[-0.02em] text-ink">{MAIL}</div>
+                  <div className="text-[12px] font-medium text-brand">도입 문의 · 바로 통화</div>
+                  <div className="mt-0.5 text-[19px] font-extrabold tracking-[-0.02em] text-ink">
+                    {TEL_INQUIRY}
+                  </div>
                 </div>
                 <span className="text-brand">→</span>
               </a>
 
               <a
-                href={`tel:+82${TEL_MAIN.replace(/^0/, "").replace(/-/g, "")}`}
-                onClick={() => track("contact-tel")}
+                href={`mailto:${MAIL_OFFICIAL}?subject=${encodeURIComponent("[제휴] 문의드립니다")}`}
+                onClick={() => track("contact-mail")}
                 className="flex items-center justify-between gap-4 rounded-[20px] border border-ink/15 bg-paper/70 px-6 py-5 transition-colors duration-150 hover:border-brand hover:bg-paper"
               >
                 <div>
-                  <div className="text-[12px] font-medium text-muted">전화 · 모슬포 본점</div>
-                  <div className="mt-0.5 text-[15px] font-bold tracking-[-0.02em] text-ink">{TEL_MAIN}</div>
+                  <div className="text-[12px] font-medium text-muted">제휴 · 기타 문의</div>
+                  <div className="mt-0.5 text-[15px] font-bold tracking-[-0.02em] text-ink">
+                    {MAIL_OFFICIAL}
+                  </div>
                 </div>
                 <span className="text-brand">→</span>
               </a>
@@ -165,6 +181,14 @@ export function Contact() {
                         label="연락처"
                         type="tel"
                         placeholder="010-0000-0000"
+                        required
+                      />
+                      {/* 지역 — 제주 제외 원칙 + 기존 가맹점 영업권 보호를 접수 단계에서 거른다 */}
+                      <Field
+                        id="f-area"
+                        name="지역"
+                        label="매장 지역"
+                        placeholder="예: 경기 수원시"
                         required
                       />
                     </div>
@@ -228,8 +252,8 @@ export function Contact() {
                       </summary>
                       <div className="mt-3 space-y-1.5 text-[12px] leading-relaxed text-body">
                         <p>
-                          <b className="text-ink">수집 항목</b> · 매장명·브랜드명, 성함, 연락처, 관심 분야,
-                          문의 내용
+                          <b className="text-ink">수집 항목</b> · 매장명·브랜드명, 성함, 연락처, 지역, 관심
+                          분야, 문의 내용
                         </p>
                         <p>
                           <b className="text-ink">이용 목적</b> · 도입 상담 및 문의 응대
@@ -245,7 +269,7 @@ export function Contact() {
                         <p className="pt-1">
                           본 사이트는 서비스 개선과 광고 성과 측정을 위해 Google Analytics, Meta Pixel을
                           사용하며, 이 과정에서 쿠키를 통한 방문 기록이 수집될 수 있습니다. 개인정보 관련
-                          문의: {MAIL}
+                          문의: {MAIL_OFFICIAL}
                         </p>
                       </div>
                     </details>
@@ -338,11 +362,11 @@ export function Footer() {
             <a href={INSTA} target="_blank" rel="noopener noreferrer" className="hover:text-gold">
               Instagram @sanbang_official
             </a>
-            <a href={`mailto:${MAIL}`} className="hover:text-gold">
-              {MAIL}
+            <a href={`mailto:${MAIL_OFFICIAL}`} className="hover:text-gold">
+              {MAIL_OFFICIAL}
             </a>
-            <a href={`tel:+82${TEL_MAIN.replace(/^0/, "").replace(/-/g, "")}`} className="hover:text-gold">
-              {TEL_MAIN}
+            <a href={tel(TEL_INQUIRY)} className="hover:text-gold">
+              도입 문의 {TEL_INQUIRY}
             </a>
           </div>
         </div>

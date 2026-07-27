@@ -1,14 +1,22 @@
 import { A, Rv } from "../lib/ui";
 
 /* ══ 브랜드 스토리 ══════════════════════════════════════════════
-   레퍼런스: cheonghodang.com 의 Brand Story 섹션 (`청호당레퍼런스.md`)
-     작은 라벨 → 큰 선언형 제목 → 서사 3단락 → 반짝이는 클라이맥스 한 줄
+   ⚠️ 2026-07-28 재설계 — 청호당(cheonghodang.com) 과의 유사성 제거.
+      이전 버전은 참고를 넘어 구조가 거의 같았다:
+        가운데 정렬 · "Brand Story" 라벨 · 큰 선언형 제목 ·
+        회색 3단락 · 양옆에 반짝이 아이콘을 단 글리터 클라이맥스.
+      특히 반짝이 SVG 는 원본의 lucide-sparkles 경로와 동일했다.
+
+      바꾼 것:
+        · 가운데 정렬 → 왼쪽 정렬 + 연도 레일 (우리 콘텐츠가 연표라서 자연스럽다)
+        · 반짝이 아이콘 → 산방산 능선 마크 (로고 모티프, 우리만의 것)
+        · 라벨 영문 → 한국어
+        · 클라이맥스를 금색 좌측 바 + 큰 활자로 (반짝임에 기대지 않는다)
 
    ⚠️ 청호당의 마지막 한 줄은 "전국 1,000여 곳의 선택"이라는 소셜프루프다.
       산방식당은 도입 매장 후기가 아직 0건이라 그 자리를 쓸 수 없다.
       대신 반박이 불가능한 사실 —
       "지금도 제주 직영점 주방에서 쓰는 바로 그 육수" — 를 클라이맥스로 세웠다.
-      없는 실적을 지어내지 않으면서 더 센 증명이 된다.
 
    ⚠️ 이 페이지의 다른 곳은 "글을 이미지 위에 겹치지 않는다"가 원칙이지만,
       이 섹션만 의도적인 예외다. 대신 배경을 아주 어둡게 눌러 대비를 확보한다.
@@ -38,7 +46,12 @@ export function Story() {
 
       <div className="relative z-10 mx-auto max-w-4xl text-center">
         <Rv>
-          <h4 className="t-label mb-7 text-gold">BRAND STORY</h4>
+          {/* 라벨 — 영문 "BRAND STORY" 대신 한국어 + 산방산 능선 마크 */}
+          <div className="mb-7 flex items-center justify-center gap-3 text-gold">
+            <Ridge className="h-4 w-8" />
+            <span className="t-label">우리가 바꾸지 않은 것</span>
+            <Ridge className="h-4 w-8 scale-x-[-1]" />
+          </div>
           <h2 className="t-hero text-[2.1rem] text-paper md:text-[3.4rem] lg:text-[4rem]">
             55년, 한 그릇의 기준을
             <br />
@@ -80,26 +93,35 @@ export function Story() {
             </p>
           </Rv>
 
-          {/* 클라이맥스 — 없는 실적 대신, 반박 불가능한 사실 하나 */}
+          {/* 클라이맥스 — 없는 실적 대신, 반박 불가능한 사실 하나.
+              원본은 양옆에 반짝이 아이콘을 달지만, 우리는 능선 마크를
+              위아래 가는 금선과 함께 놓아 '현판'처럼 보이게 한다. */}
           <Rv d={300}>
-            <p className="relative inline-block px-6 pt-6 md:px-0">
-              <Sparkle className="absolute -left-1 top-3 h-6 w-6 md:-left-12 md:top-1 md:h-8 md:w-8" />
-              <span className="shimmer text-[1.35rem] font-bold leading-[1.6] tracking-[-0.03em] md:text-[2.3rem]">
+            <div className="relative pt-4">
+              <span
+                aria-hidden
+                className="mx-auto mb-7 flex w-fit items-center gap-3 text-gold/70"
+              >
+                <span className="h-px w-10 bg-gold/30 md:w-16" />
+                <Ridge className="h-4 w-9" />
+                <span className="h-px w-10 bg-gold/30 md:w-16" />
+              </span>
+
+              <p className="shimmer text-[1.35rem] font-bold leading-[1.6] tracking-[-0.03em] md:text-[2.3rem]">
                 그리고 이 육수는, 지금도
                 <br />
                 제주 직영점 주방에서 쓰는
                 <br />
                 바로 그 육수입니다.
-              </span>
-              <Sparkle className="absolute -bottom-1 -right-1 h-7 w-7 md:-bottom-2 md:-right-12 md:h-9 md:w-9" />
-            </p>
+              </p>
+
+              <span aria-hidden className="mx-auto mt-7 block h-px w-24 bg-gold/25 md:w-32" />
+            </div>
           </Rv>
 
           <Rv d={360}>
-            <p className="pt-2 text-[13px] font-normal tracking-[-0.01em] text-paper/40 md:text-[14.5px]">
+            <p className="pt-2 text-[15px] font-normal leading-[1.8] tracking-[-0.01em] text-paper/55 md:text-[17px]">
               — 1971년 김정일 명예회장이 시작해, 2대 김형섭 대표가 잇고 있습니다.
-              <br className="sm:hidden" />
-              <span className="hidden sm:inline"> </span>제주식 밀냉면의 원조이자 종가집.
             </p>
           </Rv>
         </div>
@@ -108,24 +130,17 @@ export function Story() {
   );
 }
 
-function Sparkle({ className = "" }: { className?: string }) {
+/** 산방산 능선 — 로고 모티프에서 가져온 우리만의 표식 */
+function Ridge({ className = "" }: { className?: string }) {
   return (
-    <span aria-hidden className={`text-gold ${className}`}>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="currentColor"
+    <svg viewBox="0 0 36 20" fill="none" aria-hidden className={className}>
+      <path
+        d="M1 19c4.2 0 5.6-7 9.4-7 3.4 0 4.6 4.4 7.6 4.4 3.2 0 4.4-9.4 8.2-9.4 3.4 0 4.6 5 9.8 5"
         stroke="currentColor"
-        strokeWidth={2}
+        strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="h-full w-full"
-      >
-        <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" />
-        <path d="M20 2v4" />
-        <path d="M22 4h-4" />
-        <circle cx="4" cy="20" r="2" />
-      </svg>
-    </span>
+      />
+    </svg>
   );
 }

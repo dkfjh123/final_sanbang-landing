@@ -1,5 +1,5 @@
 /** 실제 전송량 측정 — 첫 화면 / 전체 스크롤 */
-import puppeteer from "file:///C:/Users/dkfjh/devnew/projects/nip_landing/node_modules/puppeteer-core/lib/puppeteer/puppeteer-core.js";
+import puppeteer from "file:///C:/Users/dkfjh/devnew/projects/2026billion_20260130_niplanding/node_modules/puppeteer-core/lib/puppeteer/puppeteer-core.js";
 
 const URL = process.argv[2] || "http://127.0.0.1:4173/";
 const browser = await puppeteer.launch({
