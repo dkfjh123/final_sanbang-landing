@@ -3,7 +3,7 @@
  * fullPage 캡처는 긴 페이지에서 신뢰할 수 없어서, 실제 사용자가 보는 방식대로
  * 스크롤 위치별 뷰포트 캡처를 순서대로 찍는다.
  */
-import puppeteer from "file:///C:/Users/dkfjh/devnew/projects/2026billion_20260130_niplanding/node_modules/puppeteer-core/lib/puppeteer/puppeteer-core.js";
+import puppeteer from "file:///C:/Users/dkfjh/devnew/projects/nip_landing/node_modules/puppeteer-core/lib/puppeteer/puppeteer-core.js";
 
 const OUT = process.argv[2];
 const URL = process.argv[3] || "http://127.0.0.1:4173/";

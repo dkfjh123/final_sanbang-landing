@@ -12,6 +12,14 @@ const G = "G:/내 드라이브/2. Areas (G-Drive)/2. Brand_assets_산방식당";
 const SHOOT = `${G}/산방식당 사진/191107 산방식당 이미지 보정본 (3)`;
 const MENU = `${G}/산방식당 사진/산방식당_사진공유/매장메뉴 사진_산방식당`;
 const KIT = `${G}/산방식당 사진/산방식당_사진공유/밀키트관련 사진`;
+const PHOTO = `${G}/산방식당 사진`;
+const ARCHIVE = "G:/내 드라이브/_ARCHIVE_TEMP";
+
+/* 브랜드소개서(산방식당_브랜드소개서_202606.pptx)에서 추출한 컷.
+   PPTX 안에 묻혀 있어 매번 풀기 번거로우므로 프로젝트에 원본을 둔다(2.4MB).
+   원본 덱: G:/…/2. Brand_assets_산방식당/산방식당_브랜드소개서_메뉴솔루션/ */
+const DECK = "_deck_src";
+
 const OUT = "app/public/assets/web";
 
 mkdirSync(OUT, { recursive: true });
@@ -25,13 +33,31 @@ const jobs = [
   [`${SHOOT}/191025_JSS8306.jpg`, "menu-suyuk.webp", 1200, 80],      // 수육
   [`${SHOOT}/191025_JSS8317.jpg`, "menu-mandu.webp", 1200, 80],      // 산방만두(찜기)
 
+  // ── 브랜드소개서(2026.06) 공급품목 컷 ─────────────────────
+  //  소개서 순서 = 랜딩 순서. 생밀면 → 육수 → 비빔장 → 만두
+  [`${DECK}/noodle-hand.jpg`, "item-noodle.webp", 1000, 84], // ① 생밀면 — 손으로 든 생면
+  [`${DECK}/item-broth.jpg`, "item-broth.webp", 900, 84], // ② 산방육수 — 물밀냉면(세로)
+  [`${DECK}/item-bibim.jpg`, "item-bibim.webp", 900, 84], // ③ 산방비빔장 — 비빔밀냉면(세로)
+  [`${DECK}/item-mandu.jpg`, "item-mandu.webp", 1200, 84], // ④ 산방만두 — 찜기 5알
+  [`${DECK}/jeju-scenery.jpg`, "jeju-scenery.webp", 1600, 76], // 산방산·유채 (브랜드)
+  [`${DECK}/store-main-blue.png`, "store-main-blue.webp", 1000, 80], // 모슬포 본점 파란 건물
+  [`${DECK}/menuboard.jpeg`, "menuboard.webp", 1600, 80], // 제주 메뉴판 6종 그래픽
+
+  // ── 확장메뉴 실사 (2026-07-27 사장님 지정) ────────────────
+  //  ※ 촬영본에 없던 고기국수·김치찌개를 상위 폴더에서 확보했다.
+  //     덮밥 3종(고기·제육·낙지)은 여전히 사진이 없다 → 텍스트로만 노출.
+  [`${PHOTO}/고기국수 사진1.jpg`, "ext-gogiguksu.webp", 900, 78], // 고기국수
+  [`${PHOTO}/김치찌개 (2).JPG`, "ext-kimchijjigae.webp", 900, 78], // 김치찌개
+  [`${PHOTO}/만두온면 광고 .jpg`, "poster-manduonmyeon.webp", 900, 80], // 만두온면 포스터(문구 인쇄됨)
+  [`${ARCHIVE}/05.고명 올리는컷 (1).jpg`, "action-gomyeong.webp", 1400, 82], // 비빔 고명 액션컷
+
   // ── 확장메뉴 그리드 (표시 ~360px) ────────────────────────
   [`${SHOOT}/191025_JSS6224.jpg`, "ext-manduonmyeon.webp", 800, 78], // 만두온면
   [`${SHOOT}/191025_JSS7278.jpg`, "ext-mandutguk.webp", 800, 78],    // 만둣국
-  [`${SHOOT}/191025_JSS9425.jpg`, "ext-gukbap.webp", 800, 78],       // 수육국밥
-  [`${SHOOT}/191025_JSS9423.jpg`, "ext-onmyeon-top.webp", 800, 78],  // 만두온면 탑뷰
-  [`${SHOOT}/191025_JSS9370.jpg`, "ext-suyuk-top.webp", 800, 78],    // 수육 탑뷰
-  [`${SHOOT}/191025_JSS9413.jpg`, "ext-set.webp", 800, 78],          // 밀면+만두 조합
+  [`${SHOOT}/191025_JSS9427.jpg`, "ext-gukbap.webp", 800, 78],       // 수육국밥 (밥 포함 탑뷰)
+  [`${SHOOT}/191025_JSS9413.jpg`, "ext-set.webp", 800, 78],          // 물밀냉면 + 만두
+  [`${SHOOT}/191025_JSS9415.jpg`, "ext-bibimset.webp", 800, 78],     // 비빔밀냉면 + 만두
+  [`${SHOOT}/191025_JSS9379.jpg`, "ext-hansang.webp", 800, 78],      // 회식·단체 한 상
 
   // ── 분위기/디테일 ────────────────────────────────────────
   [`${SHOOT}/191025_JSS5136.jpg`, "mood-mil-dark.webp", 1200, 78],

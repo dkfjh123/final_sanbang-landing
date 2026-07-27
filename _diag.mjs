@@ -1,4 +1,4 @@
-import puppeteer from "file:///C:/Users/dkfjh/devnew/projects/2026billion_20260130_niplanding/node_modules/puppeteer-core/lib/puppeteer/puppeteer-core.js";
+import puppeteer from "file:///C:/Users/dkfjh/devnew/projects/nip_landing/node_modules/puppeteer-core/lib/puppeteer/puppeteer-core.js";
 
 const browser = await puppeteer.launch({
   executablePath: "C:/Program Files/Google/Chrome/Application/chrome.exe",

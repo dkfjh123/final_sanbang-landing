@@ -1,3 +1,9 @@
 node_modules/
 .DS_Store
 *.local
+
+# 웹 변환 전 원본 소스 (devnew 헌법 1번: 원본은 클라우드, 프로젝트엔 웹용 사본만)
+#   _fonts_src/ (TTF 17.8MB) → assets/fonts/*-subset.woff2 (42KB) 로 변환 완료
+#   _deck_src/  (JPG/PNG 2.4MB) → assets/web/*.webp 로 변환 완료
+_fonts_src/
+_deck_src/
