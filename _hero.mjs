@@ -3,7 +3,9 @@
  *   node _hero.mjs <저장폴더> [URL]
  * 데스크톱 1440·모바일 390 두 장을 첫 화면 그대로 찍는다.
  */
-import puppeteer from "file:///C:/Users/dkfjh/devnew/projects/2026billion_20260130_niplanding/node_modules/puppeteer-core/lib/puppeteer/puppeteer-core.js";
+// 2026-07-29: 다른 프로젝트 node_modules 를 절대경로로 빌려 쓰다가 그 폴더가
+// 사라져 죽어 있었다. 이 프로젝트에 직접 설치했다.
+import puppeteer from "puppeteer-core";
 
 const OUT = process.argv[2];
 const URL = process.argv[3] || "http://127.0.0.1:5173/";

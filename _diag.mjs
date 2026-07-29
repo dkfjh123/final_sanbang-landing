@@ -1,4 +1,6 @@
-import puppeteer from "file:///C:/Users/dkfjh/devnew/projects/2026billion_20260130_niplanding/node_modules/puppeteer-core/lib/puppeteer/puppeteer-core.js";
+// 2026-07-29: 다른 프로젝트 node_modules 를 절대경로로 빌려 쓰다가 그 폴더가
+// 사라져 죽어 있었다. 이 프로젝트에 직접 설치했다.
+import puppeteer from "puppeteer-core";
 
 const browser = await puppeteer.launch({
   executablePath: "C:/Program Files/Google/Chrome/Application/chrome.exe",

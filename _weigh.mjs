@@ -1,5 +1,7 @@
 /** 실제 전송량 측정 — 첫 화면 / 전체 스크롤 */
-import puppeteer from "file:///C:/Users/dkfjh/devnew/projects/2026billion_20260130_niplanding/node_modules/puppeteer-core/lib/puppeteer/puppeteer-core.js";
+// 2026-07-29: 다른 프로젝트 node_modules 를 절대경로로 빌려 쓰다가 그 폴더가
+// 사라져 죽어 있었다. 이 프로젝트에 직접 설치했다.
+import puppeteer from "puppeteer-core";
 
 const URL = process.argv[2] || "http://127.0.0.1:4173/";
 const browser = await puppeteer.launch({

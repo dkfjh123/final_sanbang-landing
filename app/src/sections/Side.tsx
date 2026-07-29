@@ -1,4 +1,4 @@
-import { A, Cta, GlowCard, Label, Rv, Section } from "../lib/ui";
+import { GlowCard, Rv, Section, TITLE_GRADIENT } from "../lib/ui";
 
 /* ══ 신규 섹션 3종 (2026-07-28) ═════════════════════════════════
    기획: 랜딩페이지_기획안/03·04·05
@@ -23,18 +23,94 @@ const NINE = [
 ];
 const TEN = ["불 조절과 타이밍", "담음새 · 고명", "곁들임 구성", "이 가게만의 변주"];
 
+/* 카드 한 장 — 숫자를 카드의 얼굴로 세운다.
+   이 섹션의 주인공은 90 과 10 두 숫자인데, 예전엔 11px 라벨("산방식당이 90%")
+   안에 묻혀 있어서 정작 안 읽혔다. 숫자를 카드 맨 위에 크게 놓고 그 아래로
+   설명이 흐르게 바꿨다. 카드 생김새도 다른 섹션 카드(라운드 32px)에 맞췄다. */
+function SplitCard({
+  n,
+  who,
+  lead,
+  items,
+  own,
+}: {
+  n: string;
+  who: string;
+  lead: React.ReactNode;
+  items: string[];
+  /** 산방식당 몫이면 true — 색과 마크가 달라진다 */
+  own: boolean;
+}) {
+  return (
+    <div
+      className={`h-full rounded-[32px] border p-8 md:p-10 ${
+        own
+          ? "border-brand/35 bg-gradient-to-br from-warm-2 via-warm to-paper"
+          : "border-line bg-paper"
+      }`}
+    >
+      <div
+        className={`font-extrabold ${own ? "text-brand" : "text-ink/35"}`}
+        style={{ fontSize: "clamp(3.2rem, 6.5vw, 5.2rem)", lineHeight: 0.9, letterSpacing: "-0.06em" }}
+      >
+        {n}
+      </div>
+      <div
+        className={`mt-3 font-extrabold tracking-[-0.03em] ${own ? "text-ink" : "text-body"}`}
+        style={{ fontSize: "clamp(1.05rem, 1.8vw, 1.4rem)" }}
+      >
+        {who}
+      </div>
+
+      <p className="mt-4 text-body" style={{ fontSize: "clamp(14.5px, 1.5vw, 16.5px)", lineHeight: 1.72 }}>
+        {lead}
+      </p>
+
+      <ul className="mt-8 space-y-3.5">
+        {items.map((t) => (
+          <li
+            key={t}
+            className="flex items-start gap-3 font-semibold text-ink"
+            style={{ fontSize: "clamp(15px, 1.6vw, 17px)" }}
+          >
+            <span
+              className={`mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[11px] font-bold ${
+                own ? "bg-brand text-white" : "border border-line bg-warm text-body"
+              }`}
+            >
+              {own ? "✓" : "·"}
+            </span>
+            {t}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 export function NineTen() {
   return (
     <Section bg="warm">
       <Rv>
-        <Label>공급 구조</Label>
-        <h2 className="t-h2 max-w-3xl text-[1.9rem] md:text-[2.5rem]">
+        {/* ⚠️ 90%·10% 에 걸려 있던 text-brand span 은 뺐다 — 제목에 그라디언트가
+            걸리면 그 부분만 색이 튄다. 두 숫자의 강조는 아래 카드가 맡는다. */}
+        <h2
+          className="mx-auto max-w-[16em] text-center font-extrabold"
+          style={{
+            ...TITLE_GRADIENT,
+            fontSize: "clamp(1.85rem, 4vw, 3.1rem)",
+            lineHeight: 1.18,
+            letterSpacing: "-0.04em",
+          }}
+        >
           완제품을 드리지 않습니다.
           <br />
-          <span className="text-brand">90%</span>를 드리고, 마지막{" "}
-          <span className="text-brand">10%</span>는 남깁니다.
+          90%를 드리고, 마지막 10%는 남깁니다.
         </h2>
-        <p className="t-body mt-7 max-w-2xl text-[15.5px]">
+        <p
+          className="mx-auto mt-6 max-w-[680px] text-center text-body"
+          style={{ fontSize: "clamp(15.5px, 1.6vw, 18px)", lineHeight: 1.7 }}
+        >
           데우기만 하면 끝나는 완제품은 편합니다. 그런데 그 편리함이{" "}
           <strong className="font-bold text-ink">어디서 먹어도 같은 맛</strong>을 만듭니다.
         </p>
@@ -42,48 +118,39 @@ export function NineTen() {
 
       <div className="mt-14 grid gap-5 md:grid-cols-2">
         <Rv>
-          <div className="h-full rounded-[24px] border border-brand/30 bg-gradient-to-br from-warm-2 via-warm to-paper p-8 md:p-10">
-            <div className="t-label mb-5 text-brand">산방식당이 90%</div>
-            <p className="t-body mb-7 text-[14.5px]">
-              누가 만들어도 흔들리지 않는 <strong className="font-bold text-ink">‘핵심 맛’</strong>은
-              저희가 책임집니다.
-            </p>
-            <ul className="space-y-3">
-              {NINE.map((t) => (
-                <li key={t} className="flex items-start gap-3 text-[14.5px] font-semibold text-ink">
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand text-[11px] font-bold text-white">
-                    ✓
-                  </span>
-                  {t}
-                </li>
-              ))}
-            </ul>
-          </div>
+          <SplitCard
+            n="90%"
+            who="산방식당이 책임집니다"
+            lead={
+              <>
+                누가 만들어도 흔들리지 않는 <strong className="font-bold text-ink">‘핵심 맛’</strong>.
+              </>
+            }
+            items={NINE}
+            own
+          />
         </Rv>
 
         <Rv d={110}>
-          <div className="h-full rounded-[24px] border border-line bg-paper p-8 md:p-10">
-            <div className="t-label mb-5 text-muted">사장님이 10%</div>
-            <p className="t-body mb-7 text-[14.5px]">
-              마지막 10%가 사장님 손에 남기 때문에,{" "}
-              <strong className="font-bold text-ink">‘이 가게 맛’</strong>이 됩니다.
-            </p>
-            <ul className="space-y-3">
-              {TEN.map((t) => (
-                <li key={t} className="flex items-start gap-3 text-[14.5px] font-semibold text-ink">
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-line bg-warm text-[11px] font-bold text-body">
-                    ·
-                  </span>
-                  {t}
-                </li>
-              ))}
-            </ul>
-          </div>
+          <SplitCard
+            n="10%"
+            who="사장님 손에 남깁니다"
+            lead={
+              <>
+                이 마지막 10% 때문에 <strong className="font-bold text-ink">‘이 가게 맛’</strong>이 됩니다.
+              </>
+            }
+            items={TEN}
+            own={false}
+          />
         </Rv>
       </div>
 
       <Rv d={160}>
-        <p className="mt-12 text-center text-[17px] font-bold tracking-[-0.02em] text-ink md:text-[21px]">
+        <p
+          className="mx-auto mt-14 max-w-[900px] text-center font-extrabold tracking-[-0.035em] text-ink"
+          style={{ fontSize: "clamp(1.2rem, 2.6vw, 2rem)", lineHeight: 1.45 }}
+        >
           산방식당 맛을 파는 게 아니라, <br className="sm:hidden" />
           산방식당 베이스로 만든 <span className="text-brand">사장님 가게 맛</span>을 파시는 겁니다.
         </p>
@@ -92,152 +159,11 @@ export function NineTen() {
   );
 }
 
-/* ══ 초격차 사이드 — 겨울 매출 방어선 ═══════════════════════════ */
-const SEASON: [string, string, string][] = [
-  ["여름", "성수기", "보조"],
-  ["겨울", "급락", "매출 방어선"],
-];
-
-export function Winter() {
-  return (
-    <section id="side" className="bg-ink px-5 py-24 md:px-8 md:py-[120px]">
-      <div className="mx-auto w-full max-w-[1200px]">
-        {/* 앞 섹션(확장 메뉴)에서 자연스럽게 이어받는다.
-            "겨울에 어떻게 버티냐"는 위협으로 읽혀 흐름이 끊긴다.
-            조합의 제안으로 열고, 계절성은 뒤에서 근거로 붙인다. */}
-        <Rv>
-          <div className="t-label mb-5 flex items-center gap-2.5 text-gold">
-            <span className="h-px w-6 bg-gold/45" />
-            한 걸음 더
-          </div>
-          <h2 className="t-h2 max-w-4xl text-[1.9rem] text-paper md:text-[2.5rem]">
-            검증된 밀면에,
-            <br />
-            <span className="text-gold">브랜드육 돈까스</span>라면?
-          </h2>
-          <p className="mt-7 max-w-2xl text-[16px] leading-[1.9] text-paper/75 md:text-[17.5px]">
-            여름엔 밀면이 끌고, 겨울엔 돈까스가 받칩니다.{" "}
-            <strong className="font-semibold text-paper">
-              밀면집이 오래전부터 써 온 조합
-            </strong>
-            이고 — 저희는 그 사이드를 재료부터 다르게 만듭니다.
-          </p>
-        </Rv>
-
-        {/* 계절 표 */}
-        <Rv d={110}>
-          <div className="mt-12 overflow-hidden rounded-[24px] border border-paper/15">
-            <div className="grid grid-cols-3 bg-paper/10 text-[12.5px] font-bold tracking-[0.02em] text-paper/60">
-              <div className="px-4 py-4 md:px-7">계절</div>
-              <div className="px-4 py-4 md:px-7">밀면</div>
-              <div className="px-4 py-4 md:px-7">사이드</div>
-            </div>
-            {SEASON.map(([s, m, side], i) => (
-              <div
-                key={s}
-                className={`grid grid-cols-3 text-[14px] md:text-[15px] ${
-                  i === 1 ? "bg-gold/10" : ""
-                } border-t border-paper/10`}
-              >
-                <div className="px-4 py-5 font-bold text-paper md:px-7">{s}</div>
-                <div className="px-4 py-5 text-paper/55 md:px-7">{m}</div>
-                <div
-                  className={`px-4 py-5 md:px-7 ${
-                    i === 1 ? "font-bold text-gold" : "text-paper/55"
-                  }`}
-                >
-                  {side}
-                </div>
-              </div>
-            ))}
-          </div>
-        </Rv>
-
-        {/* 돈까스 히어로 + 초격차 정의 */}
-        <div className="mt-16 grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          <Rv>
-            <img
-              src={`${A}/katsu-hero.webp`}
-              alt="두툼한 돈까스 단면 — 브랜드육 부위와 두께를 지정해 만든 사이드메뉴"
-              width={1000}
-              height={1250}
-              loading="lazy"
-              decoding="async"
-              className="aspect-[4/5] w-full rounded-[24px] object-cover"
-            />
-          </Rv>
-
-          <Rv d={110}>
-            <p className="text-[22px] font-extrabold leading-[1.4] tracking-[-0.03em] text-paper md:text-[28px]">
-              “아무 냉동 돈까스나 넣으면
-              <br />
-              <span className="text-gold">손님이 압니다.”</span>
-            </p>
-
-            <div className="mt-9 rounded-[24px] border border-paper/15 bg-paper/5 p-7 md:p-8">
-              <div className="t-label mb-4 text-gold">‘초격차’란</div>
-              <p className="text-[15px] leading-[1.85] text-paper/80">
-                매장에서 <strong className="font-semibold text-paper">재현하기 쉬운 형태</strong>는
-                유지하면서, <strong className="font-semibold text-paper">재료와 스펙</strong>으로 격차를
-                만든 자리. 지금 시장에서 이 자리는 비어 있습니다.
-              </p>
-
-              <div className="mt-7 grid grid-cols-2 gap-3 text-[13px]">
-                {[
-                  ["일반 냉동 완제품", "편한데 어디나 같은 맛", false],
-                  ["생고기 직접 손질", "손 많이 가고 숙련 필요", false],
-                  ["초격차 사이드", "편하면서 여기만의 맛", true],
-                ].map(([t, d, on]) => (
-                  <div
-                    key={t as string}
-                    className={`rounded-[16px] border p-4 ${
-                      on ? "col-span-2 border-gold/40 bg-gold/10" : "border-paper/12 bg-paper/[0.03]"
-                    }`}
-                  >
-                    <div className={`mb-1 font-bold ${on ? "text-gold" : "text-paper/70"}`}>
-                      {t as string}
-                    </div>
-                    <div className="text-paper/45">{d as string}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </Rv>
-        </div>
-
-        {/* 샘플 오퍼 */}
-        <Rv d={140}>
-          <div className="mt-14 grid items-center gap-10 rounded-[24px] border border-gold/25 bg-paper/[0.04] p-8 md:grid-cols-[1.1fr_1fr] md:p-12">
-            <div>
-              <p className="text-[21px] font-extrabold leading-[1.45] tracking-[-0.03em] text-paper md:text-[26px]">
-                말로 설명하지 않겠습니다.
-                <br />
-                <span className="text-gold">샘플을 보내드립니다.</span>
-              </p>
-              <p className="mt-5 text-[14.5px] leading-[1.9] text-paper/70">
-                공급 형태는 매장 주방에 맞춰 정합니다. 직접 튀겨 보시고 판단하시는 게 가장 빠릅니다.
-              </p>
-              <div className="mt-8">
-                <Cta href="#contact" where="side-sample">
-                  샘플 요청하기
-                </Cta>
-              </div>
-            </div>
-            <img
-              src={`${A}/katsu-frying.webp`}
-              alt="굵은 빵가루를 입힌 돈까스를 튀기는 공정"
-              width={900}
-              height={900}
-              loading="lazy"
-              decoding="async"
-              className="aspect-square w-full rounded-[20px] object-cover"
-            />
-          </div>
-        </Rv>
-      </div>
-    </section>
-  );
-}
+/* 샘플 오퍼 블록(“말로 설명하지 않겠습니다 / 샘플을 보내드립니다” + 샘플
+   요청 CTA + katsu-frying 사진)은 2026-07-29 사용자 지시로 삭제했다.
+   원래 `#side` 다크 섹션의 마지막 블록이었다.
+   ⚠️ 이 페이지에서 '샘플 시식'을 오퍼로 쓰던 유일한 자리였다
+      (기획 05_초격차사이드). 되살릴 일이 있으면 git 이력에서 꺼낼 것. */
 
 /* ══ 브랜드육 ═══════════════════════════════════════════════════ */
 const MEAT: [string, string, string][] = [
@@ -287,21 +213,40 @@ export function BrandMeat() {
   return (
     <Section bg="paper">
       <Rv>
-        <Label>브랜드육</Label>
-        <h2 className="t-h2 max-w-3xl text-[1.9rem] md:text-[2.5rem]">
-          브랜드육을,
+        <h2
+          className="mx-auto max-w-[16em] text-center font-extrabold"
+          style={{
+            ...TITLE_GRADIENT,
+            fontSize: "clamp(1.85rem, 4vw, 3.1rem)",
+            lineHeight: 1.18,
+            letterSpacing: "-0.04em",
+          }}
+        >
+          그래서 고기부터
           <br />
-          <span className="text-brand">어디보다 경쟁력 있게.</span>
+          다시 봤습니다.
         </h2>
-        <p className="t-body mt-7 max-w-2xl text-[15.5px]">
-          사이드메뉴는 <strong className="font-bold text-ink">브랜드육 전문</strong> 파트너와 함께
-          만듭니다. 고기는 사장님이 가장 알기 어려운 영역이고, 그래서 가장 크게 벌어지는 곳입니다.
+        {/* ⚠️ 두 가지를 지킨다.
+            ① 주어를 업체로 넘기지 않는다 — "○○사는 …" 이 아니라 "저희가
+               지정합니다". 넘기는 순간 '협력업체 소개'가 된다(사용자 우려).
+            ② 부정형("직접 만들지 않습니다")을 쓰지 않는다 — 변명처럼 읽힌다.
+               '함께 준비해 온 파트너'라는 긍정형으로 같은 사실을 말한다.
+            업체명(민들레푸드)은 끝까지 쓰지 않는다 → 08_금지선 */}
+        <p
+          className="mx-auto mt-6 max-w-[680px] text-center text-body"
+          style={{ fontSize: "clamp(15.5px, 1.6vw, 18px)", lineHeight: 1.7 }}
+        >
+          2019년부터 같은 방향을 준비해 온 파트너사와 함께,{" "}
+          <strong className="font-bold text-ink">부위 · 두께 · 염지 · 빵가루까지 지정</strong>해 만듭니다.
+          고기는 사장님이 가장 알기 어려운 영역이고, 그래서 가장 크게 벌어지는 곳입니다.
         </p>
       </Rv>
 
+      {/* 비교표 — 오른쪽(브랜드육) 열의 글씨를 키워 체급을 벌린다.
+          비교 섹션(부산 vs 제주)에서 쓴 것과 같은 방식이라 페이지 안에서 일관된다. */}
       <Rv d={110}>
         <div className="mt-12 overflow-hidden rounded-[24px] border border-line">
-          <div className="grid grid-cols-[0.8fr_1fr_1.2fr] bg-warm text-[12.5px] font-bold tracking-[0.02em] text-muted">
+          <div className="grid grid-cols-[0.7fr_1fr_1.3fr] bg-warm text-[12.5px] font-bold tracking-[0.02em] text-muted md:text-[13.5px]">
             <div className="px-4 py-4 md:px-7">구분</div>
             <div className="px-4 py-4 md:px-7">일반 돈육</div>
             <div className="bg-brand/8 px-4 py-4 text-brand md:px-7">브랜드육</div>
@@ -309,28 +254,36 @@ export function BrandMeat() {
           {MEAT.map(([k, a, b], i) => (
             <div
               key={k}
-              className={`grid grid-cols-[0.8fr_1fr_1.2fr] text-[13.5px] md:text-[14.5px] ${
-                i ? "border-t border-line" : ""
-              }`}
+              className={`grid grid-cols-[0.7fr_1fr_1.3fr] items-center ${i ? "border-t border-line" : ""}`}
             >
-              <div className="px-4 py-5 font-bold text-ink md:px-7">{k}</div>
-              <div className="px-4 py-5 text-muted md:px-7">{a}</div>
-              <div className="bg-brand/8 px-4 py-5 font-semibold text-ink md:px-7">{b}</div>
+              <div className="px-4 py-5 text-[13px] font-bold text-ink md:px-7 md:text-[14px]">{k}</div>
+              <div className="px-4 py-5 text-[12.5px] text-muted md:px-7 md:text-[13.5px]">{a}</div>
+              <div
+                className="bg-brand/8 px-4 py-5 font-bold text-ink md:px-7"
+                style={{ fontSize: "clamp(14px, 1.8vw, 18px)", letterSpacing: "-0.025em" }}
+              >
+                {b}
+              </div>
             </div>
           ))}
         </div>
       </Rv>
 
-      <div className="mt-14 grid gap-10 md:grid-cols-3 md:gap-5">
+      {/* 카드 세로를 줄였다(272 → 200). 글이 짧은 카드라 높이가 남으면
+          위쪽에 빈 공간만 생겨 '덜 채운 카드'로 보인다. */}
+      <div className="mt-14 grid gap-8 md:grid-cols-3 md:gap-5">
         {EDGE.map((c, i) => (
           <Rv key={c.t} d={i * 110}>
-            <GlowCard g={c.g} icon={c.icon} title={c.t} body={c.d} minH={272} />
+            <GlowCard g={c.g} icon={c.icon} title={c.t} body={c.d} minH={200} />
           </Rv>
         ))}
       </div>
 
       <Rv d={160}>
-        <p className="t-body mt-10 max-w-3xl text-[15px]">
+        <p
+          className="mx-auto mt-12 max-w-[760px] text-center text-body"
+          style={{ fontSize: "clamp(15px, 1.6vw, 17.5px)", lineHeight: 1.7 }}
+        >
           밀면과 세트로 구성하면 여름·겨울이 서로를 받쳐 줍니다. 어떤 조합이 맞을지는 매장을 보고
           제안드립니다.
         </p>
@@ -347,13 +300,27 @@ export function JejuOnly() {
     <section className="bg-dusk px-5 py-20 md:px-8 md:py-24">
       <div className="mx-auto w-full max-w-[900px] text-center">
         <Rv>
-          <div className="t-label mb-6 text-brand">단 하나의 조건</div>
-          <p className="t-h2 text-[1.7rem] leading-[1.45] md:text-[2.3rem]">
-            제주에서는 <span className="text-brand">진행하지 않습니다.</span>
+          {/* 눈썹 라벨('단 하나의 조건')은 걷어냈다 — 페이지 전체에서 작은
+              라벨을 없애기로 했다(사용자 지시 2026-07-29).
+              ⚠️ '진행하지 않습니다'에 걸려 있던 text-brand span 도 뺐다.
+                 제목 전체에 그라디언트가 걸리므로 거기만 단색이면 색이 튄다. */}
+          <h2
+            className="mx-auto max-w-[15em] font-extrabold"
+            style={{
+              ...TITLE_GRADIENT,
+              fontSize: "clamp(1.7rem, 3.8vw, 2.9rem)",
+              lineHeight: 1.32,
+              letterSpacing: "-0.04em",
+            }}
+          >
+            제주에서는 진행하지 않습니다.
             <br />
             제주의 가치는 제주에서 지킵니다.
-          </p>
-          <p className="t-body mx-auto mt-8 max-w-lg text-[15px]">
+          </h2>
+          <p
+            className="mx-auto mt-7 max-w-[620px] text-body"
+            style={{ fontSize: "clamp(15px, 1.6vw, 17.5px)", lineHeight: 1.75 }}
+          >
             이미 자리를 지키고 계신 제주 매장들의 상권을 지키기 위한 원칙입니다.
             <br className="hidden sm:block" />
             <strong className="font-bold text-ink">

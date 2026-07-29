@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  검색엔진에 "이 사이트에 어떤 페이지가 있는지" 알려주는 목록.
+  이 랜딩은 한 장짜리라 항목이 하나뿐이지만, 있으면 구글·네이버가
+  훨씬 빨리 수집한다. 없으면 404 였다(2026-07-29 이전).
+
+  ⚠️ lastmod 는 자동 갱신되지 않는다. 내용을 크게 고치면 손으로 날짜를 바꿀 것.
+  ⚠️ privacy.html 은 일부러 넣지 않았다 — 검색 결과에 뜰 이유가 없어
+     그 페이지에 noindex 를 걸어 뒀다.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://sanbangjeju.com/</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>

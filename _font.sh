@@ -17,13 +17,21 @@ PY=/c/ProgramData/anaconda3/python.exe
 SRC="_fonts_src/JejuHallasan.ttf"
 OUT="app/public/assets/fonts/JejuHallasan-subset.woff2"
 
-# 히어로 제목에 쓰는 글자 + 나중에 문구를 조금 손봐도 깨지지 않게 여유분
+# 제주서체를 쓰는 글자 + 나중에 문구를 조금 손봐도 깨지지 않게 여유분
+#
+#  ⚠️ 제주서체는 '악센트 한 줄'에만 쓴다(현재: 히어로 눈썹 문구).
+#     본문까지 넓히면 서브셋이 커져서 첫 화면이 무거워진다.
+#     문구를 바꾸면 그 글자를 아래에 넣고 `bash _font.sh` 를 다시 돌릴 것.
+#     빠진 글자는 대체 폰트로 떨어져 한 문장에 두 서체가 섞여 보인다.
 TEXT=$(cat <<'EOF'
 간판은그대로년을이어온맛갑니다바꿉검증된들여오세요
 제주산방식당모슬포밀냉면육수비빔전용장생만두국밥
 온둣확장메뉴도확인공급품목급식단체회사대표브랜드
 한상차림겨자고추장멸치오래끓인가게손님줄서는집
-0123456789.,·-~!?()'"
+식사님위솔루션반세기당신매으우리입합족경영
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+abcdefghijklmnopqrstuvwxyz
+0123456789.,·-~!?()'" &
 EOF
 )
 

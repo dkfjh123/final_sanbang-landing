@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { A, Cta, Rv, TEL_INQUIRY, tel, track } from "../lib/ui";
+import { A, Cta, Rv, TEL_INQUIRY, track } from "../lib/ui";
 
 /* ══ 히어로 앰비언스 ════════════════════════════════════════════
    격자가 커서를 따라 아주 살짝 흐르고, 따뜻한 글로우가 뒤따른다.
@@ -128,8 +128,9 @@ export function Nav() {
             ["#solution", "메뉴솔루션"],
             ["#items", "공급 품목"],
             ["#extend", "확장 메뉴"],
-            ["#side", "겨울 사이드"],
-            ["#partner", "브랜드 파트너"],
+            /* 뺀 메뉴 (2026-07-29 · 해당 섹션이 사라져 주소가 없다)
+                 · '겨울 사이드'(#side) — 돈까스를 공급 품목 05번으로 편입
+                 · '브랜드 파트너'(#partner) — 프리미엄 트랙 섹션 삭제 */
           ].map(([h, t]) => (
             <a key={h} href={h} className="transition-colors duration-150 hover:text-brand">
               {t}
@@ -138,14 +139,12 @@ export function Nav() {
         </nav>
 
         <div className="flex items-center gap-2">
-          {/* 폼을 안 쓰고 바로 거는 사람 — 데스크톱에서 번호를 그대로 노출 */}
-          <a
-            href={tel(TEL_INQUIRY)}
-            onClick={() => track("nav-tel")}
-            className="hidden text-[14px] font-bold tracking-[-0.01em] text-ink transition-colors duration-150 hover:text-brand md:block"
-          >
+          {/* 번호는 보여 주되 누르면 걸리지 않는다 — 사용자 지시 2026-07-29.
+              연락은 문의 폼 한 곳으로만 받는다. 그래서 <a> 가 아니라 <span> 이고
+              호버 반응도 없다(눌러도 반응 없는 링크는 고장으로 읽힌다). */}
+          <span className="hidden text-[14px] font-bold tracking-[-0.01em] text-ink md:block">
             {TEL_INQUIRY}
-          </a>
+          </span>
           <a
             href="#contact"
             onClick={() => track("nav")}
@@ -172,13 +171,19 @@ export function Hero() {
     <section id="top" className="bg-dawn relative overflow-hidden px-5 pt-16 md:px-8 md:pt-[70px]">
       <HeroAmbience />
       <div className="relative mx-auto w-full max-w-[1100px] pb-16 pt-14 text-center md:pb-24 md:pt-20">
-        {/* 광고로 들어온 사람에게 "이게 뭔지"를 한국어로 즉시 말한다 */}
+        {/* 광고로 들어온 사람에게 "이게 뭔지"를 한국어로 즉시 말한다.
+            제주한라산체로 크게 — 첫 줄에서 '제주'를 글자 질감으로 먼저 전한다.
+            "SINCE 1971"은 뺐다. 바로 아래 배지 줄에 이미 있고, 한 줄이 길어지면
+            모바일에서 어정쩡하게 두 줄로 접힌다. (h1도 '반세기'로 받는다)
+            ⚠️ 이 문구를 바꾸면 `bash _font.sh` 를 다시 돌릴 것 */}
         <Rv>
-          <div className="t-label text-brand">식당 사장님을 위한 메뉴솔루션 · SINCE 1971</div>
+          <div className="t-jeju text-brand text-[clamp(22px,5.2vw,36px)]">
+            식당 사장님을 위한 메뉴솔루션
+          </div>
         </Rv>
 
         <Rv d={80}>
-          <h1 className="t-hero mx-auto mt-6 max-w-[13em] text-[2.4rem] sm:text-[3.2rem] lg:text-[4.1rem]">
+          <h1 className="t-hero mx-auto mt-5 max-w-[13em] text-[2.4rem] sm:text-[3.2rem] lg:text-[4.1rem]">
             제주의 반세기,
             <br />
             이제 <span className="text-brand">당신의 매장</span>으로.
@@ -198,25 +203,28 @@ export function Hero() {
         </Rv>
 
         <Rv d={240}>
-          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          {/* 히어로의 전화번호는 뺐다(사용자 지시 2026-07-29). 전화가 안 걸리게
+              된 마당에 첫 화면에 번호를 크게 두면 누르게 되고, 그때 아무 일도
+              일어나지 않는다. 첫 화면의 행동은 '도입 상담 신청' 하나로 모은다. */}
+          <div className="mt-10 flex justify-center">
             <Cta href="#contact" where="hero-primary">
               도입 상담 신청
             </Cta>
-            <a
-              href={tel(TEL_INQUIRY)}
-              onClick={() => track("hero-tel")}
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-ink/20 bg-paper/70 px-8 py-4 text-[15px] font-semibold text-ink transition-colors duration-150 hover:border-ink hover:bg-ink hover:text-paper"
-            >
-              {TEL_INQUIRY}
-            </a>
           </div>
         </Rv>
 
+        {/* 신뢰 배지 — 크기만 키우고 서체는 기본(Pretendard)으로 둔다.
+            제주 서체는 눈썹 한 줄에만 써서 그 줄에 시선이 가게 한다.
+            위아래 둘 다 거친 서체면 악센트가 악센트로 안 읽힌다.
+
+            네 개에서 두 개로 줄였다. 나머지 둘은 페이지 안에 이미 제자리가 있다
+            (직영 3개점 → Brand의 매장 섹션 / HACCP → Items·Partnership).
+            배지가 길어지면 모바일에서 두 줄로 접히며 구분선이 줄 맨 앞에 남는다. */}
         <Rv d={320}>
-          <div className="mt-9 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[12.5px] font-medium text-muted">
-            {["Since 1971", "2대 가족경영", "직영 3개점", "HACCP 인증 시설 제조"].map((b, i) => (
-              <span key={b} className="flex items-center gap-5">
-                {i > 0 && <span className="h-3 w-px bg-line" />}
+          <div className="mt-9 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[clamp(16px,3.4vw,22px)] font-medium text-body">
+            {["Since 1971", "2대 가족경영"].map((b, i) => (
+              <span key={b} className="flex items-center gap-6">
+                {i > 0 && <span className="h-4 w-px bg-line" />}
                 {b}
               </span>
             ))}

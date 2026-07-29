@@ -1,85 +1,228 @@
-import { Fragment } from "react";
-import { A, Count, GlowCard, Label, Rv, Section, TEL_JEJU, TEL_MAIN } from "../lib/ui";
+import { Fragment, useCallback, useRef } from "react";
+import { A, Count, GlowCard, LazyVideo, Rv, Section, TITLE_GRADIENT, useScrollProgress } from "../lib/ui";
 
-/* ══ ③ CHAPTER 01 · 브랜드 — 소개서 3·4p ════════════════════════ */
-export function Brand() {
+/* ══ ③ 브랜드 소개 — 소개서 3·4p ════════════════════════════════
+   레퍼런스: `랜딩페이지_기획안/디자인프롬프트/모션사이트_산방식당소개.md`
+
+   원본은 우주톤 럭셔리 부동산 페이지다. 색(#020319 계열)·폰트(Inter Tight)·
+   이미지 URL 을 그대로 가져오면 산방식당이 아니게 된다. 그래서 '기법'만 뽑았다:
+
+     ① 패럴랙스 레이어 — 배경(제주 풍경)과 앞판(본점 사진)이 서로 다른 속도로
+        움직여 깊이가 생긴다. 원본의 하늘/빌딩/산 3겹 구조를 2겹으로 줄였다.
+     ② 스크롤에 따라 글자가 차오르는 문단 — 흐린 상태로 시작해 스크롤하면
+        글자가 하나씩 진해진다. 원본 Section 5 그대로.
+     ③ 대형 숫자 통계 — 24px 였던 것을 레퍼런스 스케일(최대 64px)로 키우고
+        구분선과 순차 등장을 넣었다.
+     ④ 그라디언트 대형 타이틀.
+
+   버린 것: 다크 우주 팔레트, Inter Tight, Framer Motion, 외부 이미지 URL,
+   내비바/히어로(이미 있다), 로고 마퀴(메뉴 밴드가 그 역할을 한다).
+   ──────────────────────────────────────────────────────────── */
+
+/* 스크롤에 따라 차오르는 문단.
+   글자마다 자기 시작 지점(--s)을 갖고, 부모의 진행도(--p)와 비교해 스스로
+   진해진다. 계산을 CSS 에 맡기므로 스크롤 중 DOM 쓰기는 --p 한 줄뿐이다.
+   ⚠️ 화면엔 글자가 쪼개져 있으므로 aria-label 로 문장 전체를 읽히게 한다. */
+function FillText({ text, className, style }: { text: string; className?: string; style?: React.CSSProperties }) {
+  const ref = useRef<HTMLParagraphElement>(null);
+  const onProgress = useCallback((p: number) => {
+    ref.current?.style.setProperty("--p", String(p));
+  }, []);
+  useScrollProgress(ref, onProgress);
+
+  const words = text.split(" ");
+  let n = 0;
+  const total = text.length;
+
   return (
-    <Section id="brand" bg="paper">
-      <div className="grid gap-14 lg:grid-cols-2 lg:items-center lg:gap-20">
+    <p ref={ref} className={className} style={{ ...style, ["--p" as string]: 0 }} aria-label={text}>
+      <span aria-hidden>
+        {words.map((w, wi) => (
+          <span key={wi} className="inline-block whitespace-nowrap">
+            {[...w].map((ch, ci) => (
+              <span
+                key={ci}
+                className="inline-block"
+                style={{
+                  ["--s" as string]: (n++ / total).toFixed(4),
+                  // 진행도가 자기 지점을 지나면 0.2 → 1 로 진해진다.
+                  // (…)*7 은 겹치는 구간 — 글자들이 뚝뚝 끊기지 않고 물결처럼 넘어온다
+                  opacity: "calc(0.2 + 0.8 * clamp(0, (var(--p) - var(--s)) * 7, 1))",
+                }}
+              >
+                {ch}
+              </span>
+            ))}
+            {wi < words.length - 1 && <span className="inline-block w-[0.28em]" />}
+          </span>
+        ))}
+      </span>
+    </p>
+  );
+}
+
+const STATS = [
+  { v: <>1971</>, k: "대정읍 하모리(모슬포)에서 시작" },
+  { v: <><Count to={55} /><span className="text-brand">년</span></>, k: "반세기 이상 지켜온 손맛" },
+  { v: <><Count to={2} /><span className="text-brand">대</span></>, k: "이어온 가업" },
+  { v: <><Count to={3} /><span className="text-brand">개</span></>, k: "직영점 · 제주와 서울에서" },
+];
+
+export function Brand() {
+  const band = useRef<HTMLDivElement>(null);
+  const bg = useRef<HTMLImageElement>(null);
+  const fgL = useRef<HTMLImageElement>(null);
+  const fgR = useRef<HTMLImageElement>(null);
+
+  /* 패럴랙스 — 뒤는 아래로, 앞은 위로. 서로 반대로 움직여야 깊이가 산다.
+     translate3d 로 써서 합성 레이어에 올린다(스크롤 중 레이아웃 계산 없음).
+
+     ⚠️ 앞판 두 장을 하나의 래퍼로 묶어 움직이면 안 된다. 래퍼에 transform 이
+        걸리는 순간 그 안이 '독립된 합성 그룹'이 되어, 창업주 컷의
+        mix-blend-multiply 가 뒤의 배경 사진과 섞이지 못하고 흰 배경이
+        그대로 남는다. 그래서 사진마다 각자 움직인다. */
+  const onProgress = useCallback((p: number) => {
+    const d = (p - 0.5) * 2; // -1 … 1
+    const back = `translate3d(0, ${(d * 5).toFixed(2)}%, 0)`;
+    const front = `translate3d(0, ${(d * -8).toFixed(2)}%, 0)`;
+    if (bg.current) bg.current.style.transform = back;
+    if (fgL.current) fgL.current.style.transform = front;
+    if (fgR.current) fgR.current.style.transform = front;
+  }, []);
+  useScrollProgress(band, onProgress);
+
+  return (
+    <section id="brand" className="bg-paper px-5 py-20 md:px-8 md:py-[120px]" style={{ overflowX: "clip" }}>
+      <div className="mx-auto w-full max-w-[1200px]">
+        {/* ① 대형 타이틀 — 아래로 갈수록 브랜드 색이 배어 나온다 */}
         <Rv>
-          <Label>CHAPTER 01 · 브랜드</Label>
-          <h2 className="t-h2 text-[1.9rem] md:text-[2.5rem]">
+          <h2
+            className="mx-auto max-w-[15em] text-center font-extrabold"
+            style={{
+              ...TITLE_GRADIENT,
+              fontSize: "clamp(2.1rem, 6vw, 4.8rem)",
+              lineHeight: 1.12,
+              letterSpacing: "-0.045em",
+            }}
+          >
             1971년, 제주 최남단에서
             <br />
-            시작된 <span className="text-brand">55년</span>
+            시작된 55년
           </h2>
-          <p className="t-body mt-7 max-w-lg text-[15.5px]">
-            창업주 <strong className="font-bold text-ink">김정일 대표</strong>에서 2대{" "}
-            <strong className="font-bold text-ink">김형섭 대표</strong>로 이어진 가족경영. 그리고 2019년
-            4월부터 서울에서 그 맛을 펼치고 있습니다.
-          </p>
-          <p className="t-body mt-5 max-w-lg text-[14.5px]">
-            쌀이 귀하던 시절 제주의 밀가루 음식 문화 위에서, 부산식과는 전혀 다른 ‘제주식 밀냉면’을 만들어
-            냈습니다. 관광객에게는 ‘제주 여행의 필수 코스’, 도민에게는 ‘언제든 믿고 찾는 식당’. 성수기엔
-            오픈런과 웨이팅이 일상인, 줄 서서 먹는 로컬 맛집입니다.
-          </p>
-
-          <div className="mt-10 grid grid-cols-2 gap-x-4 gap-y-8 border-t border-line pt-8 sm:grid-cols-4">
-            {[
-              { v: <>1971</>, k: "대정읍 하모리(모슬포)에서 시작" },
-              { v: <><Count to={55} />년</>, k: "반세기 이상 지켜온 손맛" },
-              { v: <><Count to={2} />대</>, k: "이어온 가업" },
-              { v: <>100년</>, k: "식당을 바라보며" },
-            ].map((s, i) => (
-              <div key={i}>
-                <div className="text-[24px] font-extrabold tracking-[-0.03em] text-brand md:text-[28px]">
-                  {s.v}
-                </div>
-                <div className="mt-1 text-[12px] leading-snug text-muted">{s.k}</div>
-              </div>
-            ))}
-          </div>
         </Rv>
 
-        <Rv d={120}>
+        <Rv d={100}>
+          <p className="t-body mx-auto mt-8 max-w-[640px] text-center text-[15.5px] md:text-[17px]">
+            창업주 <strong className="font-bold text-ink">김정일 대표</strong>에서 2대{" "}
+            <strong className="font-bold text-ink">김형섭 대표</strong>로 이어진 가족경영. 그리고 2019년 4월부터
+            서울에서 그 맛을 펼치고 있습니다.
+          </p>
+        </Rv>
+
+        {/* ② 패럴랙스 밴드 — 뒤에 제주 풍경, 위에 본점이 떠 있다 */}
+        <Rv d={180}>
           <figure className="m-0">
-            <img
-              src={`${A}/store-main-blue.webp`}
-              alt="모슬포 본점 — 멀리서도 한눈에 들어오는 파란 건물"
-              width={1000}
-              height={660}
-              loading="lazy"
-              decoding="async"
-              className="aspect-[3/2] w-full rounded-[24px] object-cover"
-            />
-            <div className="mt-3 grid grid-cols-2 gap-3">
+            <div
+              ref={band}
+              className="relative mt-14 overflow-hidden rounded-[32px]"
+              style={{ height: "clamp(430px, 52vw, 680px)" }}
+            >
               <img
+                ref={bg}
                 src={`${A}/jeju-scenery.webp`}
                 alt="산방산과 유채밭 — 제주 서귀포"
                 width={1280}
                 height={720}
                 loading="lazy"
                 decoding="async"
-                className="aspect-[4/3] w-full rounded-[24px] object-cover"
+                className="absolute inset-x-0 -top-[8%] h-[116%] w-full object-cover will-change-transform"
               />
+              {/* ⚠️ 예전엔 여기에 화면 전체를 덮는 어두운 막을 깔았는데, 이 사진은
+                  아래 2/3 가 통째로 유채밭이라 노란색이 다 죽었다(사용자 지적).
+                  → 사진이 실제로 놓이는 아래쪽 모서리에만 남기고 걷어냈다.
+                  앞판과 배경의 분리는 사진에 걸어 둔 그림자가 이미 하고 있다. */}
+              <div
+                aria-hidden
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "radial-gradient(62% 56% at 20% 112%, rgba(36,26,19,0.44) 0%, rgba(36,26,19,0.10) 44%, transparent 70%)",
+                }}
+              />
+
+              {/* 산방산은 정중앙에 그대로 두고, 좌우 아래 모서리에 하나씩 세운다.
+                  높이를 같게 잡는다 — 비율이 달라(본점 1.53 가로, 창업주 0.86 세로)
+                  너비를 맞추면 오히려 크기가 달라 보인다. */}
               <img
+                ref={fgL}
+                src={`${A}/store-main-blue.webp`}
+                alt="모슬포 본점 — 멀리서도 한눈에 들어오는 파란 건물"
+                width={538}
+                height={352}
+                loading="lazy"
+                decoding="async"
+                className="absolute bottom-7 left-4 w-auto rounded-[20px] object-cover shadow-[0_30px_70px_rgba(23,18,15,0.38)] will-change-transform md:bottom-12 md:left-10 md:rounded-[24px]"
+                style={{ height: "clamp(120px, 19vw, 250px)", opacity: 0.94 }}
+              />
+
+              {/* ⚠️ 창업주 컷은 '흰 배경 위 연필 드로잉'이다. 그냥 얹으면 유채밭
+                  한가운데 흰 사각형이 뜬다(사용자 지적). 불투명도만 낮추면 이번엔
+                  회색 박스가 된다.
+                  → mix-blend-multiply. 흰색은 곱해도 아래가 비쳐 사라지고 연필 선만
+                    남는다. 들판 색이 드로잉에 배어들면서 배경에 녹아든다.
+                  그래서 카드 취급(라운드·그림자)도 하지 않는다 — 종이가 아니라
+                  배경에 그려 넣은 그림처럼 보여야 한다. */}
+              <img
+                ref={fgR}
                 src={`${A}/founder.webp`}
                 alt="창업주 김정일 명예회장"
                 width={800}
-                height={600}
+                height={933}
                 loading="lazy"
                 decoding="async"
-                className="aspect-[4/3] w-full rounded-[24px] object-cover"
+                className="absolute bottom-7 right-4 w-auto object-contain mix-blend-multiply will-change-transform md:bottom-12 md:right-10"
+                style={{ height: "clamp(128px, 20vw, 268px)", opacity: 0.9 }}
               />
             </div>
-            <figcaption className="mt-4 text-[12.5px] leading-relaxed text-muted">
-              위 — 모슬포 본점, 멀리서도 한눈에 들어오는 파란 건물. 아래 왼쪽 — 산방산과 유채밭. 아래 오른쪽
-              — 창업주 김정일 명예회장.
+            <figcaption className="mt-4 text-center text-[12.5px] leading-relaxed text-muted">
+              배경 — 산방산과 유채밭. 왼쪽 — 모슬포 본점, 멀리서도 한눈에 들어오는 파란 건물. 오른쪽 — 창업주
+              김정일 명예회장.
             </figcaption>
           </figure>
         </Rv>
+
+        {/* ③ 스크롤에 따라 차오르는 문단 */}
+        <FillText
+          text="쌀이 귀하던 시절 제주의 밀가루 음식 문화 위에서, 부산식과는 전혀 다른 ‘제주식 밀냉면’을 만들어 냈습니다. 성수기엔 오픈런과 웨이팅이 일상인, 줄 서서 먹는 로컬 맛집입니다."
+          className="mx-auto mt-20 max-w-[820px] text-center font-bold text-ink md:mt-28"
+          style={{
+            fontSize: "clamp(1.15rem, 2.5vw, 2.05rem)",
+            lineHeight: 1.55,
+            letterSpacing: "-0.035em",
+          }}
+        />
+
+        {/* ④ 대형 숫자 — 24px 였던 것을 레퍼런스 스케일로 */}
+        <div className="mt-20 grid grid-cols-2 gap-y-12 border-t border-line pt-14 md:mt-28 md:flex md:items-start md:justify-between">
+          {STATS.map((s, i) => (
+            <Fragment key={i}>
+              {i > 0 && <span aria-hidden className="mx-8 hidden h-[86px] w-px bg-ink/12 md:block lg:mx-12" />}
+              <Rv d={i * 150} className="text-center md:flex-1">
+                <div
+                  className="font-extrabold tracking-[-0.04em] text-ink"
+                  style={{ fontSize: "clamp(2.4rem, 5vw, 4rem)", lineHeight: 1.05 }}
+                >
+                  {s.v}
+                </div>
+                <div className="mx-auto mt-2.5 max-w-[13em] text-[13px] leading-snug text-muted md:text-[14.5px]">
+                  {s.k}
+                </div>
+              </Rv>
+            </Fragment>
+          ))}
+        </div>
       </div>
-    </Section>
+    </section>
   );
 }
 
@@ -133,7 +276,9 @@ const COMPARE: [string, string, React.ReactNode][] = [
        ("국내산" + <b>멸치</b> → "국내산멸치").
        내용은 반드시 <span> 하나로 감싸 인라인 흐름을 되살릴 것. */
 const ROW = "flex items-center justify-center px-3 text-center md:px-5";
-const ROW_H = "min-h-[76px] md:min-h-[84px]";
+/* 산방식당 열의 글씨를 키우면서 행 높이도 같이 올렸다.
+   ⚠️ 세 열이 정확히 맞물려야 하므로 높이는 반드시 한 값으로 공유한다. */
+const ROW_H = "min-h-[88px] md:min-h-[104px]";
 
 /* ══ 3대 재료 카드 ══════════════════════════════════════════════
    테두리를 그라디언트로 칠하는 방법:
@@ -185,26 +330,32 @@ export function Compare() {
   return (
     <Section bg="warm">
       <Rv>
-        <Label>알고 가셔야 할 것</Label>
-        <h2 className="t-h2 max-w-3xl text-[1.9rem] md:text-[2.5rem]">
+        {/* 제목 질감은 앞 섹션(브랜드 소개)과 같은 그라디언트로 맞춘다.
+            다만 앞 섹션이 이 페이지의 '문패'이므로 여기는 한 단계 작게 —
+            같은 크기로 두면 두 섹션이 서로 first place 를 다툰다. */}
+        <h2
+          className="mx-auto max-w-[16em] text-center font-extrabold"
+          style={{
+            ...TITLE_GRADIENT,
+            fontSize: "clamp(1.85rem, 4vw, 3.1rem)",
+            lineHeight: 1.18,
+            letterSpacing: "-0.04em",
+          }}
+        >
           부산과 다른, 55년 동안 사랑받은
           <br />
-          <span className="text-brand">‘제주식 밀냉면’</span>
+          ‘제주식 밀냉면’
         </h2>
         {/* 재료로 말한다. 자극적이지 않다 = 객층이 넓다 = 사장님에겐 매출이다 */}
         <p
-          className="mt-8 max-w-3xl font-semibold tracking-[-0.02em] text-body"
-          style={{ fontSize: "clamp(17px, 1.7vw, 22px)", lineHeight: 1.65 }}
+          className="mx-auto mt-8 max-w-[780px] text-center font-semibold tracking-[-0.02em] text-body"
+          style={{ fontSize: "clamp(16px, 1.6vw, 20px)", lineHeight: 1.65 }}
         >
           <strong className="font-extrabold text-ink">국내산 멸치와 생강</strong>을 오래 끓여 내고,{" "}
           <strong className="font-extrabold text-ink">고운 고춧가루</strong>로 양념을 만듭니다.
           <br className="hidden md:block" />
           짜지 않고 맵지 않은데 끝맛이 깊습니다 —{" "}
           <span className="text-brand">호불호 없이 누구나 좋아하는 맛.</span>
-        </p>
-        <p className="t-body mt-5 max-w-2xl text-[15px]">
-          아이도 어른도 먹습니다. 매장에서는 그게 <strong className="font-bold text-ink">객층이
-          넓다</strong>는 뜻입니다.
         </p>
       </Rv>
 
@@ -243,8 +394,10 @@ export function Compare() {
             const last = i === COMPARE.length - 1;
             return (
               <Fragment key={k}>
+                {/* 왼쪽은 한 단계 눌러 둔다 — 오른쪽이 커진 만큼 대비가 벌어져야
+                    "다르다"가 눈으로 먼저 읽힌다 */}
                 <div
-                  className={`${ROW} ${ROW_H} bg-[#e6e2dd] text-[13.5px] leading-snug text-[#8b847b] md:text-[15px] ${
+                  className={`${ROW} ${ROW_H} bg-[#e6e2dd] text-[13px] leading-snug text-[#948d84] md:text-[14px] ${
                     last ? "rounded-b-[20px]" : ""
                   }`}
                 >
@@ -257,10 +410,13 @@ export function Compare() {
                   </span>
                 </div>
 
+                {/* 산방식당 열 — 이 표에서 읽혀야 하는 쪽. 글씨를 키우고 굵기를
+                    올려 왼쪽 회색 열과 체급을 벌린다. */}
                 <div
-                  className={`${ROW} ${ROW_H} bg-paper text-[13.5px] leading-snug text-ink shadow-[0_18px_44px_rgba(23,18,15,0.10)] md:text-[15.5px] ${
+                  className={`${ROW} ${ROW_H} bg-paper font-bold leading-snug text-ink shadow-[0_18px_44px_rgba(23,18,15,0.10)] ${
                     last ? "rounded-b-[20px]" : ""
                   }`}
+                  style={{ fontSize: "clamp(15.5px, 2.1vw, 22px)", letterSpacing: "-0.025em" }}
                 >
                   <span>{jeju}</span>
                 </div>
@@ -273,7 +429,7 @@ export function Compare() {
       <div className="mt-14 grid gap-10 md:grid-cols-3 md:gap-5">
         {PILLARS.map((c, i) => (
           <Rv key={c.t} d={i * 110}>
-            <GlowCard g={c.g} icon={c.icon} title={c.t} body={c.d} minH={280} />
+            <GlowCard g={c.g} icon={c.icon} title={c.t} body={c.d} minH={244} />
           </Rv>
         ))}
       </div>
@@ -281,7 +437,11 @@ export function Compare() {
   );
 }
 
-/* ══ ⑤ 직영 매장 + 제주 메뉴판 — 소개서 5·6·7p ══════════════════ */
+/* ══ ⑤ 직영 매장 + 제주 메뉴판 — 소개서 5·6·7p ══════════════════
+   ⚠️ 주소·전화번호는 뺐다(사용자 지시 2026-07-29). 이 페이지는 B2B 도입
+      문의를 받는 곳이지 매장을 안내하는 곳이 아니다. 매장 번호를 띄우면
+      도입 문의가 매장으로 걸려 온다 — 070 창구를 따로 판 이유가 그것이다.
+      매장이 '실재한다'는 증거는 영상과 배지가 이미 하고 있다. */
 const STORES = [
   {
     key: "queue-moseulpo",
@@ -289,8 +449,6 @@ const STORES = [
     badge: "원조",
     sub: "모슬포 · SINCE 1971",
     desc: "55년 전통이 시작된 곳 — 줄 서서 먹는 제주 로컬 맛집",
-    addr: "제주 서귀포시 대정읍 모슬포",
-    tel: TEL_MAIN,
   },
   {
     key: "queue-1",
@@ -298,8 +456,6 @@ const STORES = [
     badge: "직영",
     sub: "제주시 직영점",
     desc: "넓은 홀로 단체·관광객까지 — 제주 도심의 거점 매장",
-    addr: "제주특별자치도 제주시",
-    tel: TEL_JEJU,
   },
   {
     key: "queue-2",
@@ -307,8 +463,6 @@ const STORES = [
     badge: "서울",
     sub: "서울 진출 · 직영",
     desc: "제주를 넘어 서울로 — 검증된 맛을 육지에서도",
-    addr: "서울 · 대한상공회의소 내",
-    tel: null,
   },
 ];
 
@@ -316,9 +470,22 @@ export function Stores() {
   return (
     <Section id="stores" bg="paper">
       <Rv>
-        <Label>OUR LOCATIONS</Label>
-        <h2 className="t-h2 text-[1.9rem] md:text-[2.5rem]">직접 만나는 산방식당</h2>
-        <p className="t-body mt-5 max-w-2xl text-[15.5px]">
+        {/* 제목 질감·크기는 앞의 비교 섹션과 같은 값으로 맞춘다 */}
+        <h2
+          className="mx-auto max-w-[16em] text-center font-extrabold"
+          style={{
+            ...TITLE_GRADIENT,
+            fontSize: "clamp(1.85rem, 4vw, 3.1rem)",
+            lineHeight: 1.18,
+            letterSpacing: "-0.04em",
+          }}
+        >
+          직접 만나는 산방식당
+        </h2>
+        <p
+          className="mx-auto mt-6 max-w-[640px] text-center text-body"
+          style={{ fontSize: "clamp(15.5px, 1.6vw, 18px)", lineHeight: 1.7 }}
+        >
           제주 본점부터 서울까지 — 직영 매장에서 검증된 맛을 확인하세요.
         </p>
       </Rv>
@@ -327,40 +494,32 @@ export function Stores() {
         {STORES.map((s, i) => (
           <Rv key={s.key} d={i * 100}>
             <article className="flex h-full flex-col overflow-hidden rounded-[24px] border border-line bg-warm">
-              <video
+              {/* 매장 영상 3개는 페이지 중반에 있다 → 화면에 들어올 때만 받는다 */}
+              <LazyVideo
+                src={s.key}
+                poster={`${s.key}-poster`}
+                label={`${s.name} 홀 — 식사 시간대`}
                 className="aspect-video w-full bg-ink object-cover"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                poster={`${A}/${s.key}-poster.webp`}
-                aria-label={`${s.name} 홀 — 식사 시간대`}
-              >
-                <source src={`${A}/${s.key}.mp4`} type="video/mp4" />
-              </video>
+              />
               <div className="flex flex-1 flex-col p-7">
-                <div className="mb-1 flex items-center gap-2.5">
-                  <h3 className="t-h3 text-[19px]">{s.name}</h3>
-                  <span className="rounded-full bg-brand px-2.5 py-1 text-[11px] font-bold text-white">
+                <div className="mb-1.5 flex items-center gap-2.5">
+                  <h3
+                    className="font-extrabold tracking-[-0.03em] text-ink"
+                    style={{ fontSize: "clamp(19px, 2.1vw, 25px)", lineHeight: 1.3 }}
+                  >
+                    {s.name}
+                  </h3>
+                  <span className="rounded-full bg-brand px-2.5 py-1 text-[11.5px] font-bold text-white">
                     {s.badge}
                   </span>
                 </div>
-                <div className="text-[12.5px] text-muted">{s.sub}</div>
-                <p className="t-body mt-4 flex-1 text-[14px]">{s.desc}</p>
-                <div className="mt-5 space-y-1 border-t border-line pt-4 text-[13px] text-body">
-                  <div>{s.addr}</div>
-                  {s.tel ? (
-                    <a
-                      href={`tel:+82${s.tel.replace(/^0/, "").replace(/-/g, "")}`}
-                      className="font-semibold text-ink hover:text-brand"
-                    >
-                      {s.tel}
-                    </a>
-                  ) : (
-                    <div className="text-muted">대표번호 안내 예정</div>
-                  )}
-                </div>
+                <div className="text-[13.5px] text-muted">{s.sub}</div>
+                <p
+                  className="mt-4 flex-1 text-body"
+                  style={{ fontSize: "clamp(14.5px, 1.5vw, 16.5px)", lineHeight: 1.7 }}
+                >
+                  {s.desc}
+                </p>
               </div>
             </article>
           </Rv>
@@ -368,17 +527,31 @@ export function Stores() {
       </div>
 
       <Rv>
-        <p className="mt-6 text-[12.5px] leading-relaxed text-muted">
+        <p className="mt-7 text-center text-[13px] leading-relaxed text-muted">
           ※ 영상은 매장 화면 그대로입니다. 연출하지 않았습니다.
         </p>
       </Rv>
 
-      {/* 제주 메뉴판 — 소개서 6·7p */}
+      {/* 제주 메뉴판 — 소개서 6·7p.
+          섹션 안의 하위 제목이라 위 h2 보다 한 단계 작게 두되 질감은 같이 간다 */}
       <div className="mt-24">
         <Rv>
-          <div className="mb-10 h-px w-full bg-line" />
-          <h3 className="t-h2 text-[1.5rem] md:text-[1.9rem]">제주에서의 메뉴판은 단출합니다</h3>
-          <p className="t-body mt-4 max-w-3xl text-[15px]">
+          <div className="mb-12 h-px w-full bg-line" />
+          <h3
+            className="mx-auto max-w-[16em] text-center font-extrabold"
+            style={{
+              ...TITLE_GRADIENT,
+              fontSize: "clamp(1.5rem, 3vw, 2.3rem)",
+              lineHeight: 1.22,
+              letterSpacing: "-0.04em",
+            }}
+          >
+            제주에서의 메뉴판은 단출합니다
+          </h3>
+          <p
+            className="mx-auto mt-5 max-w-[640px] text-center text-body"
+            style={{ fontSize: "clamp(15px, 1.6vw, 17.5px)", lineHeight: 1.7 }}
+          >
             하지만 육지와 파트너 매장에서는, 그 본질인 <strong className="font-bold text-ink">맛</strong>을
             내세워 다양하게 펼치고 있습니다.
           </p>

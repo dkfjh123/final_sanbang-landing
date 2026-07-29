@@ -3,10 +3,11 @@ import { GA4_ID, META_PIXEL_ID, useReveal } from "./lib/ui";
 import { Hero, Intro, Nav } from "./sections/Hero";
 import { Brand, Compare, Stores } from "./sections/Brand";
 import { Problems, Weapon } from "./sections/Solution";
+import { MenuStrip, Statement } from "./sections/Statement";
 import { Story } from "./sections/Story";
 import { Items } from "./sections/Items";
-import { BrandMeat, JejuOnly, NineTen, Winter } from "./sections/Side";
-import { BrandPartner, Extensions, NotFranchise } from "./sections/Partnership";
+import { BrandMeat, JejuOnly, NineTen } from "./sections/Side";
+import { Extensions, NotFranchise } from "./sections/Partnership";
 import { Contact, Footer } from "./sections/Contact";
 
 /* Philosophy(가치 4카드) · RealPower(육수·비빔장 2카드)는 렌더에서 뺐다.
@@ -103,6 +104,10 @@ export default function App() {
       {/* 광고·SNS로 들어온 사람에겐 브랜드 자랑보다 "내 얘기네"가 먼저다.
           그래서 고민 5개를 브랜드 소개보다 앞에 둔다. */}
       <Problems />
+      {/* 고민을 다 늘어놓은 직후 결론 한 문장. 글자가 하나씩 빠르게 나타난다.
+          말한 직후 그 '좋은 메뉴'를 실제로 보여 준다 — 사진이 좌→우로 흐른다 */}
+      <Statement />
+      <MenuStrip />
 
       {/* ── 왜 산방식당인가 ─────────────────────────────── */}
       <Brand />
@@ -111,22 +116,26 @@ export default function App() {
 
       {/* ── 무엇을 드리나 ───────────────────────────────── */}
       <Weapon />
-      {/* 페이지에서 어두운 면은 Story · Winter 둘뿐이다. 리듬을 만든다. */}
+      {/* 페이지에서 어두운 면은 Story · 푸터 둘뿐이다. 리듬을 만든다. */}
       <Story />
       <Items />
+
+      {/* ── 사이드의 근거 ───────────────────────────────── */}
+      {/* 돈까스 본문은 Items 05번으로 들어갔다(2026-07-29). 별도 섹션으로 두니
+          밀면 얘기가 끝난 뒤 새 챕터처럼 읽혀 "따로 논다"는 지적을 받았다.
+          브랜드육은 그 품목의 '왜 믿을 만한가'라서 Items 바로 뒤에 붙인다.
+          (예전엔 90:10·확장메뉴 두 섹션을 건너뛰고 나와 흐름이 또 끊겼다)
+          ※ 샘플 오퍼(SampleOffer) 블록은 삭제했다 — 사용자 지시 2026-07-29 */}
+      <BrandMeat />
+
       <NineTen />
       <Extensions />
-
-      {/* ── 1년을 도는 구조 ─────────────────────────────── */}
-      <Winter />
-      <BrandMeat />
 
       {/* ── 조건 ────────────────────────────────────────── */}
       <NotFranchise />
       <JejuOnly />
 
-      {/* ── 프리미엄 트랙 ───────────────────────────────── */}
-      <BrandPartner />
+      {/* 프리미엄 트랙(공식 브랜드 파트너) 섹션은 뺐다 — 사용자 지시 2026-07-29 */}
 
       {/* ── 문의 ────────────────────────────────────────── */}
       <Contact />

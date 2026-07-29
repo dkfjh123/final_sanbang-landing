@@ -13,6 +13,14 @@
     <meta name="author" content="주식회사 산방에프앤비" />
     <link rel="canonical" href="https://sanbangjeju.com/" />
 
+    <!-- 메타(페이스북) 도메인 소유 확인. 2026-07-29.
+         DNS TXT 레코드로도 같은 값을 넣어 뒀다(Cloudflare) — 두 방식은 함께 써도 되고,
+         한쪽이 안 잡힐 때 다른 쪽이 받아 준다.
+         ⚠️ 반드시 <head> 안에 정적으로 있어야 한다. 자바스크립트로 나중에 끼워 넣으면
+            메타 크롤러가 못 읽어 인증에 실패한다.
+         이 인증이 없으면 iOS 사용자 대상 광고 최적화가 반쪽이 된다. -->
+    <meta name="facebook-domain-verification" content="hn9aum953sy9dgfpn7nsnes8onqbjd" />
+
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="제주산방식당" />
     <meta property="og:title" content="간판은 그대로 두고, 검증된 맛만 들여오세요" />
@@ -20,9 +28,22 @@
       property="og:description"
       content="1971년 제주 모슬포, 55년 제주식 밀냉면. 멸치 육수·비빔전용장·생밀면 메뉴솔루션."
     />
-    <meta property="og:image" content="https://sanbangjeju.com/assets/web/lineup-top.webp" />
+    <!-- 공유 썸네일 — 카톡·페북·인스타·광고에 링크를 뿌릴 때 뜨는 그림.
+         ⚠️ JPG 를 쓴다. 예전엔 lineup-top.webp(1600×1143, 비율 1.40)를 재사용했는데
+            ① 카카오톡이 WebP 를 제대로 못 읽고
+            ② 권장 비율(1.91)과 달라 위아래가 잘렸다.
+         → 1200×630 전용컷을 만들었다(`scratchpad/og.html` → 브라우저 렌더).
+            카피가 얹혀 있으므로 문구를 바꾸려면 이미지를 다시 구워야 한다.
+         og:image:width/height 를 명시하면 첫 공유에서 크롤러가 이미지를
+         받기 전에도 자리를 잡아 준다(카톡에서 첫 공유가 깨져 보이는 것 방지). -->
+    <meta property="og:image" content="https://sanbangjeju.com/assets/web/og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="간판은 그대로 두고, 검증된 맛만 들여오세요 — 제주산방식당 메뉴솔루션" />
     <meta property="og:url" content="https://sanbangjeju.com/" />
+    <meta property="og:locale" content="ko_KR" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://sanbangjeju.com/assets/web/og.jpg" />
 
     <!-- 본문 폰트 — 자체 호스팅 서브셋 (`python _font_pretendard.py` 로 생성)
          jsDelivr 의 dynamic-subset 은 유니코드 구간이 넓게 걸려 실측 580KB 였다.
@@ -33,6 +54,16 @@
       as="font"
       type="font/woff2"
       href="/assets/fonts/PretendardVariable-subset.woff2"
+      crossorigin
+    />
+
+    <!-- 제목 위 눈썹 한 줄에 쓰는 제주한라산체 (31KB, `bash _font.sh` 로 생성).
+         첫 화면 맨 윗줄이라 늦게 오면 글자가 한 번 바뀌어 보인다 → 미리 받는다. -->
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/assets/fonts/JejuHallasan-subset.woff2"
       crossorigin
     />
 
