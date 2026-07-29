@@ -24,6 +24,14 @@ const browser = await puppeteer.launch({
 const page = await browser.newPage();
 await page.setViewport({ width: 1440, height: 900 });
 
+/* ⚠️ 헤드리스 크롬은 User-Agent 에 'HeadlessChrome' 이 박혀 나간다.
+   Web3Forms 는 그걸 서버/봇 요청으로 보고 403 + CORS 헤더 없음으로 막는다
+   (2026-07-29 실측). 실제 사용자는 멀쩡히 되는데 테스트만 실패한다.
+   → 평범한 크롬으로 위장한다. 검증 목적이므로 실사용 조건에 맞추는 게 맞다. */
+await page.setUserAgent(
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
+);
+
 // Web3Forms 응답을 그대로 들여다본다
 let apiResult = null;
 const diag = [];
