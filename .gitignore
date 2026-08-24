@@ -13,3 +13,5 @@ _deck_src/
 #   .bkit/  (bkit 툴링 런타임 로그, 2026-07-25 비활성화됨)
 _shots/
 .bkit/
+
+tmp/
