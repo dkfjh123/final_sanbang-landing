@@ -13,5 +13,7 @@
 
 User-agent: *
 Allow: /
+Disallow: /partner/kitchen/
+Disallow: /partner/guide/
 
 Sitemap: https://sanbangjeju.com/sitemap.xml
