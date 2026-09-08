@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>제육덮밥 — 주방</title>
+    <link rel="icon" type="image/webp" href="/assets/web/logo.webp" />
+    <link rel="stylesheet" href="kitchen.css" />
+  </head>
+  <body>
+    <div id="gate" class="gate">
+      <div class="box">
+        <p class="logo">제주산방식당 <span>주방</span></p>
+        <h1>도입하신 사장님만 보십니다</h1>
+        <p class="lede">교육이 끝난 매장에만 알려 드린 비밀번호를 넣어 주십시오.</p>
+        <form id="gate-form">
+          <input class="field" id="gate-pw" type="password" autocomplete="current-password" placeholder="비밀번호" required />
+          <button class="btn" type="submit">들어가기</button>
+          <p id="gate-err" class="err" hidden>비밀번호가 다릅니다.</p>
+        </form>
+      </div>
+    </div>
+
+    <div id="app" hidden>
+      <nav class="nav">
+        <div class="wrap in">
+          <a href="./" class="logo">제주산방식당 <span>주방</span></a>
+          <a class="back" href="./">목차</a>
+        </div>
+      </nav>
+      <main class="wrap" style="padding-top: 8px">
+        <div class="hero-pic">
+          <img src="/assets/web/extend/jeyukdeopbap.webp" alt="제육덮밥" />
+        </div>
+        <h1>제육덮밥</h1>
+        <div class="lede">
+          <p>직영 제육 레시피도 알려 드립니다.</p>
+          <p>그 맛이 전용상품으로 유지되게 맞춰 둔 것이 산방두루치기소스입니다.</p>
+          <p>적극 권장합니다. 해당 박스가 온 뒤에 세팅합니다.</p>
+        </div>
+        <div class="note">
+          <p>시판 제육 양념으로 볶지 마십시오.</p>
+          <p>비빔전용장으로 볶지 마십시오.</p>
+          <p>물밀면 양념장으로도 볶지 않습니다.</p>
+          <p>제육의 장은 두루치기소스 하나입니다.</p>
+        </div>
+        <nav class="jump">
+          <a href="#r1">① 레시피</a>
+          <a href="#r2">② 우리 재료</a>
+          <a href="#r3">③ 고객 어필</a>
+        </nav>
+
+        <section class="sec" id="r1">
+          <h2>① 레시피</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th></th><th>전용상품</th><th>매장</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>양념</td><td>산방두루치기소스</td><td>불, 볶기</td></tr>
+                <tr><td>고기, 채소</td><td>없음</td><td>썰기. 양은 교육 때</td></tr>
+                <tr><td>밥</td><td>없음</td><td>공기</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <ol>
+            <li>고기와 채소를 준비합니다.</li>
+            <li>산방두루치기소스로 볶습니다. 가능하면 장만으로.</li>
+            <li>밥 위에 올립니다. 고기가 위, 밥이 양념에 잠겨 보이지 않게.</li>
+          </ol>
+          <h3>하면 안 되는 것</h3>
+          <ul class="no">
+            <li>시판 제육 양념으로 바꾸기</li>
+            <li>비빔전용장이나 양념장으로 대충 볶기</li>
+            <li>밀면 육수를 제육 한 그릇에 붓기</li>
+          </ul>
+        </section>
+
+        <section class="sec" id="r2">
+          <h2>② 우리 재료가 얼마나 좋은가</h2>
+          <ul class="points">
+            <li>
+              <strong>제육 맛은 불보다 장에서 갈립니다</strong>
+              <span>매장마다 시판 양념이 다르면, 밀면은 같아도 덮밥이 다른 집이 됩니다.</span>
+            </li>
+            <li>
+              <strong>두루치기소스가 그 장을 고정합니다</strong>
+              <span>직영에서 쓰던 제육 맛이 전용상품으로 유지되게 맞춰 둔 것입니다. 그래서 권장합니다.</span>
+            </li>
+            <li>
+              <strong>비빔전용장과는 다른 상품입니다</strong>
+              <span>면에 비비는 장으로 고기를 볶지 않습니다.</span>
+            </li>
+          </ul>
+        </section>
+
+        <section class="sec" id="r3">
+          <h2>③ 고객에게 어필할 것</h2>
+          <h3>직원이 하는 말</h3>
+          <div class="say">
+            <p>이 집 양념으로 볶은 제육덮밥입니다.</p>
+          </div>
+          <h3>메뉴판</h3>
+          <div class="say">
+            <p>제육덮밥</p>
+          </div>
+          <div class="lines">
+            <p>메뉴판에 산방식당 상호를 붙이지 않습니다.</p>
+          </div>
+        </section>
+      </main>
+      <footer class="wrap foot"><a href="./">목차</a></footer>
+    </div>
+    <script src="gate.js"></script>
+  </body>
+</html>

@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>왕만두 · 김치만두 — 주방</title>
+    <link rel="icon" type="image/webp" href="/assets/web/logo.webp" />
+    <link rel="stylesheet" href="kitchen.css" />
+  </head>
+  <body>
+    <div id="gate" class="gate">
+      <div class="box">
+        <p class="logo">제주산방식당 <span>주방</span></p>
+        <h1>도입하신 사장님만 보십니다</h1>
+        <p class="lede">교육이 끝난 매장에만 알려 드린 비밀번호를 넣어 주십시오.</p>
+        <form id="gate-form">
+          <input class="field" id="gate-pw" type="password" autocomplete="current-password" placeholder="비밀번호" required />
+          <button class="btn" type="submit">들어가기</button>
+          <p id="gate-err" class="err" hidden>비밀번호가 다릅니다.</p>
+        </form>
+      </div>
+    </div>
+
+    <div id="app" hidden>
+      <nav class="nav">
+        <div class="wrap in">
+          <a href="./" class="logo">제주산방식당 <span>주방</span></a>
+          <a class="back" href="./">목차</a>
+        </div>
+      </nav>
+      <main class="wrap" style="padding-top: 8px">
+        <div class="hero-pic pair">
+          <img src="/assets/web/menu-mandu.webp" alt="왕만두" />
+          <img id="kimchi" src="/assets/web/extend/kimchimandu.webp" alt="김치만두" />
+        </div>
+        <h1>왕만두, 김치만두</h1>
+        <div class="lede">
+          <p>발주 이름은 왕만두, 아삭한김치왕만두70입니다.</p>
+          <p>메뉴판에는 왕만두, 김치만두로 적습니다.</p>
+          <p>내는 법은 같고 속만 다릅니다.</p>
+          <p>찍개는 시판 간장 대신 육수간장 원액을 종지에 내는 것을 권장합니다.</p>
+        </div>
+        <nav class="jump">
+          <a href="#r1">① 레시피</a>
+          <a href="#r2">② 우리 재료</a>
+          <a href="#r3">③ 고객 어필</a>
+        </nav>
+
+        <section class="sec" id="r1">
+          <h2>① 레시피</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th></th><th>전용상품</th><th>매장</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>만두</td><td>왕만두 또는 아삭한김치왕만두70</td><td>찜, 끓임, 내면 굽기</td></tr>
+                <tr><td>찍개</td><td>육수간장 원액</td><td>종지. 슬러시와 섞지 않음</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>찜</h3>
+          <ol>
+            <li>해동 여부는 교육 때 맞춥니다.</li>
+            <li>찜기에 찝니다.</li>
+            <li>접시에 담고, 육수간장 원액 종지를 같이 냅니다.</li>
+          </ol>
+          <h3>국에 넣을 때</h3>
+          <ol>
+            <li>육수가 준비된 뒤 만두를 넣습니다.</li>
+            <li>피가 풀어질 정도로 오래 끓이지 않습니다.</li>
+            <li>휘젓지 않습니다.</li>
+          </ol>
+          <div class="lines">
+            <p>한 접시에 너무 빼곡하면 싸구려 냉동만두처럼 보입니다. 여백을 둡니다.</p>
+            <p>찍개 종지가 옆에 보이게 합니다. 시판 간장병처럼 보이지 않게 합니다.</p>
+          </div>
+          <h3>하면 안 되는 것</h3>
+          <ul class="no">
+            <li>다른 브랜드 만두와 섞기</li>
+            <li>제조사 이름 말하기</li>
+            <li>시판 간장만 내기</li>
+            <li>양념장이나 비빔전용장으로 찍게 내기</li>
+          </ul>
+        </section>
+
+        <section class="sec" id="r2">
+          <h2>② 우리 재료가 얼마나 좋은가</h2>
+          <div class="inline-pic">
+            <img src="/assets/web/item-mandu.webp" alt="만두" />
+          </div>
+          <ul class="points">
+            <li>
+              <strong>고기 만두입니다</strong>
+              <span>국내산 냉장육입니다. 고기 함량은 32.27%입니다. 제조사 이름은 말하지 않습니다.</span>
+            </li>
+            <li>
+              <strong>국에 넣어도 잘 안 터집니다</strong>
+              <span>오래 끓이거나 휘저으면 국물이 탁해집니다. 타이밍만 지키면 됩니다.</span>
+            </li>
+            <li>
+              <strong>김치만두는 아삭한 쪽입니다</strong>
+              <span>내는 법은 왕만두와 같습니다. 속만 김치입니다.</span>
+            </li>
+            <li>
+              <strong>찍개는 이 집 육수입니다</strong>
+              <span>시판 간장 대신 육수간장 원액을 종지에 냅니다. 밀냉면과 같은 맛의 줄기가 만두까지 이어집니다.</span>
+            </li>
+          </ul>
+        </section>
+
+        <section class="sec" id="r3">
+          <h2>③ 고객에게 어필할 것</h2>
+          <h3>직원이 하는 말</h3>
+          <div class="say">
+            <p>고기 만두입니다.</p>
+            <p>국에 넣어도 잘 안 터집니다.</p>
+            <p>찍개는 일반 간장이 아니라 이 집 육수입니다.</p>
+            <p>김치만두는 아삭한 쪽으로 나가 있습니다.</p>
+          </div>
+          <h3>메뉴판</h3>
+          <div class="say">
+            <p>왕만두 / 김치만두</p>
+          </div>
+          <div class="lines">
+            <p>냉동만두라 맛이 덜합니다로 먼저 방어하지 않습니다.</p>
+            <p>손님이 사는 건 고기 든 만두입니다.</p>
+          </div>
+        </section>
+      </main>
+      <footer class="wrap foot"><a href="./">목차</a></footer>
+    </div>
+    <script src="gate.js"></script>
+  </body>
+</html>

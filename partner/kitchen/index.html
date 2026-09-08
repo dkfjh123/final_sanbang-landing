@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>주방 가이드</title>
+    <link rel="icon" type="image/webp" href="/assets/web/logo.webp" />
+    <link rel="stylesheet" href="kitchen.css" />
+  </head>
+  <body>
+    <div id="gate" class="gate">
+      <div class="box">
+        <p class="logo">제주산방식당 <span>주방</span></p>
+        <h1>도입하신 사장님만 보십니다</h1>
+        <p class="lede">교육이 끝난 매장에만 알려 드린 비밀번호를 넣어 주십시오.</p>
+        <form id="gate-form">
+          <input class="field" id="gate-pw" type="password" autocomplete="current-password" placeholder="비밀번호" required />
+          <button class="btn" type="submit">들어가기</button>
+          <p id="gate-err" class="err" hidden>비밀번호가 다릅니다.</p>
+        </form>
+      </div>
+    </div>
+
+    <div id="app" hidden>
+      <nav class="nav">
+        <div class="wrap in">
+          <a href="./" class="logo">제주산방식당 <span>주방</span></a>
+        </div>
+      </nav>
+
+      <main class="wrap" style="padding-top: 28px">
+        <h1>지금 세팅하는 메뉴</h1>
+        <div class="lede">
+          <p>발주 화면에 보이는 이름 그대로 적었습니다.</p>
+          <p>각 장은 ① 레시피, ② 우리 재료, ③ 고객 어필입니다.</p>
+          <p>산방식당 상호와 로고는 사장님 매장 메뉴판에 붙이지 않습니다.</p>
+        </div>
+
+        <div class="note">
+          <p>지금 온 물건은 육수간장, 생밀면, 비빔전용장, 왕만두, 김치만두입니다.</p>
+          <p>물밀냉면에 푸는 장과 수육 찍장은 양념장입니다. 다음 발주에 넣어 주십시오.</p>
+          <p>만두 찍개는 일반 간장 대신 육수간장 원액을 종지에 내시면 됩니다.</p>
+        </div>
+
+        <h2 style="margin-bottom: 12px">1차</h2>
+        <div class="cards">
+          <a class="card" href="slush.html">
+            <img src="/assets/web/menu-mil.webp" alt="살얼음이 있는 밀냉면" />
+            <div class="t">
+              <span class="tag">공통 베이스</span>
+              <h3>육수 슬러시</h3>
+              <p>물밀면 국물과 비빔 곁들임에 같은 육수를 씁니다.</p>
+            </div>
+          </a>
+          <a class="card" href="mil.html">
+            <img src="/assets/web/extend/milnaengmyeon.webp" alt="물밀냉면" />
+            <div class="t">
+              <span class="tag">양념장은 다음 발주</span>
+              <h3>물밀냉면</h3>
+              <p>슬러시, 생밀면, 되직한 양념장.</p>
+            </div>
+          </a>
+          <a class="card" href="bibim.html">
+            <img src="/assets/web/menu-bibim.webp" alt="비빔밀냉면" />
+            <div class="t">
+              <span class="tag">지금 가능</span>
+              <h3>비빔밀냉면</h3>
+              <p>생밀면과 비빔전용장. 같은 육수를 곁들입니다.</p>
+            </div>
+          </a>
+          <a class="card" href="mandu.html">
+            <img src="/assets/web/menu-mandu.webp" alt="왕만두" />
+            <div class="t">
+              <span class="tag">지금 가능</span>
+              <h3>왕만두</h3>
+              <p>찍개는 육수원액입니다.</p>
+            </div>
+          </a>
+          <a class="card" href="mandu.html#kimchi">
+            <img src="/assets/web/extend/kimchimandu.webp" alt="김치만두" />
+            <div class="t">
+              <span class="tag">지금 가능</span>
+              <h3>김치만두</h3>
+              <p>내는 법은 왕만두와 같고, 속만 김치입니다.</p>
+            </div>
+          </a>
+          <a class="card" href="onmyeon.html">
+            <img src="/assets/web/extend/manduonmyeon.webp" alt="만두온면" />
+            <div class="t">
+              <span class="tag">지금 가능</span>
+              <h3>만두온면</h3>
+              <p>뜨거운 육수입니다. 슬러시와 다릅니다.</p>
+            </div>
+          </a>
+        </div>
+
+        <h2 style="margin-bottom: 12px">다음에 권장</h2>
+        <div class="lede">
+          <p>제육은 직영 레시피도 알려 드립니다.</p>
+          <p>그 맛이 전용상품으로 유지되게 맞춰 둔 것이 산방두루치기소스입니다.</p>
+          <p>적극 권장합니다.</p>
+        </div>
+        <div class="cards">
+          <a class="card" href="jeyuk.html">
+            <img src="/assets/web/extend/jeyukdeopbap.webp" alt="제육덮밥" />
+            <div class="t">
+              <span class="tag">산방두루치기소스</span>
+              <h3>제육덮밥</h3>
+              <p>시판 제육 양념이나 비빔전용장으로 볶지 않습니다.</p>
+            </div>
+          </a>
+        </div>
+
+        <h2 style="margin-bottom: 12px">장 세 개</h2>
+        <p class="lede">바꿔 쓰지 않습니다.</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>발주 이름</th><th>농도</th><th>어디에</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>비빔전용장</td><td>더 묽다</td><td>비빔밀냉면만</td></tr>
+              <tr><td>양념장</td><td>더 되직하다</td><td>물밀냉면 풀기, 수육 찍장</td></tr>
+              <tr><td>산방두루치기소스</td><td>볶음</td><td>제육</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="lines">
+          <p>만두 찍개는 양념장이 아닙니다. 육수간장 원액을 권장합니다.</p>
+        </div>
+      </main>
+
+      <footer class="wrap foot">도입하신 매장 전용입니다. 이 주소를 광고나 상담 카톡에 넣지 마십시오.</footer>
+    </div>
+    <script src="gate.js"></script>
+  </body>
+</html>
