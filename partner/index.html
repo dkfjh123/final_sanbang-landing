@@ -1904,7 +1904,7 @@
         update();
       })();
 
-      var KAKAO_URL = "";
+      var KAKAO_URL = "https://pf.kakao.com/_CmexeX";
       document.querySelectorAll("[data-kakao]").forEach(function (a) {
         if (!KAKAO_URL) { a.style.display = "none"; return; }
         a.href = a.getAttribute("data-kakao") === "home" ? KAKAO_URL : KAKAO_URL.replace(/\/$/, "") + "/chat";
