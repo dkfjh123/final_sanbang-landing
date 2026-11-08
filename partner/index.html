@@ -3,24 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/webp" href="/assets/web/logo.webp" />
+    <link rel="icon" type="image/webp" href="../assets/web/logo.webp" />
 
-    <title>산방식당 메뉴솔루션 — 사장님 간판 그대로, 맛만 얹습니다</title>
+    <title>산방식당 돈까스·밀면 창업 메뉴 — 메뉴 개발 없이도, 55년 산방식당의 그 맛 그대로</title>
     <meta
       name="description"
-      content="55년 제주 노포의 육수·비빔장·생면·만두를 사장님 매장 메뉴로. 간판은 드리지 않습니다. 로열티 0원, 교육비 0원. 직원이 직접 붙어 세팅하기에 한 달에 세 곳만 받습니다."
+      content="55년 제주 밀면집이 분야별 전문 제조사들과 만든 냉장 등심 돈까스, 그리고 육수·비빔장·생면·만두를 사장님 매장 주력 메뉴로. 간판은 선택입니다. 제주 지역은 진행하지 않습니다."
     />
     <link rel="canonical" href="https://sanbangjeju.com/partner/" />
 
-    <!-- 메타 도메인 소유 확인. 루트와 같은 값. <head>에 정적으로 있어야 크롤러가 읽는다. -->
     <meta name="facebook-domain-verification" content="hn9aum953sy9dgfpn7nsnes8onqbjd" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="제주산방식당" />
-    <meta property="og:title" content="사장님 간판 그대로, 55년 노포의 맛만 얹습니다" />
+    <meta property="og:title" content="메뉴 개발 없이도, 55년 산방식당의 그 맛 그대로" />
     <meta
       property="og:description"
-      content="육수·비빔장·생면·만두. 로열티 0원, 교육비 0원. 한 달에 세 곳만 받습니다."
+      content="냉장 등심 돈까스 · 육수 · 비빔장 · 생면 · 만두. 메뉴부터 팔리는 이유와 판매 자료까지 함께합니다."
     />
     <meta property="og:image" content="https://sanbangjeju.com/assets/web/og.jpg" />
     <meta property="og:image:width" content="1200" />
@@ -29,53 +28,20 @@
     <meta property="og:locale" content="ko_KR" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- ══════════════════════════════════════════════════════════════
-         이 페이지는 왜 별도인가 (2026-08-10)
-
-         기존 랜딩(/)은 높이 22,319px 이고 문의 폼이 맨 아래에 있다.
-         광고로 들어온 926명 중 90%까지 내려간 사람은 15명(1.7%)뿐이었고
-         문의는 0건이었다. → 04_성과기록/20260803_1주차_진단.md
-
-         그래서 이 페이지는
-           ① 첫 화면 안에 CTA를 둔다
-           ② 짧게 유지한다 (기존의 1/3 이하)
-           ③ React/Vite 를 안 쓴다 — HTML 한 장. 빌드 없이 문구만 고칠 수 있다
-           ④ 루트 빌드를 건드리지 않는다 (vite emptyOutDir:false 라 이 폴더는 안전)
-
-         디자인 방향(2026-08-10 사장님 지시): 여백이 큰 에디토리얼 톤.
-           · 배경은 아주 옅은 웜그레이, 글자는 거의 검정, 보조는 회색
-           · 제목은 굵게가 아니라 **중간 굵기 + 좁은 자간** — 이게 절제된 느낌을 만든다
-           · 액센트 색은 아주 드물게
-           · 히어로는 영상 위에 **흰 막**을 깔고 **검은 글씨** → 영상이 밝게 산다
-             (검은 막 + 흰 글씨로 했더니 영상이 죽는다는 지적을 받았다)
-
-         🔴 이 저장소는 PUBLIC 이다. 원가·마진·전략 문서를 여기 두지 말 것.
-            기획 원본 → 20260729_sanbang_marketing/02_캠페인기획/20260810_오퍼정의_교육비무료.md
-         ══════════════════════════════════════════════════════════ -->
-
-    <!-- 본문 폰트 — 이 페이지 전용 Pretendard 서브셋.
-         루트가 쓰는 subset 에는 이 페이지의 새 글자가 없어서 따로 구웠다.
-         ⚠️ 카피를 바꾸면 `/c/ProgramData/anaconda3/python.exe _font_partner.py` 를 다시 돌릴 것.
-            빠진 글자는 대체 폰트로 떨어져 한 문장이 두 서체로 쪼개져 보인다. -->
     <link
       rel="preload" as="font" type="font/woff2"
-      href="/assets/fonts/PretendardVariable-partner.woff2" crossorigin
+      href="../assets/fonts/PretendardVariable-partner.woff2" crossorigin
     />
 
     <style>
       @font-face {
         font-family: "Pretendard Partner";
-        src: url("/assets/fonts/PretendardVariable-partner.woff2") format("woff2-variations");
-        font-weight: 45 930;   /* 가변축 유지 — 300/400/500/700 자유롭게 */
+        src: url("../assets/fonts/PretendardVariable-partner.woff2") format("woff2-variations");
+        font-weight: 45 930;   
         font-style: normal;
         font-display: swap;
       }
 
-      /* ── 토큰 ─────────────────────────────────────────────────
-         루트 랜딩의 색을 에디토리얼 톤에 맞게 조였다.
-         · ink 를 더 진하게 (#241a13 → #191310) — 여백이 큰 화면에서는
-           갈색기가 도는 검정이 흐려 보인다
-         · paper 를 아주 옅은 웜그레이로 — 카드(흰색)가 판에서 들려 보인다 */
       :root {
         --ink: #191310;
         --body: #6b6259;
@@ -96,13 +62,11 @@
         font-family: var(--font);
         background: var(--paper);
         color: var(--ink);
-        /* 🔴 사장님 지시(2026-08-10): 모든 글씨를 큼직하게, 심플하게.
-           작은 라벨·부연 설명은 없애고 본문 기준을 올렸다.
-           식당 사장님 연령대가 35~54세(1주차 실측 73%)라 실용적으로도 맞다. */
+
         font-size: 17px;
         line-height: 1.7;
         letter-spacing: -0.02em;
-        word-break: keep-all;   /* 한글이 단어 중간에서 안 끊기게 */
+        word-break: keep-all;   
         overflow-x: hidden;
       }
       img, video { max-width: 100%; display: block; }
@@ -112,36 +76,30 @@
       .wrap { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
       @media (min-width: 768px) { .wrap { padding: 0 40px; } }
 
-      /* ── 12칼럼 그리드 — 제목은 왼쪽, 보조 설명은 오른쪽 끝 ──── */
       .grid12 { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
       @media (max-width: 767px) { .grid12 { grid-template-columns: 1fr; gap: 18px; } }
       .c-1-7 { grid-column: 1 / 8; }
       .c-9-12 { grid-column: 9 / 13; }
       @media (max-width: 767px) { .c-1-7, .c-9-12 { grid-column: auto; } }
 
-      /* ── 타이포 ────────────────────────────────────────────────
-         굵게(700~800)가 아니라 중간(500)으로 간다. 자간을 좁혀
-         덩어리로 보이게 하는 것이 이 톤의 핵심이다. */
       h1, h2, h3 { margin: 0; font-weight: 500; letter-spacing: -0.045em; }
       h1 { font-size: clamp(34px, 7.6vw, 70px); line-height: 1.1; }
       h2 { font-size: clamp(28px, 5vw, 50px); line-height: 1.14; }
       h3 { font-size: 21px; line-height: 1.4; letter-spacing: -0.04em; }
       p { margin: 0; }
-      /* 보조 문장. 회색으로 죽이지 않고 본문에 가깝게 둔다 — 크고 읽히게. */
+
       .sub {
         color: var(--body); font-size: 18px; line-height: 1.6;
         letter-spacing: -0.03em; font-weight: 400;
       }
       @media (min-width: 768px) { .sub { font-size: 21px; } }
-      /* 큰 본문 — 문단으로 읽히는 자리 */
+
       .big { font-size: 20px; line-height: 1.8; letter-spacing: -0.035em; color: var(--body); }
       @media (min-width: 768px) { .big { font-size: 24px; } }
 
-      /* 글씨를 키운 만큼 섹션 간격은 줄인다 — 안 그러면 화면이 비어 보인다 */
       section { padding: 68px 0; }
       @media (min-width: 768px) { section { padding: 96px 0; } }
 
-      /* ── 버튼 — 모서리를 죽인다(rounded 0). 이 톤에서는 각진 게 맞다 ── */
       .btn {
         display: inline-flex; align-items: center; justify-content: center; gap: 8px;
         padding: 20px 38px; font-family: inherit; font-size: 17px; font-weight: 600;
@@ -158,92 +116,570 @@
       .btn-line:hover { background: rgba(25, 19, 16, 0.04); }
       .btn-sm { padding: 15px 26px; font-size: 15px; }
 
-      /* ── 네비 ─────────────────────────────────────────────────
-         🔴 메뉴 링크를 두지 않는다. 광고 도착지에서 네비게이션은
-            '나가는 문'이다. 로고와 CTA 하나만. */
       .nav {
-        position: absolute; top: 0; left: 0; right: 0; z-index: 20;
+        position: fixed; top: 0; left: 0; right: 0; z-index: 50;
         padding: 22px 0;
+        transition: padding 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease,
+                    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
       }
-      .nav .in { display: flex; align-items: center; justify-content: space-between; }
-      /* 워드마크 — 이미지 로고 대신 텍스트로. 한 줄, 굵게, 자간을 바짝 조인다.
-         '제주'만 감귤 주황으로 띄워 로고 느낌을 낸다(실제 로고의 산방산 색). */
-      .logo {
-        font-size: 23px; font-weight: 800; line-height: 1;
-        letter-spacing: -0.07em; color: var(--ink); white-space: nowrap;
+      .nav.solid, .nav.open {
+        padding: 8px 0;
+        background: rgba(255, 255, 255, 0.94);
+        -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+        box-shadow: 0 1px 0 var(--line);
       }
-      .logo b { color: var(--brand); font-weight: 800; }
-      @media (min-width: 768px) { .logo { font-size: 26px; } }
-      .nav .cta {
-        border: 1px solid rgba(25, 19, 16, 0.14);
-        background: rgba(255, 255, 255, 0.8);
-        -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
-        padding: 13px 22px; font-size: 16px; font-weight: 600;
-        letter-spacing: -0.03em; transition: background-color 0.2s ease;
+      .nav.hide { transform: translateY(-100%); }
+      .nav .in { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+      .logo img { transition: height 0.3s ease; }
+      .nav-menu { list-style: none; margin: 0; padding: 0; }
+      .nav-menu a { display: block; color: var(--ink); letter-spacing: -0.03em; }
+      .nav-burger {
+        display: inline-flex; align-items: center; justify-content: center;
+        width: 44px; height: 44px; padding: 0; border-radius: 999px; cursor: pointer;
+        border: 1px solid rgba(25, 19, 16, 0.14); background: rgba(255, 255, 255, 0.8); color: var(--ink);
       }
-      .nav .cta:hover { background: #fff; }
+      .nav-burger path { transition: transform 0.25s ease, opacity 0.2s ease; transform-origin: 12px 12px; }
+      .nav.open .nav-burger .b1 { transform: translateY(5px) rotate(45deg); }
+      .nav.open .nav-burger .b2 { opacity: 0; }
+      .nav.open .nav-burger .b3 { transform: translateY(-5px) rotate(-45deg); }
 
-      /* ── ① 히어로 ─────────────────────────────────────────────
-         루트 랜딩의 hero-loop.mp4(654KB) 재사용.
-         육수를 붓는 장면 → 모슬포 본점 → 손님으로 찬 매장.
+      @media (max-width: 1023px) {
+        .nav-menu {
+          display: none; position: absolute; top: 100%; left: 0; right: 0;
+          padding: 4px 20px 12px; background: #fff;
+          border-top: 1px solid var(--line); box-shadow: 0 16px 28px rgba(25, 19, 16, 0.1);
+        }
+        .nav.open .nav-menu { display: block; }
+        .nav-menu li + li a { border-top: 1px solid var(--line); }
+        .nav-menu a { padding: 16px 2px; font-size: 17px; font-weight: 700; }
+        .nav-menu a.on { color: var(--brand); }
+      }
 
-         🔴 영상 위에 '흰 막'을 깐다. 예전처럼 검은 막을 씌우면 영상이 죽는다.
-            글자가 놓이는 쪽만 진하게, 영상 쪽은 얇게 — 방향이 있는 그라디언트. */
+      @media (min-width: 1024px) {
+        .nav-burger { display: none; }
+        .nav-menu { display: flex; gap: 28px; margin: 0 0 0 auto; }
+        .nav-r { margin-left: 20px; }
+        .nav-menu a { position: relative; padding: 8px 0; font-size: 15px; font-weight: 600; color: var(--body); white-space: nowrap; transition: color 0.2s ease; }
+        .nav-menu a:hover, .nav-menu a.on { color: var(--ink); }
+        .nav-menu a.on::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; border-radius: 2px; background: var(--brand); }
+        .nav.solid .logo img { height: 56px; }
+      }
+
+      #sanbang, #menu, #cost, #together, #faq, #apply { scroll-margin-top: 72px; }
+
+      .logo { display: inline-flex; align-items: center; }
+      .logo img { height: 56px; width: auto; }
+      @media (min-width: 768px) { .logo img { height: 66px; } }
+      .nav-r { display: inline-flex; align-items: center; gap: 16px; }
+      .nav-tel { display: none; font-size: 15px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+      @media (min-width: 1200px) { .nav-tel { display: inline; } }
+
       .hero {
-        position: relative; min-height: 100svh;
-        display: flex; flex-direction: column; justify-content: flex-end;
-        overflow: hidden; padding: 0 0 44px;
+        position: relative; overflow: hidden;
+        padding: 104px 0 56px;
+        background: linear-gradient(180deg, #fff 0%, #fff 38%, var(--paper) 100%);
+        text-align: center;
       }
-      .hero-media { position: absolute; inset: 0; z-index: 0; background: #ded6cc; }
-      .hero-media video, .hero-media .poster {
-        position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+      @media (min-width: 768px) { .hero { padding: 132px 0 80px; } }
+
+      .hero-badge {
+        display: inline-flex; align-items: center; gap: 8px;
+        padding: 9px 18px; border-radius: 999px;
+        background: #fff; border: 1px solid var(--line);
+        box-shadow: 0 2px 10px rgba(25, 19, 16, 0.05);
+        font-size: 14px; font-weight: 600; letter-spacing: -0.02em; color: var(--brand);
       }
-      .hero-media .poster {
-        background-image: url("/assets/web/hero-poster.webp");
-        background-size: cover; background-position: center;
+      .hero-badge::before {
+        content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--brand);
       }
-      .hero-scrim {
-        position: absolute; inset: 0; z-index: 1;
-        /* 위쪽은 로고가 읽힐 만큼만 얇게, 글자가 놓이는 아래쪽만 진하게.
-           예전에 전체를 균일하게 덮었더니 영상이 뿌옇게 죽었다. */
-        background: linear-gradient(
-          180deg,
-          rgba(247, 245, 242, 0.5) 0%,
-          rgba(247, 245, 242, 0.14) 18%,
-          rgba(247, 245, 242, 0.1) 42%,
-          rgba(247, 245, 242, 0.6) 63%,
-          rgba(247, 245, 242, 0.95) 82%,
-          var(--paper) 100%
-        );
+      @media (min-width: 768px) { .hero-badge { font-size: 18px; padding: 11px 22px; } }
+
+      .hero-title {
+        margin: 22px auto 0;
+        font-size: clamp(34px, 7vw, 68px); font-weight: 800;
+        line-height: 1.2; letter-spacing: -0.04em;
+        text-wrap: balance;
+      }
+
+      .hero-title .ul {
+        background: linear-gradient(transparent 70%, rgba(255, 207, 158, 0.8) 70%, rgba(255, 207, 158, 0.8) 92%, transparent 92%);
+        -webkit-box-decoration-break: clone; box-decoration-break: clone; padding: 0 4px;
+      }
+      .hero-title .hl {
+        background: linear-gradient(92deg, var(--brand-2), var(--brand));
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+        white-space: nowrap;
+      }
+
+      .hero-sub {
+        margin: 22px auto 0; max-width: 34em;
+        font-size: 16.5px; line-height: 1.75; letter-spacing: -0.03em; color: var(--body);
+        text-wrap: pretty;
+      }
+      @media (min-width: 768px) { .hero-sub { font-size: 19px; } }
+      .hero-sub mark {
+        background: linear-gradient(transparent 56%, rgba(207, 90, 28, 0.2) 56%);
+        color: var(--brand); font-weight: 700; padding: 0 2px; white-space: nowrap;
+      }
+      .hero-sub strong { color: var(--ink); font-weight: 700; }
+
+      .hero-line {
+        margin: 14px auto 0;
+        font-size: 17px; font-weight: 700; letter-spacing: -0.035em; color: var(--ink);
+      }
+      @media (min-width: 768px) { .hero-line { font-size: 20px; } }
+
+      .hero-line span { display: inline-block; }
+      .hero-line .pre { color: var(--body); font-weight: 600; }
+
+      .hero-qa {
+        margin: 14px auto 0; width: fit-content; max-width: 100%;
+        padding: 9px 18px; border: 1px solid var(--line); border-radius: 14px; background: #fff;
+        font-size: 15px; font-weight: 500; line-height: 1.6; letter-spacing: -0.03em; color: var(--body);
+      }
+      @media (min-width: 768px) { .hero-qa { font-size: 16.5px; } }
+      .hero-qa span { display: inline-block; }
+      .hero-qa .a { color: var(--ink); font-weight: 600; }
+
+      .hero-act {
+        margin-top: 30px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+      }
+      .hbtn {
+        display: inline-flex; align-items: center; justify-content: center;
+        padding: 17px 30px; border-radius: 999px;
+        font-size: 17px; font-weight: 700; letter-spacing: -0.03em; line-height: 1;
+        transition: transform 0.15s ease, background-color 0.15s ease;
+      }
+      .hbtn:active { transform: scale(0.98); }
+      .hbtn-brand { background: var(--brand); color: #fff; }
+      .hbtn-brand:hover { background: var(--brand-2); }
+      .hbtn-ghost { position: relative; color: var(--brand); }
+      .hbtn-ghost::before {
+        content: ""; position: absolute; inset: 0; border-radius: inherit;
+        background: currentColor; opacity: 0.09;
+      }
+      .hbtn-ghost:hover::before { opacity: 0.14; }
+      @media (max-width: 380px) { .hbtn { padding: 16px 22px; font-size: 16px; } }
+
+      .hero-video {
+        margin: 40px auto 0; border-radius: 22px; overflow: hidden;
+        background: #ded6cc; box-shadow: 0 32px 64px -34px rgba(25, 19, 16, 0.45);
+      }
+      .hero-video video { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+      @media (min-width: 640px) { .hero-video video { aspect-ratio: 16 / 9; } }
+      @media (min-width: 1024px) {
+        .hero-video { margin-top: 52px; border-radius: 28px; }
+        .hero-video video { aspect-ratio: 21 / 9; }
+      }
+
+      .rv { background: var(--paper); padding: 16px 0 72px; }
+      .rv-grid { display: grid; gap: 12px; margin-top: 26px; }
+      .rv-card { display: flex; flex-direction: column; padding: 20px 20px 18px; border-radius: 18px; background: #fff; }
+      .rv-q { font-size: 17px; font-weight: 600; line-height: 1.55; letter-spacing: -0.03em; color: var(--ink); text-wrap: pretty; }
+      .rv-store { margin-top: auto; padding-top: 10px; font-size: 14px; font-weight: 700; letter-spacing: -0.03em; color: var(--brand); }
+      .rv-foot { margin-top: 14px; font-size: 12.5px; line-height: 1.6; letter-spacing: -0.02em; color: var(--muted); text-align: center; }
+      @media (min-width: 900px) {
+        .rv { padding: 24px 0 96px; }
+        .rv-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
+        .rv-card { padding: 26px 24px 22px; }
+        .rv-q { font-size: 18px; }
+      }
+      @media (max-width: 360px) { .hero .hero-badge { font-size: 13.5px; padding: 8px 12px; gap: 6px; } }
+      @media (max-width: 767px) {
+        .hero { padding-top: 92px; }
+        .hero > .wrap { display: flex; flex-direction: column; align-items: center; }
+        .hero-badge { order: 1; font-size: 15.5px; font-weight: 700; padding: 9px 16px; white-space: nowrap; }
+        .hero-title { order: 2; margin-top: 14px; }
+        .hero-video { order: 3; align-self: stretch; margin-top: 16px; border-radius: 18px; }
+        .hero-sub { order: 5; margin-top: 16px; font-size: 15.5px; line-height: 1.6; }
+        .hero-line { order: 6; margin-top: 8px; font-size: 16px; }
+        .hero-line .pre { display: none; }
+        .hero-qa { order: 6; margin-top: 12px; padding: 8px 14px; font-size: 14.5px; }
+        .hero-act { order: 7; margin-top: 16px; flex-wrap: nowrap; }
+      }
+
+      .talk {
+        position: relative; overflow: hidden; color: #fff;
+        background: radial-gradient(90% 70% at 50% 38%, #2b1e16 0%, #191310 52%, #0e0a08 100%);
+      }
+      .talk::before {
+        content: ""; position: absolute; inset: 0; pointer-events: none;
+        background: radial-gradient(46% 38% at 50% 46%, rgba(207, 90, 28, 0.2), transparent 72%);
+      }
+      .talk .wrap { position: relative; z-index: 1; }
+      .talk-head { text-align: center; }
+      .talk-head h2 { font-size: clamp(26px, 4.6vw, 44px); font-weight: 700; letter-spacing: -0.045em; color: #fff; }
+      .talk-head h2 em { font-style: normal; color: #f0a575; }
+
+      .chat { margin: 30px auto 0; max-width: 620px; color: var(--ink); }
+      .chat-body { display: flex; flex-direction: column; gap: 8px; }
+
+      .b {
+        max-width: 84%; padding: 11px 15px; border-radius: 20px;
+        font-size: 16px; line-height: 1.5; letter-spacing: -0.03em; word-break: keep-all;
+      }
+      .b.me { align-self: flex-end; background: var(--brand); color: #fff; border-bottom-right-radius: 6px; }
+      .b.sb + .b.me { margin-top: 18px; }
+      a.b.sb {
+        align-self: flex-start; background: #f1ede8; color: var(--ink); border-bottom-left-radius: 6px;
+        font-weight: 600; transition: background-color 0.15s ease;
+      }
+      a.b.sb .to { display: block; margin-top: 4px; font-size: 14.5px; font-weight: 700; color: var(--brand); }
+      a.b.sb:hover { background: #e9e3dc; }
+
+      .b.dots { align-self: flex-start; background: #f1ede8; padding: 0 16px; height: 36px; margin-bottom: -44px;
+        display: none; gap: 4px; align-items: center; }
+      .b.dots i { width: 7px; height: 7px; border-radius: 50%; background: #b3aaa1; animation: dot 0.9s infinite ease-in-out; }
+      .b.dots i:nth-child(2) { animation-delay: 0.15s; }
+      .b.dots i:nth-child(3) { animation-delay: 0.3s; }
+      @keyframes dot { 0%, 60%, 100% { transform: translateY(0); opacity: 0.5; } 30% { transform: translateY(-4px); opacity: 1; } }
+
+      .js .chat .b.me, .js .chat a.b.sb { opacity: 0; transform: translateY(10px) scale(0.92); }
+      .chat .b.on { opacity: 1 !important; transform: none !important;
+        transition: opacity 0.34s ease, transform 0.4s cubic-bezier(0.2, 0.9, 0.3, 1.25); }
+      .chat .b.me.on { transform-origin: 100% 100%; }
+      .chat a.b.sb.on { transform-origin: 0 100%; }
+      .chat .b.dots.on { display: inline-flex; }
+
+      .talk-foot { margin-top: 26px; text-align: center; font-size: 16px; color: rgba(255, 255, 255, 0.62); letter-spacing: -0.03em; }
+
+      @media (min-width: 900px) {
+        .chat { margin-top: 44px; }
+        .b { font-size: 18px; padding: 13px 20px; }
+        .b.sb + .b.me { margin-top: 24px; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .js .chat .b.me, .js .chat a.b.sb { opacity: 1; transform: none; }
+        .b.dots i { animation: none; }
+      }
+
+      .noname { background: var(--ink); color: #fff; text-align: center; }
+      .nn-draw { display: block; width: min(100%, 860px); height: auto; margin: 0 auto 22px; opacity: 0.92; }
+      .nn-lines { margin: 0; display: flex; flex-direction: column; gap: 2px; }
+      .nn-lines span { display: block; font-size: clamp(36px, 8.4vw, 92px); font-weight: 800; line-height: 1.12; letter-spacing: -0.055em; }
+      .nn-lines i { font-style: normal; color: rgba(255, 255, 255, 0.32); }
+      .nn-punch { margin-top: clamp(28px, 4vw, 48px); font-size: clamp(22px, 3.6vw, 38px); font-weight: 800; letter-spacing: -0.045em; line-height: 1.35; text-wrap: balance; }
+      .nn-punch em { font-style: normal; background: linear-gradient(transparent 58%, rgba(240, 165, 117, 0.45) 58%); padding: 0 2px; }
+      .nn-sub { margin-top: 14px; font-size: clamp(16px, 2vw, 20px); color: rgba(255, 255, 255, 0.62); letter-spacing: -0.03em; }
+      .nn-sub b { color: #f0a575; font-weight: 800; }
+
+      .why { background: var(--paper); }
+      .sec-head { text-align: center; max-width: 40em; margin: 0 auto; }
+      .sec-head h2 { font-size: clamp(28px, 5vw, 48px); font-weight: 800; letter-spacing: -0.045em; line-height: 1.2; text-wrap: balance; }
+      .sec-head h2 em { font-style: normal; color: var(--brand); }
+      .sec-head p { margin-top: 16px; font-size: 16.5px; line-height: 1.7; color: var(--body); letter-spacing: -0.03em; text-wrap: pretty; }
+      @media (min-width: 768px) { .sec-head p { font-size: 19px; } }
+
+      .why-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 40px; }
+      @media (min-width: 720px) { .why-grid { grid-template-columns: repeat(6, 1fr); gap: 20px; margin-top: 56px; } }
+      .why-card {
+        background: #fff; border-radius: 22px; overflow: hidden; display: flex; flex-direction: column;
+        box-shadow: 0 18px 40px -30px rgba(25, 19, 16, 0.35);
+      }
+      @media (min-width: 720px) {
+        .why-card { grid-column: span 2; }
+        .why-card.wide { grid-column: span 3; }
+      }
+      .why-card .ph { aspect-ratio: 4 / 3; background: #ece6df; overflow: hidden; }
+      .why-card.wide .ph { aspect-ratio: 16 / 11; }
+      .why-card .ph img, .why-card .ph video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+      .why-card .ph video { transform: scale(1.06); }
+      .why-card .bd { padding: 22px 22px 24px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+      .why-card .no { font-size: 13px; font-weight: 800; color: var(--brand); letter-spacing: 0.02em; }
+      .why-card h3 { font-size: 21px; font-weight: 800; letter-spacing: -0.04em; }
+      .why-card p.t { font-size: 16px; line-height: 1.6; color: var(--body); }
+
+      .swipe-hint { display: none; }
+      .why-nav { display: none; }
+      @media (max-width: 719px) {
+        .why-grid {
+          display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory;
+          margin: 24px -20px 0; padding: 4px 20px 18px; scroll-padding: 0 20px;
+          -webkit-overflow-scrolling: touch; scrollbar-width: none;
+        }
+        .why-grid::-webkit-scrollbar { display: none; }
+        .why-card { flex: 0 0 82%; scroll-snap-align: start; }
+        .js .why-card[data-rv] { opacity: 1; transform: none; }
+        .swipe-hint { display: block; margin-top: 18px; text-align: center; font-size: 14px; font-weight: 600; color: var(--muted); letter-spacing: -0.02em; }
+        .why-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-top: 18px; }
+        .why-nav a {
+          padding: 9px 13px; border-radius: 999px; border: 1px solid var(--line); background: #fff;
+          font-size: 14px; font-weight: 700; line-height: 1; letter-spacing: -0.03em; color: var(--ink); text-decoration: none;
+        }
+        .why-nav a.on { background: var(--ink); border-color: var(--ink); color: #fff; }
+      }
+
+      .keep {
+        position: relative; overflow: hidden; color: #fff; text-align: center;
+        background: radial-gradient(90% 70% at 50% 30%, #2b1e16 0%, #191310 55%, #0e0a08 100%);
+      }
+      .keep::before {
+        content: ""; position: absolute; inset: 0; pointer-events: none;
+        background: radial-gradient(40% 34% at 50% 36%, rgba(207, 90, 28, 0.18), transparent 72%);
+      }
+      .keep .wrap { position: relative; z-index: 1; }
+      .keep-lead { font-size: 16px; line-height: 1.7; color: rgba(255, 255, 255, 0.66); letter-spacing: -0.03em; }
+      @media (min-width: 768px) { .keep-lead { font-size: 18px; } }
+      .keep-motto { display: inline-block; margin-bottom: 4px; font-size: clamp(18px, 2.4vw, 22px); font-weight: 800; color: #fff; letter-spacing: -0.04em; }
+      .keep h2 {
+        margin: 22px auto 0; max-width: 18em;
+        font-size: clamp(28px, 5.2vw, 50px); font-weight: 800; line-height: 1.22; letter-spacing: -0.045em; text-wrap: balance;
+      }
+      .keep h2 em { font-style: normal; color: #f0a575; }
+      .keep-list { display: grid; gap: 14px; max-width: 880px; margin: 40px auto 0; text-align: left; }
+      @media (min-width: 760px) { .keep-list { grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 52px; } }
+      .keep-list li {
+        list-style: none; padding: 24px 24px 26px; border-radius: 20px;
+        background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .keep-list .no { display: block; font-size: 13px; font-weight: 800; color: #f0a575; margin-bottom: 8px; }
+      .keep-list b { display: block; font-size: 19px; font-weight: 700; letter-spacing: -0.04em; line-height: 1.45; }
+      .keep-list span { display: block; margin-top: 8px; font-size: 15.5px; line-height: 1.6; color: rgba(255, 255, 255, 0.62); }
+      .keep-quote {
+        margin: 44px auto 0; max-width: 22em;
+        font-size: clamp(21px, 3.4vw, 30px); font-weight: 700; line-height: 1.5; letter-spacing: -0.04em; text-wrap: balance;
+      }
+      .keep-quote mark { background: none; color: #f0a575; }
+      .keep-list { padding: 0; }
+
+      .sets { background: #fff; }
+
+      .sf-base { margin-top: 36px; padding: 24px 16px 22px; border-radius: 22px; background: var(--paper); }
+      .sf-cap { margin: 0; text-align: center; font-size: 16.5px; font-weight: 800; letter-spacing: -0.04em; color: var(--ink); }
+      .sf-base .eq { margin-top: 18px; }
+      .sf-rows { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 10px; }
+      .sf-row { display: flex; align-items: center; gap: 14px; padding: 14px; border: 1px solid var(--line); border-radius: 18px; background: #fff; }
+      .sf-pic { flex: 0 0 84px; width: 84px; height: 84px; border-radius: 50%; overflow: hidden; background: #f7f3ee; }
+      .sf-pic img { display: block; width: 100%; height: 100%; object-fit: cover; }
+      .sf-pic.draw img { object-fit: contain; padding: 11px; }
+      .sf-row .season { padding: 4px 10px; font-size: 12.5px; }
+      .sf-row h3 { margin-top: 6px; font-size: 17.5px; font-weight: 800; letter-spacing: -0.045em; }
+      .sf-row p { margin-top: 3px; font-size: 14.5px; line-height: 1.5; color: var(--body); letter-spacing: -0.03em; }
+      @media (min-width: 900px) {
+        .sf-base { margin-top: 52px; padding: 30px 30px 28px; }
+        .sf-cap { font-size: 20px; }
+        .sf-rows { grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 16px; }
+        .sf-row { flex-direction: column; align-items: flex-start; gap: 16px; padding: 22px 20px 24px; }
+        .sf-pic { flex: none; width: 132px; height: 132px; align-self: center; }
+        .sf-pic.draw img { padding: 16px; }
+        .sf-row h3 { font-size: 19px; }
+        .sf-row p { font-size: 15px; }
+      }
+      .season {
+        display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px;
+        font-size: 13.5px; font-weight: 800; letter-spacing: -0.02em;
+      }
+      .season.su { background: #e7f1f6; color: #2a6a8a; }
+      .season.wi { background: #f5ebe3; color: #8a4a22; }
+      .season.al { background: rgba(207, 90, 28, 0.1); color: var(--brand-2); }
+
+      .eq { display: flex; justify-content: center; gap: 22px; margin-top: 24px; }
+      .eq .it { flex: 1 1 0; min-width: 0; max-width: 128px; display: flex; flex-direction: column; align-items: center; gap: 9px; text-align: center; }
+      .eq .pic { position: relative; display: block; width: 100%; aspect-ratio: 1 / 1; }
+      .eq .pic img, .eq .pic .txt {
+        width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block;
+        box-shadow: 0 10px 22px -12px rgba(25, 19, 16, 0.45); background: #f3efea;
+      }
+      .eq .pic .txt { display: flex; align-items: center; justify-content: center; font-size: clamp(16px, 4.4vw, 24px); font-weight: 800; color: var(--ink); }
+      .eq .pic .txt.next { background: #fff; border: 2px dashed #d8cdbf; box-shadow: none; color: var(--brand-2); }
+      .eq .it + .it .pic::before {
+        content: "+"; position: absolute; left: -11px; top: 50%; transform: translate(-50%, -50%);
+        font-size: 20px; font-weight: 800; color: #c9bfb4; line-height: 1;
+      }
+      .eq .it em { font-style: normal; font-size: 13.5px; font-weight: 700; line-height: 1.3; letter-spacing: -0.03em; color: var(--ink); }
+      .eq .it em small { display: block; margin-top: 2px; font-size: 12px; font-weight: 600; color: var(--muted); }
+      @media (min-width: 768px) {
+        .eq { gap: 28px; margin-top: 28px; }
+        .eq .it + .it .pic::before { left: -14px; font-size: 24px; }
+        .eq .it em { font-size: 15px; }
+        .eq .it em small { font-size: 12.5px; }
+      }
+
+      .set-foot { margin-top: 28px; display: grid; gap: 10px; }
+      @media (min-width: 900px) { .set-foot { grid-template-columns: 1fr 1fr; gap: 20px; } }
+      .set-foot p {
+        padding: 16px 18px; border-radius: 16px; background: var(--paper);
+        font-size: 15.5px; line-height: 1.6; color: var(--body); letter-spacing: -0.03em;
+      }
+      .set-foot b { color: var(--ink); }
+
+      .meat {
+        position: relative; overflow: hidden; color: #fff;
+        background: radial-gradient(80% 60% at 30% 30%, #2a1d15 0%, #171110 55%, #0d0a08 100%);
+      }
+      .meat-grid { display: grid; gap: 28px; }
+      @media (min-width: 900px) { .meat-grid { grid-template-columns: 0.9fr 1.1fr; gap: 56px; align-items: center; } }
+      .meat-ph { border-radius: 24px; overflow: hidden; aspect-ratio: 4 / 3; background: #000; }
+      @media (min-width: 900px) { .meat-ph { aspect-ratio: 4 / 5; } }
+      .meat-ph img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; display: block; }
+      .meat-eyebrow { font-size: 13.5px; font-weight: 800; color: #f0a575; letter-spacing: 0.02em; }
+      .meat h2 { margin-top: 10px; font-size: clamp(28px, 4.6vw, 46px); font-weight: 800; line-height: 1.22; letter-spacing: -0.045em; text-wrap: balance; }
+      .meat h2 em { font-style: normal; color: #f0a575; }
+      .meat-lead { margin-top: 14px; font-size: 16.5px; line-height: 1.7; color: rgba(255, 255, 255, 0.68); letter-spacing: -0.03em; text-wrap: pretty; }
+      @media (min-width: 768px) { .meat-lead { font-size: 18px; } }
+      .meat-line { margin-top: 22px; font-size: clamp(21px, 3vw, 28px); font-weight: 800; line-height: 1.38; letter-spacing: -0.04em; }
+      .meat-line em { font-style: normal; color: #f0a575; }
+      .meat-sub { margin-top: 8px; font-size: 15px; color: rgba(255, 255, 255, 0.55); letter-spacing: -0.02em; }
+
+      .vs2 { margin-top: 26px; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 18px; overflow: hidden; }
+      .vs2 .r { display: grid; grid-template-columns: 58px 1fr 1.3fr; }
+      .vs2 .r + .r { border-top: 1px solid rgba(255, 255, 255, 0.1); }
+      .vs2 .r > span { padding: 14px 12px; font-size: 14px; line-height: 1.45; letter-spacing: -0.03em; }
+      .vs2 .r > span:nth-child(1) { font-weight: 800; color: rgba(255, 255, 255, 0.9); }
+      .vs2 .r > span:nth-child(2) { color: rgba(255, 255, 255, 0.5); }
+      .vs2 .r > span:nth-child(3) { background: rgba(207, 90, 28, 0.16); color: #fff; font-weight: 700; }
+      .vs2 .r.hd > span { padding-top: 11px; padding-bottom: 11px; font-size: 12.5px; font-weight: 800; color: rgba(255, 255, 255, 0.55); }
+      .vs2 .r.hd > span:nth-child(3) { color: #f0a575; }
+      @media (min-width: 768px) {
+        .vs2 .r { grid-template-columns: 76px 1fr 1.3fr; }
+        .vs2 .r > span { padding: 16px 18px; font-size: 15.5px; }
+      }
+
+      .shape {
+        margin-top: 44px; padding-top: 38px; border-top: 1px solid rgba(255, 255, 255, 0.12);
+        display: grid; gap: 20px; grid-template-columns: minmax(0, 1fr);
+        grid-template-areas: "head" "ph";
       }
       @media (min-width: 900px) {
-        /* 넓은 화면에서는 글자가 왼쪽에 모이므로 막도 왼쪽만 진하게 */
-        .hero-scrim {
-          background: linear-gradient(
-              100deg,
-              rgba(247, 245, 242, 0.94) 0%,
-              rgba(247, 245, 242, 0.74) 34%,
-              rgba(247, 245, 242, 0.26) 62%,
-              rgba(247, 245, 242, 0.1) 100%
-            ),
-            linear-gradient(180deg, rgba(247, 245, 242, 0.5) 0%, rgba(247, 245, 242, 0) 22%);
+        .shape {
+          margin-top: 68px; padding-top: 60px; gap: 20px 56px;
+          grid-template-columns: 1.1fr 0.9fr;
+          grid-template-areas: "head ph";
         }
+        .shape-head { align-self: center; }
       }
-      .hero .in { position: relative; z-index: 2; }
-      .hero h1 { max-width: 13em; }
-      /* 🔴 히어로 글자는 '밝은 영상' 위에 놓인다. 회색으로 두면 사라진다.
-         색을 진하게 올리고, 흰 글로우를 깔아 어떤 프레임에서도 읽히게 한다. */
-      .hero .label { color: #5c534b; }
-      .hero .sub { margin-top: 4px; color: #4c443d; font-weight: 500; }
-      .hero .label, .hero .sub, .hero h1 {
-        text-shadow: 0 1px 10px rgba(247, 245, 242, 0.95),
-                     0 0 34px rgba(247, 245, 242, 0.8);
-      }
-      .hero .act { margin-top: 34px; display: flex; gap: 10px; flex-wrap: wrap; }
-      @media (min-width: 768px) { .hero { padding-bottom: 72px; } }
+      .shape-head { grid-area: head; }
+      .shape-h { font-size: clamp(30px, 4.6vw, 46px); font-weight: 800; line-height: 1.24; letter-spacing: -0.045em; color: #fff; text-wrap: balance; }
+      .shape-h em { font-style: normal; color: #f0a575; }
+      .shape-lead { margin-top: 10px; font-size: 18px; line-height: 1.65; color: rgba(255, 255, 255, 0.76); letter-spacing: -0.03em; text-wrap: pretty; }
+      .shape-h + .shape-lead { margin-top: 18px; }
+      @media (min-width: 768px) { .shape-lead { font-size: 21px; } }
+      .shape-ph { grid-area: ph; margin: 0; }
 
-      /* ── ③ 품목 카드 ──────────────────────────────────────────
-         호버하면 사진만 아주 천천히 커진다(0.7s). 카드는 안 움직인다. */
+      .float-stage { position: relative; aspect-ratio: 1 / 1; perspective: 1000px; }
+      .float-stage::before {
+        content: ""; position: absolute; inset: -6%; pointer-events: none;
+        background: url("../assets/web/katsu-float-bg.webp") center / cover no-repeat;
+        -webkit-mask-image: radial-gradient(closest-side, #000 58%, transparent 100%);
+        mask-image: radial-gradient(closest-side, #000 58%, transparent 100%);
+        animation: fpMist 13s ease-in-out infinite alternate;
+      }
+      .fp {
+        position: absolute; left: var(--x); top: var(--y); width: var(--w); display: block;
+        transform: translate3d(0, calc(var(--py, 0) * var(--sp) * 1px), 0);
+        transform-style: preserve-3d; will-change: transform;
+      }
+      .fp img {
+        display: block; width: 100%; height: auto; will-change: transform;
+        transform: rotate(var(--r)) rotateX(var(--rx)) rotateY(var(--ry));
+        animation: fpFloat var(--d) ease-in-out var(--dl) infinite alternate;
+      }
+      @keyframes fpFloat {
+        from { transform: translateY(-2.4%) rotate(var(--r)) rotateX(var(--rx)) rotateY(var(--ry)); }
+        to { transform: translateY(2.4%) rotate(calc(var(--r) + 2.5deg)) rotateX(calc(var(--rx) * 0.45)) rotateY(calc(var(--ry) * 0.45)); }
+      }
+      @keyframes fpMist {
+        from { transform: translate3d(-2%, 1.5%, 0) scale(1.02); opacity: 0.72; }
+        to { transform: translate3d(2.5%, -2%, 0) scale(1.06); opacity: 1; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .fp img, .float-stage::before { animation: none; }
+      }
+
+      .cost-sec { background: var(--paper); }
+      .cost { display: grid; gap: 26px; }
+
+      @media (max-width: 899px) {
+        .cost-left { display: contents; }
+        .cost-intro { order: 1; }
+        .cost-side { order: 2; }
+        .cost .kit2 { order: 3; margin-top: 10px; }
+        .cost .prog { order: 4; margin-top: -10px; }
+      }
+      @media (min-width: 900px) { .cost { grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; } }
+      .cost h3 { font-size: clamp(24px, 3.8vw, 36px); font-weight: 800; line-height: 1.3; letter-spacing: -0.045em; text-wrap: balance; }
+      .cost h3 em { font-style: normal; color: var(--brand); }
+      .cost h3 { color: var(--ink); }
+      .cost p.t { margin-top: 14px; font-size: 16px; line-height: 1.7; color: var(--body); letter-spacing: -0.03em; }
+
+      mark.hl { background: linear-gradient(transparent 46%, #ffcf9e 46%); color: var(--ink); font-weight: 700; padding: 0 1px; }
+      mark.hl-d { background: linear-gradient(transparent 58%, rgba(240, 165, 117, 0.42) 58%); color: #fff; font-weight: 700; padding: 0 1px; }
+      .why-card p.t strong, .cost p.t strong, .cost-pts strong { color: var(--ink); font-weight: 700; }
+      strong.kd { color: #fff; font-weight: 700; }
+      .kit2 { margin-top: 36px; padding-top: 32px; border-top: 1px solid var(--line); }
+
+      .kit2-h { font-size: clamp(24px, 3.8vw, 36px); font-weight: 800; line-height: 1.3; letter-spacing: -0.045em; color: var(--ink); text-wrap: balance; }
+      .kit2-h em { font-style: normal; color: var(--brand); }
+      .kit2-g { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 18px 0 0; padding: 0; list-style: none; }
+      .kit2-g li { padding: 14px 14px 15px; border-radius: 14px; background: #fff; border: 1px solid var(--line); }
+      .kit-ic { display: block; width: auto; height: 58px; margin-bottom: 10px; }
+      .kit2-g b { display: block; font-size: 15px; font-weight: 700; line-height: 1.4; letter-spacing: -0.035em; color: var(--ink); }
+      .kit2-g span { display: block; margin-top: 4px; font-size: 13px; line-height: 1.5; color: var(--body); letter-spacing: -0.03em; }
+      .cost .prog { margin-top: 16px; padding: 14px 16px; border-radius: 14px; background: #fff; border: 1px solid var(--line); font-size: 15.5px; line-height: 1.6; color: var(--ink); letter-spacing: -0.03em; }
+      .cost .prog b { color: var(--brand); }
+      .cost-pts { margin: 18px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+      .cost-pts li { position: relative; padding-left: 20px; font-size: 15.5px; line-height: 1.55; color: var(--body); }
+      .cost-pts li::before { content: ""; position: absolute; left: 2px; top: 9px; width: 7px; height: 7px; border-radius: 50%; background: var(--brand); }
+
+      .cost-note { margin-top: 12px; font-size: 13.5px; font-weight: 600; color: var(--muted); text-align: center; letter-spacing: -0.02em; }
+      .cost-phone {
+        --t1: #111111; --t2: #8a8a8e; --sep: #e5e5ea;
+        background: #fff; color: var(--t1); border-radius: 22px; overflow: hidden;
+        box-shadow: 0 30px 70px -34px rgba(25, 19, 16, 0.45), 0 0 0 1px rgba(25, 19, 16, 0.06); font-variant-numeric: tabular-nums;
+        max-width: 420px; width: 100%; margin: 0 auto;
+      }
+      .cp-status { display: none; }
+      .cp-nav { position: relative; display: flex; align-items: center; justify-content: center; height: 48px; border-bottom: 0.5px solid var(--sep); }
+      .cp-nav b { font-size: 16px; font-weight: 700; letter-spacing: -0.03em; }
+      .cp-back { position: absolute; left: 14px; top: 50%; transform: translateY(-54%); font-size: 30px; font-weight: 300; line-height: 1; color: var(--t1); }
+      .cp-tag { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 12px; font-weight: 600; color: var(--t2); }
+      .cp-tabs { display: flex; border-bottom: 0.5px solid var(--sep); padding: 0 8px; }
+      .cp-tabs button {
+        flex: 1; padding: 11px 0 10px; border: 0; background: none; cursor: pointer;
+        font: inherit; font-size: 14px; font-weight: 600; letter-spacing: -0.03em; color: var(--t2);
+        border-bottom: 2px solid transparent; margin-bottom: -0.5px;
+      }
+      .cp-tabs button[aria-selected="true"] { color: var(--t1); font-weight: 700; border-bottom-color: var(--t1); }
+      .cp-body { padding: 18px 18px 16px; }
+      .cp-title { font-size: 19px; font-weight: 800; letter-spacing: -0.04em; }
+      .cp-meta { margin-top: 3px; font-size: 12.5px; color: var(--t2); letter-spacing: -0.02em; }
+      .cp-cols { display: flex; justify-content: space-between; margin-top: 16px; padding-bottom: 7px; border-bottom: 0.5px solid var(--sep); font-size: 11.5px; font-weight: 700; color: var(--t2); letter-spacing: 0.02em; }
+      .cc-list { margin: 0; padding: 0; list-style: none; }
+      .cc-list[hidden] { display: none; }
+      .cc-list li { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 0.5px solid var(--sep); }
+      .cc-list li b { display: block; font-size: 14.5px; font-weight: 600; letter-spacing: -0.03em; }
+      .cc-list li small { display: block; margin-top: 1px; font-size: 12px; color: var(--t2); letter-spacing: -0.02em; }
+
+      .amt { filter: blur(4.5px); user-select: none; font-size: 14.5px; font-weight: 600; color: var(--t1); white-space: nowrap; }
+      .cp-sum { margin-top: 4px; }
+      .cp-sum .r { display: flex; align-items: center; justify-content: space-between; padding: 9px 0; font-size: 14px; color: var(--t2); letter-spacing: -0.03em; }
+      .cp-sum .r.t { padding-top: 12px; color: var(--t1); font-weight: 800; font-size: 15.5px; }
+      .cp-sum .r.t .amt { font-weight: 800; font-size: 15.5px; }
+      .cp-in { color: var(--t1); font-weight: 600; }
+      .cp-btn { display: block; margin-top: 14px; padding: 13px 0; border-radius: 12px; background: var(--t1); color: #fff; text-align: center; font-size: 15px; font-weight: 700; letter-spacing: -0.03em; }
+      .cp-foot { margin-top: 10px; text-align: center; font-size: 12px; color: var(--t2); letter-spacing: -0.02em; }
+      .cp-screen[hidden] { display: none; }
+      .cp-list { margin: 14px 0 0; padding: 0; list-style: none; border-top: 0.5px solid var(--sep); }
+      .cp-list li { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 11px 0; border-bottom: 0.5px solid var(--sep); }
+      .cp-list li > div { min-width: 0; }
+      .cp-list li b { display: block; font-size: 14.5px; font-weight: 600; letter-spacing: -0.03em; }
+      .cp-list li small { display: block; margin-top: 1px; font-size: 12px; color: var(--t2); letter-spacing: -0.02em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .cp-list .go { flex: 0 0 auto; font-size: 13px; font-weight: 600; color: var(--t2); }
+
+      .cp-bar { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 0.5px solid var(--sep); background: #f9f9fb; padding: 7px 4px 9px; }
+      .cp-bar button { display: flex; flex-direction: column; align-items: center; gap: 3px; border: 0; background: none; cursor: pointer; font: inherit; font-size: 10.5px; font-weight: 600; color: var(--t2); letter-spacing: -0.02em; }
+      .cp-bar svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linejoin: round; stroke-linecap: round; }
+      .cp-bar button.on { color: var(--t1); }
+      @media (min-width: 900px) { .cp-bar { padding-bottom: 18px; } }
+
+      @media (min-width: 900px) {
+        .cost-phone { position: relative; max-width: 372px; border-radius: 52px; border: 11px solid #0b0806; outline: 1px solid rgba(255, 255, 255, 0.08); }
+        .cost-phone::before { content: ""; position: absolute; top: 9px; left: 50%; transform: translateX(-50%); width: 104px; height: 30px; border-radius: 20px; background: #0b0806; }
+        .cp-status { display: flex; align-items: center; justify-content: space-between; height: 46px; padding: 6px 26px 0 30px; font-size: 15px; font-weight: 700; color: #111; }
+        .cp-status svg { fill: #111; color: #111; }
+      }
+
       .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 56px; }
       @media (max-width: 1023px) { .cards { grid-template-columns: repeat(2, 1fr); } }
       @media (max-width: 519px) { .cards { grid-template-columns: 1fr; } }
@@ -258,6 +694,99 @@
       .card .body { padding: 26px 24px 30px; }
       .card .body h3 { margin-bottom: 10px; }
       .card .body p { font-size: 16px; line-height: 1.6; color: var(--body); }
+      .card .ph video { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .card.feature { grid-column: 1 / -1; }
+      @media (min-width: 768px) {
+        .card.feature { display: grid; grid-template-columns: 1.15fr 1fr; align-items: stretch; }
+        .card.feature .ph { aspect-ratio: auto; min-height: 400px; }
+        .card.feature .body { padding: 48px 44px; align-self: center; }
+        .card.feature .body h3 { font-size: 34px; }
+        .card.feature .body p { font-size: 19px; }
+      }
+      .kit { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--line); display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; }
+      .kit h3 { grid-column: 1 / 6; font-size: clamp(24px, 3vw, 32px); letter-spacing: -0.04em; line-height: 1.35; }
+      .kit ul { grid-column: 7 / 13; list-style: none; margin: 0; padding: 0; }
+      .kit li { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); font-size: 18px; font-weight: 500; }
+      .kit li span { color: var(--body); font-size: 15px; font-weight: 400; text-align: right; }
+      @media (max-width: 767px) { .kit h3, .kit ul { grid-column: 1 / -1; } }
+
+      .queues { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 40px; }
+      .queues figure { margin: 0; min-width: 0; }
+      .queues video { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; border-radius: 14px; background: #e9e3da; }
+      .queues figcaption { margin-top: 8px; font-size: 14px; font-weight: 700; letter-spacing: -0.03em; color: var(--ink); text-align: center; }
+      .wsb-nums { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 14px; padding: 16px 0; border-radius: 16px; background: #fff; text-align: center; }
+      .wsb-nums > div + div { border-left: 1px solid var(--line); }
+      .wsb-nums b { display: block; white-space: nowrap; font-size: clamp(19px, 3.4vw, 36px); font-weight: 800; line-height: 1.15; letter-spacing: -0.04em; color: var(--ink); }
+      .wsb-nums span { display: block; margin-top: 4px; font-size: 12.5px; font-weight: 600; letter-spacing: -0.03em; color: var(--body); }
+      .wsb { padding-bottom: 20px; }
+
+      .jj { padding-top: 48px; }
+      .jj-h {
+        max-width: 16em; margin: 0 auto; text-align: center; font-weight: 800;
+        font-size: clamp(1.85rem, 4vw, 3.1rem); line-height: 1.18; letter-spacing: -0.04em; text-wrap: balance;
+        background-image: linear-gradient(to bottom, var(--ink) 42%, var(--brand) 128%);
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+      }
+      .jj-sub { max-width: 780px; margin: 24px auto 0; text-align: center; font-weight: 600; font-size: clamp(16px, 1.6vw, 20px); line-height: 1.65; letter-spacing: -0.02em; color: var(--body); text-wrap: pretty; }
+      .jj-sub strong { font-weight: 800; color: var(--ink); }
+      .jj-sub em { font-style: normal; color: var(--brand); }
+      .jj-grid { display: grid; grid-template-columns: 1fr auto 1fr; align-items: end; column-gap: 8px; max-width: 860px; margin: 56px auto 0; }
+      .jj-hl { display: flex; align-items: center; justify-content: center; height: 112px; padding: 0 12px; border-radius: 20px 20px 0 0; background: #dcd8d3; text-align: center; font-size: 14px; font-weight: 700; color: #7d766e; }
+      .jj-hr { margin-top: -40px; overflow: hidden; border-radius: 20px 20px 0 0; background: var(--brand); box-shadow: 0 18px 44px rgba(23, 18, 15, 0.16); }
+      .jj-hr-t { padding: 16px 12px 12px; text-align: center; color: #fff; }
+      .jj-hr-t small { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: rgba(255, 255, 255, 0.7); }
+      .jj-hr-t b { display: block; margin-top: 4px; font-size: 15px; font-weight: 800; }
+      .jj-hr img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
+      .jj-l, .jj-r { display: flex; align-items: center; justify-content: center; align-self: stretch; min-height: 88px; padding: 0 12px; text-align: center; line-height: 1.35; }
+      .jj-l { background: #e6e2dd; font-size: 13px; color: #948d84; }
+      .jj-r { background: #fff; font-size: clamp(15.5px, 2.1vw, 22px); font-weight: 700; letter-spacing: -0.025em; color: var(--ink); box-shadow: 0 18px 44px rgba(23, 18, 15, 0.1); }
+      .jj-r b { font-weight: 800; }
+      .jj-l.end, .jj-r.end { border-radius: 0 0 20px 20px; }
+      .jj-m { display: flex; align-items: center; align-self: stretch; min-height: 88px; }
+      .jj-m span { display: flex; align-items: center; justify-content: center; width: 62px; height: 46px; border-radius: 12px; background: var(--brand); font-size: 12.5px; font-weight: 700; color: #fff; }
+
+      .jj-cards { display: grid; gap: 12px; margin-top: 16px; }
+      .jj-card { display: grid; grid-template-columns: 116px minmax(0, 1fr); gap: 16px; align-items: center; padding: 18px; border-radius: 18px; background: #fff; }
+      .jj-draw { display: block; width: 100%; height: auto; max-height: 128px; object-fit: contain; }
+      .jj-card h3 { font-size: 18px; font-weight: 800; line-height: 1.32; letter-spacing: -0.035em; color: var(--ink); }
+      .jj-card p { margin-top: 6px; font-size: 14.5px; line-height: 1.6; letter-spacing: -0.03em; color: var(--body); }
+      @media (min-width: 768px) {
+        .jj-grid { column-gap: 12px; margin-top: 64px; }
+        .jj-hl { height: 132px; font-size: 16px; }
+        .jj-hr { margin-top: -48px; }
+        .jj-hr-t { padding-top: 20px; }
+        .jj-hr-t b { font-size: 17px; }
+        .jj-l, .jj-r { min-height: 104px; padding: 0 20px; }
+        .jj-l { font-size: 14px; }
+        .jj-m { min-height: 104px; }
+        .jj-m span { width: 80px; height: 52px; font-size: 13.5px; }
+        .jj-cards { grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
+        .jj-card { display: block; padding: 28px 28px 30px; }
+        .jj-draw { width: auto; height: 190px; max-width: 100%; max-height: none; margin: 0 auto 22px; }
+        .jj-card h3 { font-size: 22px; }
+        .jj-card p { margin-top: 8px; font-size: 16px; }
+      }
+      .wsb-story { margin-top: 56px; text-align: center; }
+      .wsb-story p { font-size: 16.5px; line-height: 1.7; letter-spacing: -0.03em; color: var(--body); text-wrap: pretty; }
+      .wsb-story p + p { margin-top: 12px; }
+      .wsb-story strong { color: var(--ink); font-weight: 700; }
+      .wsb-draw { display: block; width: 100%; max-width: 640px; height: auto; margin: 0 auto 18px; }
+      .wsb-story .wsb-tag { margin-top: 16px; font-size: 19px; font-weight: 800; letter-spacing: -0.035em; color: var(--ink); }
+      .wsb-story .wsb-promise { margin-top: 28px; font-size: 18px; font-weight: 800; line-height: 1.5; letter-spacing: -0.035em; color: var(--ink); }
+      @media (max-width: 719px) {
+        .queues { display: flex; gap: 10px; margin: 14px -20px 0; padding: 0 20px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+        .queues::-webkit-scrollbar { display: none; }
+        .queues figure { flex: 0 0 82%; scroll-snap-align: center; }
+        .js .queues[data-rv] { opacity: 1; transform: none; }
+      }
+      @media (min-width: 900px) {
+        .queues { gap: 16px; margin-top: 44px; }
+        .wsb-nums { margin-top: 16px; padding: 24px 0; }
+        .wsb-nums span { margin-top: 6px; font-size: 15px; }
+        .wsb-story p { font-size: 19px; }
+        .wsb-story .wsb-promise { font-size: 30px; }
+        .wsb-story .wsb-tag { font-size: 24px; }
+      }
       .spec {
         display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 18px;
         padding-top: 18px; border-top: 1px solid var(--line);
@@ -268,70 +797,20 @@
       }
       .spec svg { color: var(--muted); flex: none; }
 
-      /* ── ④ 진행 — 왼쪽 흰 블록 / 오른쪽 이미지 ────────────────── */
-      .proc { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; margin-top: 56px; }
-      @media (max-width: 899px) { .proc { grid-template-columns: 1fr; } }
-      .proc .panel { grid-column: 1 / 6; background: var(--card); padding: 40px 32px; }
-      /* 🔴 밀키트는 '전면이 다 보여야' 한다 (사장님 지시). cover 로 두면
-         봉투 위아래가 잘린다 → contain 으로 전체를 담고 여백을 준다. */
-      .proc .shot {
-        grid-column: 6 / 13; overflow: hidden;
-        background: #efe9e1;
-        display: flex; align-items: center; justify-content: center;
-        padding: 28px;
-      }
-      @media (max-width: 899px) { .proc .panel, .proc .shot { grid-column: auto; } }
-      @media (min-width: 900px) { .proc .panel { padding: 64px 48px; } .proc .shot { padding: 48px; } }
-      .proc .shot img {
-        width: 100%; height: 100%; max-height: 620px;
-        object-fit: contain; object-position: center;
+      .tg-grid { list-style: none; display: grid; gap: 12px; margin: 32px 0 0; padding: 0; }
+      .tg-card { padding: 22px 20px; border-radius: 20px; border: 1px solid var(--line); background: #fff; }
+      .tg-card .n { font-size: 14.5px; font-weight: 800; color: var(--brand); }
+      .tg-card h3 { margin-top: 6px; font-size: 20px; font-weight: 800; letter-spacing: -0.045em; color: var(--ink); }
+      .tg-card p { margin-top: 6px; font-size: 15.5px; line-height: 1.55; letter-spacing: -0.03em; color: var(--body); }
+      .tg-cta { margin-top: 26px; text-align: center; }
+      @media (min-width: 900px) {
+        .tg-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 52px; }
+        .tg-card { padding: 30px 28px 32px; }
+        .tg-card h3 { font-size: 23px; }
+        .tg-card p { font-size: 16px; }
+        .tg-cta { margin-top: 34px; }
       }
 
-      .steplist { margin-top: 40px; padding-top: 30px; border-top: 1px solid var(--line); }
-      .steprow {
-        display: grid; grid-template-columns: 30px 1fr; gap: 16px;
-        padding: 18px 0; border-bottom: 1px solid var(--line);
-      }
-      .steprow:last-child { border-bottom: 0; }
-      .steprow .n { font-size: 16px; font-weight: 600; color: var(--muted); padding-top: 3px; }
-      .steprow.on .n { color: var(--brand); }
-      .steprow h3 { font-size: 20px; margin-bottom: 5px; }
-      .steprow p { font-size: 16px; line-height: 1.6; color: var(--body); }
-      .pill {
-        display: inline-block; margin-top: 11px; padding: 6px 13px;
-        border: 1px solid rgba(207, 90, 28, 0.3); color: var(--brand-2);
-        font-size: 15px; font-weight: 600; letter-spacing: -0.03em;
-      }
-
-      /* ── ⑤ 사실 숫자 ──────────────────────────────────────────
-         🔴 원래 레퍼런스는 수익률 차트였다. 매출·수익률 표시는
-            '효과 보장' 금지선에 걸리므로 **검증된 사실 숫자**로 바꿨다.
-            아래 세 숫자는 전부 문서로 확인된 것이다. */
-      .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 56px; }
-      @media (max-width: 767px) { .stats { grid-template-columns: 1fr; } }
-      .stat {
-        background: var(--card); padding: 30px 26px 26px;
-        display: flex; flex-direction: column; justify-content: space-between;
-        min-height: 210px;
-      }
-      .stat .k {
-        font-size: 17px; font-weight: 500; letter-spacing: -0.03em;
-        color: var(--muted);
-      }
-      .stat .v {
-        font-size: clamp(42px, 6.4vw, 58px); font-weight: 500;
-        letter-spacing: -0.05em; line-height: 1.05; margin: 26px 0 14px;
-      }
-      .stat .v em { font-style: normal; font-size: 0.46em; letter-spacing: -0.03em; }
-      .stat .v.words { font-size: clamp(26px, 3.4vw, 34px); line-height: 1.25; }
-      .stat .d { font-size: 16px; line-height: 1.6; color: var(--body); }
-      /* 값 아래 얇은 게이지 — 차트 자리를 대신한다 */
-      .gauge { height: 2px; background: rgba(25, 19, 16, 0.08); margin-bottom: 16px; }
-      .gauge i { display: block; height: 100%; background: var(--ink); width: 0;
-                 transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
-      .is-in .gauge i { width: var(--w, 60%); }
-
-      /* ── ⑥ 조건 ───────────────────────────────────────────── */
       .terms { margin-top: 46px; border-top: 1px solid var(--line); }
       .term {
         display: flex; justify-content: space-between; align-items: baseline; gap: 20px;
@@ -341,7 +820,25 @@
       .term dd { margin: 0; font-size: 22px; font-weight: 500; letter-spacing: -0.04em; text-align: right; }
       .term dd.on { color: var(--brand); }
 
-      /* ── ⑦ 폼 ─────────────────────────────────────────────── */
+      #faq { padding-bottom: 0; }
+      .faq-grid { display: grid; gap: 24px; }
+      .faq-list { border-top: 1px solid var(--ink); }
+      .faq-item { border-bottom: 1px solid var(--line); }
+      .faq-item summary {
+        list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 18px;
+        padding: 20px 0; font-size: 18px; font-weight: 700; line-height: 1.45; letter-spacing: -0.035em; color: var(--ink);
+      }
+      .faq-item summary::-webkit-details-marker { display: none; }
+      .faq-item summary::after { content: "+"; flex: none; font-size: 24px; font-weight: 400; line-height: 1.1; color: var(--muted); }
+      .faq-item[open] summary::after { content: "−"; }
+      .faq-item p { padding: 0 34px 22px 0; font-size: 16.5px; line-height: 1.65; letter-spacing: -0.03em; color: var(--body); }
+      @media (min-width: 900px) {
+        .faq-grid { grid-template-columns: 4fr 8fr; gap: 40px; }
+        .faq-item summary { padding: 24px 0; font-size: 20px; }
+        .faq-item p { font-size: 17.5px; }
+      }
+
+      .field-hint { display: block; margin-top: 7px; font-size: 13.5px; line-height: 1.5; letter-spacing: -0.03em; color: var(--body); }
       .formwrap { background: var(--card); padding: 34px 24px 40px; margin-top: 46px; }
       @media (min-width: 768px) { .formwrap { padding: 56px; } }
       .fgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -352,7 +849,7 @@
         color: var(--ink); margin-bottom: 10px;
       }
       .field input, .field select, .field textarea {
-        width: 100%; padding: 15px 0; font-size: 18px;  /* 16px 미만이면 iOS가 확대한다 */
+        width: 100%; padding: 15px 0; font-size: 18px;  
         font-family: inherit; color: var(--ink); letter-spacing: -0.02em;
         border: 0; border-bottom: 1px solid var(--line); border-radius: 0;
         background: transparent; -webkit-appearance: none; appearance: none;
@@ -367,16 +864,41 @@
         outline: 0; border-bottom-color: var(--ink);
       }
       .field input::placeholder, .field textarea::placeholder { color: #cfc9c1; }
-      .hp { position: absolute; left: -9999px; opacity: 0; }   /* 봇 잡이 */
-      .note { font-size: 16px; color: var(--body); line-height: 1.65; letter-spacing: -0.03em; }
+
+      .field.method { margin: 0; padding: 0; border: 0; min-width: 0; }
+      .method legend { padding: 0; margin-bottom: 10px; font-size: 17px; font-weight: 600; letter-spacing: -0.03em; color: var(--ink); }
+      .method-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+      .field .method-opt { position: relative; display: block; margin: 0; cursor: pointer; }
+      .field .method-opt input { position: absolute; top: 0; left: 0; width: 1px; height: 1px; padding: 0; border: 0; opacity: 0; }
+      .method-opt span {
+        display: flex; align-items: center; justify-content: center; min-height: 54px;
+        border: 1px solid rgba(25, 19, 16, 0.16); font-size: 17px; font-weight: 600; letter-spacing: -0.03em; color: var(--body);
+        transition: background-color 0.2s ease, color 0.2s ease;
+      }
+      .method-opt input:checked + span { background: var(--ink); border-color: var(--ink); color: #fff; }
+      .method-opt input:focus-visible + span { outline: 2px solid var(--brand); outline-offset: 2px; }
+      .form-submit { margin-top: 30px; }
+      .form-submit .btn { width: 100%; }
+      .quick { margin-top: 22px; }
+      .quick-t { font-size: 15.5px; letter-spacing: -0.03em; color: var(--body); }
+      .quick-btns, .ok-btns { display: flex; flex-wrap: wrap; gap: 8px; }
+      .quick-btns { margin-top: 10px; }
+      .quick-btns .btn { flex: 1 1 150px; padding: 15px 14px; font-size: 16px; }
+      .ok-btns { margin-top: 26px; }
+      .ok-btns .btn { flex: 1 1 100%; padding: 17px 14px; }
+      .btn-kakao { background: #fee500; color: #191310; }
+      .btn-kakao:hover { background: #f5dc00; }
+      @media (min-width: 768px) {
+        .form-submit .btn { width: auto; min-width: 280px; }
+        .quick-btns .btn { flex: 0 0 auto; padding: 15px 28px; }
+        .ok-btns .btn { flex: 0 0 auto; padding: 18px 32px; }
+        .method-row { max-width: 420px; }
+      }
+      .hp { position: absolute; left: -9999px; opacity: 0; }   
       .ok { display: none; padding: 20px 0; }
       .ok.show { display: block; }
       .ok .done { font-size: 30px; font-weight: 500; letter-spacing: -0.045em; margin-bottom: 14px; }
 
-      /* ── 개인정보 동의 ─────────────────────────────────────────
-         개인정보보호법 제15조 — 수집·이용에 동의를 받아야 한다.
-         전문을 펼쳐 놓으면 폼이 길어지므로 <details> 로 접어 둔다.
-         🔴 체크박스는 required 다. 안 누르면 전송되지 않는다. */
       .consent { margin-top: 30px; padding-top: 26px; border-top: 1px solid var(--line); }
       .consent .row { display: flex; align-items: flex-start; gap: 12px; }
       .consent input[type="checkbox"] {
@@ -402,17 +924,89 @@
       .consent .body dt { font-weight: 600; color: var(--ink); white-space: nowrap; }
       .consent .body dd { margin: 0; }
 
-      /* ── 푸터 ─────────────────────────────────────────────── */
-      footer { padding: 46px 0 110px; border-top: 1px solid var(--line); }
-      .kitlink {
-        display: inline-flex; align-items: center; gap: 8px;
-        font-size: 19px; font-weight: 500; letter-spacing: -0.035em;
-        padding-bottom: 4px; border-bottom: 1px solid rgba(25, 19, 16, 0.2);
+      #faq { padding-bottom: 68px; }
+      #apply { position: relative; overflow: hidden; padding: 60px 0 68px; background: #0e0a08; color: #fff; }
+      .apply-bg {
+        position: absolute; inset: 0 0 auto 0; height: 330px;
+        background:
+          linear-gradient(180deg, rgba(14, 10, 8, 0.7) 0%, rgba(14, 10, 8, 0.66) 62%, #0e0a08 100%),
+          url("../assets/web/apply-mil-set.webp") center 62% / cover no-repeat;
       }
-      footer .info { margin-top: 30px; font-size: 15px; color: var(--muted); line-height: 1.8; }
+      .apply-grid { position: relative; display: grid; gap: 30px; }
+      .apply-head .sub { margin-top: 16px; color: rgba(255, 255, 255, 0.8); }
+      #apply .formwrap { margin-top: 0; padding: 26px 20px 26px; color: var(--ink); }
+      #apply .fgrid { gap: 16px 10px; }
+      @media (min-width: 360px) { #apply .fgrid { grid-template-columns: 1fr 1fr; } }
+      #apply .field label, #apply .method legend { margin-bottom: 7px; font-size: 15px; }
+      #apply .field input, #apply .field select, #apply .field textarea {
+        padding: 12px 13px; font-size: 16px; background-color: #fff;
+        border: 1px solid #d8d2c9;
+      }
+      #apply .field select { padding-right: 34px; background-position: right 13px center; }
+      #apply .field input:focus, #apply .field select:focus, #apply .field textarea:focus { border-color: var(--ink); }
+      #apply .field input::placeholder, #apply .field textarea::placeholder { color: #b3aca3; }
+      #apply .field textarea { display: block; min-height: 66px; resize: vertical; }
+      #apply .field-hint { font-size: 13px; }
+      #apply .method-opt span { min-height: 46px; font-size: 15.5px; }
+      #apply .method-row { max-width: none; }
+      #apply .consent { margin-top: 18px; padding-top: 0; border-top: 0; }
+      #apply .consent .row { align-items: center; gap: 10px; }
+      #apply .consent .row label { font-size: 15px; }
+      #apply .consent details { margin-top: 8px; }
+      #apply .form-submit { margin-top: 18px; }
+      #apply .form-submit .btn { width: 100%; min-width: 0; padding: 18px; background: var(--brand); }
+      #apply .form-submit .btn:hover { background: var(--brand-2); }
+      .form-note { margin-top: 12px; text-align: center; font-size: 13.5px; letter-spacing: -0.03em; color: var(--body); }
+      #apply .quick { margin-top: 0; }
+      #apply .quick-t { color: rgba(255, 255, 255, 0.72); }
+      #apply .quick .btn-line { color: #fff; border-color: rgba(255, 255, 255, 0.38); }
+      #apply .quick .btn-line:hover { background: rgba(255, 255, 255, 0.08); }
+      #apply .quick-btns .btn { flex: 1 1 100%; white-space: nowrap; }
+      #apply .ok { padding: 8px 0; }
+      @media (min-width: 960px) {
+        #faq { padding-bottom: 96px; }
+        #apply { padding: 104px 0; }
+        .apply-bg {
+          inset: 0 auto 0 0; width: 64%; height: auto;
+          background:
+            linear-gradient(180deg, rgba(14, 10, 8, 0.76) 0%, rgba(14, 10, 8, 0.62) 42%, rgba(14, 10, 8, 0.34) 100%),
+            linear-gradient(90deg, rgba(14, 10, 8, 0) 58%, #0e0a08 100%),
+            url("../assets/web/apply-mil-set.webp") center / cover no-repeat;
+        }
+        .apply-grid {
+          grid-template-columns: minmax(0, 1fr) 500px; column-gap: 72px; row-gap: 34px;
+          grid-template-rows: auto 1fr; grid-template-areas: "head form" "quick form"; align-items: start;
+        }
+        .apply-head { grid-area: head; padding-top: 18px; }
+        #apply .formwrap { grid-area: form; padding: 34px 34px 30px; }
+        #apply .quick { grid-area: quick; }
+        #apply .quick-btns .btn { flex: 0 0 auto; }
+      }
 
-      /* ── 하단 고정 CTA — 어디서 읽든 신청이 한 번의 터치 안에 ───
-         기존 랜딩의 최대 실패 원인이 '폼이 22,319px 맨 아래'였다. */
+      .foot { padding: 52px 0 120px; background: #0e0a08; color: rgba(255, 255, 255, 0.62); font-size: 15px; line-height: 1.7; letter-spacing: -0.02em; }
+      .foot-top { display: grid; gap: 28px 16px; padding-top: 36px; border-top: 1px solid rgba(255, 255, 255, 0.12); }
+      .foot-brand img { display: block; width: 64px; height: auto; }
+      .foot-name { margin-top: 12px; font-size: 18px; font-weight: 700; letter-spacing: -0.04em; color: #fff; }
+      .foot-since { margin-top: 2px; }
+      .foot-col { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+      .foot-h { margin-bottom: 2px; font-size: 13px; font-weight: 600; letter-spacing: 0.02em; color: rgba(255, 255, 255, 0.42); }
+      .foot-col a { color: rgba(255, 255, 255, 0.82); transition: color 0.2s ease; }
+      .foot-col a:hover { color: #fff; }
+      .foot-col b { font-weight: 700; color: #fff; }
+      .foot-sns { display: flex; gap: 10px; margin-top: 16px; }
+      .foot-kakao { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 12px; background: #fee500; color: #191919; transition: background-color 0.2s ease; }
+      .foot-kakao:hover { background: #f5dc00; }
+      .foot-legal { margin-top: 36px; padding-top: 22px; border-top: 1px solid rgba(255, 255, 255, 0.08); font-size: 13px; line-height: 1.75; color: rgba(255, 255, 255, 0.42); }
+      .foot-legal p + p { margin-top: 6px; }
+      .foot-legal span { white-space: nowrap; }
+      .foot-legal a { color: rgba(255, 255, 255, 0.82); transition: color 0.2s ease; }
+      .foot-legal a:hover { color: #fff; }
+      @media (min-width: 768px) {
+        .foot { padding: 64px 0 120px; }
+        .foot-top { grid-template-columns: 1fr auto; gap: 40px 80px; padding-top: 44px; }
+        .foot-brand { grid-column: auto; }
+      }
+
       .dock {
         position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
         background: rgba(247, 245, 242, 0.92);
@@ -422,14 +1016,11 @@
         transform: translateY(110%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       }
       .dock.on { transform: none; }
-      .dock .in { max-width: 1240px; margin: 0 auto; display: grid;
-                  grid-template-columns: 1fr auto auto; gap: 8px; }
+      .dock .in { max-width: 1240px; margin: 0 auto; display: flex; gap: 8px; }
+      .dock .in > :first-child { flex: 1; }
       .dock .btn { padding: 15px 20px; }
       .dock .ico { width: 50px; padding: 0; }
 
-      /* ── 스크롤 리빌 ───────────────────────────────────────────
-         🔴 JS가 <html>에 .js 를 붙였을 때만 숨긴다.
-            스크립트가 실패해도 콘텐츠가 영영 안 보이는 사고를 막는다. */
       .js [data-rv] {
         opacity: 0; transform: translateY(30px);
         transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
@@ -438,367 +1029,653 @@
       .js [data-rv].is-in { opacity: 1; transform: none; }
       @media (prefers-reduced-motion: reduce) {
         .js [data-rv] { opacity: 1; transform: none; transition: none; }
-        .gauge i { transition: none; }
         html { scroll-behavior: auto; }
       }
     </style>
   </head>
 
-  <body>
-    <!-- ═══ 네비 ══════════════════════════════════════════════════ -->
-    <nav class="nav">
+  <body id="top">
+
+    <nav class="nav" id="nav" aria-label="페이지 메뉴">
       <div class="wrap in">
-        <a href="/" class="logo" aria-label="제주산방식당"><b>제주</b>산방식당</a>
-        <a href="#apply" class="cta" data-cta="nav">전화 상담 신청</a>
+        <a href="#top" class="logo" aria-label="제주산방식당 · 맨 위로"><img src="../assets/web/logo.webp" alt="제주산방식당" width="480" height="366" /></a>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#sanbang">브랜드 이야기</a></li>
+          <li><a href="#menu">메뉴</a></li>
+          <li><a href="#cost">원가·판매 자료</a></li>
+          <li><a href="#together">교육·오픈 지원</a></li>
+          <li><a href="#faq">자주 묻는 질문</a></li>
+        </ul>
+        <span class="nav-r">
+          <a href="tel:+827081215880" class="nav-tel" data-cta="nav-tel">070-8121-5880</a>
+          <button type="button" class="nav-burger" aria-expanded="false" aria-controls="navMenu" aria-label="메뉴 열기">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path class="b1" d="M4 7h16" /><path class="b2" d="M4 12h16" /><path class="b3" d="M4 17h16" /></svg>
+          </button>
+        </span>
       </div>
     </nav>
 
-    <!-- ═══ ① 히어로 ══════════════════════════════════════════════
-         광고 소재의 첫 줄과 이 h1 이 같아야 한다.
-         1주차 교훈: 광고 문장과 랜딩 첫 문장이 다르면 도착 즉시 이탈한다. -->
     <header class="hero">
-      <div class="hero-media">
-        <!-- 포스터를 먼저 깔고 그 위에 영상. 영상이 못 뜨는 환경에서도 화면이 비지 않는다. -->
-        <div class="poster"></div>
-        <video
-          autoplay muted loop playsinline preload="metadata"
-          poster="/assets/web/hero-poster.webp"
-          aria-label="밀냉면에 멸치 육수를 붓는 장면, 모슬포 본점 전경, 손님으로 찬 매장"
-        >
-          <source src="/assets/web/hero-loop.mp4" type="video/mp4" />
-        </video>
-      </div>
-      <div class="hero-scrim"></div>
+      <div class="wrap">
+        <span class="hero-badge" data-rv>업종 변경 · 창업 사장님을 위한 주력 메뉴</span>
 
-      <div class="wrap in">
-        <div class="grid12">
-          <div class="c-1-7">
-            <h1 data-rv>
-              식당 하시는 사장님께.<br />
-              사장님 간판 그대로,<br />
-              맛만 얹습니다.
-            </h1>
-            <div class="act" data-rv>
-              <a href="#apply" class="btn btn-dark" data-cta="hero">전화 상담 신청</a>
-              <a href="tel:+827081215880" class="btn btn-line" data-cta="tel-hero">바로 전화</a>
-            </div>
-          </div>
-          <div class="c-9-12" style="align-self: end">
-            <p class="sub" data-rv>
-              55년 노포의 육수 · 비빔장 · 생면 · 만두를 사장님 매장 메뉴로 세팅해 드립니다.
-              직접 매장에서 근무하며 얻은 노하우까지, 빼놓지 않고 알려 드립니다.
-            </p>
-          </div>
+        <h1 class="hero-title" data-rv>
+          메뉴 개발 없이도,<br />
+          <span class="ul">55년 산방식당의 <span class="hl">그 맛 그대로.</span></span>
+        </h1>
+
+        <p class="hero-sub" data-rv>
+          55년간 줄 서서 먹던 <strong>육수·생면·비빔장</strong>에,<br />
+          전문 제조사와 준비한 <strong>냉장 등심 돈까스</strong>까지.<br />
+          고기 손질도, 육수 끓이기도 저희가 끝내서 보냅니다.
+        </p>
+
+        <p class="hero-line" data-rv><span class="pre">레시피·교육부터 사진·영상까지,</span> <span><mark class="hl">만드는 법부터 알리는 법까지.</mark></span></p>
+
+        <p class="hero-qa" data-rv><span class="q">프랜차이즈랑 뭐가 다르냐고요?</span> <span class="a">간판은 선택입니다.</span> <span class="a">내 가게 이름 그대로 시작해요.</span></p>
+
+        <div class="hero-act" data-rv>
+          <a href="#apply" class="hbtn hbtn-brand" data-cta="hero">창업·메뉴 상담</a>
+          <a href="#menu" class="hbtn hbtn-ghost" data-cta="hero-menu">메뉴 보기</a>
         </div>
+
+        <figure class="hero-video" data-rv>
+
+          <video
+            autoplay muted loop playsinline preload="metadata"
+            poster="../assets/web/hero-poster.webp"
+            aria-label="산방식당 — 밀냉면에 멸치 육수를 붓는 장면, 모슬포 본점 전경, 손님으로 찬 매장"
+          >
+            <source src="../assets/web/hero-loop.mp4" type="video/mp4" />
+          </video>
+        </figure>
       </div>
     </header>
 
-    <!-- ═══ ② 왜 이걸 하는가 ══════════════════════════════════════
-         🔴 매출·성장을 '약속'하지 않는다. 의도만 말한다. -->
-    <section>
+    <section class="rv" id="reviews">
       <div class="wrap">
-        <div class="grid12">
-          <div class="c-1-7">
-            <h2 data-rv>
-              어려운 시기입니다.<br />
-              가진 것을 나누려 합니다.
-            </h2>
-          </div>
-          <div class="c-9-12" style="align-self: end">
-            <p class="sub" data-rv>
-              55년 동안 저희도 어려운 때가 많았습니다. 그때마다 저희를 버티게 한 건
-              대단한 것이 아니었습니다.
-            </p>
+        <div class="sec-head">
+          <h2 data-rv>손님들이 <em>줄 서는 이유</em>, 리뷰로 확인하세요.</h2>
+        </div>
+        <div class="rv-grid">
+          <article class="rv-card" data-rv>
+            <p class="rv-q">"부산밀면과는 다른 탱글함과 부드러운 면이었고 육수는 정말 시원하게 맛있었어요!"</p>
+            <p class="rv-store">모슬포 본점</p>
+          </article>
+          <article class="rv-card" data-rv>
+            <p class="rv-q">"점심시간좀전에 방문했더니...홀에도가득.. 대기도가득 😅 대기는금방금방빠지더라구요 물밀면이랑비빔밀면이랑 아주맛나게먹고왔어요"</p>
+            <p class="rv-store">제주점</p>
+          </article>
+          <article class="rv-card" data-rv>
+            <p class="rv-q">"점심 맛있게 먹었던곳 손님이 많아 대기가 있을수 있습니다"</p>
+            <p class="rv-store">서울 대한상공회의소점</p>
+          </article>
+        </div>
+        <p class="rv-foot">직영점 손님들의 네이버 리뷰 중 일부입니다.</p>
+      </div>
+    </section>
+
+    <section class="talk" id="talk">
+      <div class="wrap">
+        <div class="talk-head">
+          <h2 data-rv>혹시, <em>이런 고민</em> 하고 계셨다면.</h2>
+        </div>
+
+        <div class="chat" data-rv aria-label="예비 사장님과 산방식당의 대화">
+          <div class="chat-body">
+            <p class="b me">메뉴를 바꾸고 싶은데, 뭘로 바꿔야 할지 막막해요 😥</p>
+            <p class="b dots" aria-hidden="true"><i></i><i></i><i></i></p>
+            <a class="b sb" href="#menu" data-cta="talk-menu">55년 산방식당의 메뉴와 레시피를 드려요.<span class="to">메뉴 보기 ↓</span></a>
+
+            <p class="b me">메뉴를 바꿔도, 손님한테 알릴 사진도 문구도 없어요.</p>
+            <p class="b dots" aria-hidden="true"><i></i><i></i><i></i></p>
+            <a class="b sb" href="#sell" data-cta="talk-sell">사진·영상·메뉴판 문구까지 드려요.<span class="to">판매 자료 보기 ↓</span></a>
+
+            <p class="b me">처음 하는 장사라, 혼자 운영할 자신이 없어요.</p>
+            <p class="b dots" aria-hidden="true"><i></i><i></i><i></i></p>
+            <a class="b sb" href="#together" data-cta="talk-together">교육부터 오픈 뒤까지 함께해요.<span class="to">교육 과정 보기 ↓</span></a>
+
+            <p class="b me">창업은 하고 싶은데, 프랜차이즈에 묶이기는 싫어요.</p>
+            <p class="b dots" aria-hidden="true"><i></i><i></i><i></i></p>
+
+            <a class="b sb" href="#keep" data-cta="talk-free">간판은 선택이에요. 나머지는 매장에 맞게 같이 정해요.<span class="to">운영 방식 보기 ↓</span></a>
           </div>
         </div>
 
-        <div class="grid12" style="margin-top: 60px">
-          <div class="c-1-7">
-            <p class="big" data-rv>
-              국내산 멸치를 오래 끓인 육수, 고운 고춧가루로 만든 비빔장,
-              그리고 잘 붇지 않는 생면. 이 셋이었습니다.
-            </p>
-            <p class="big" data-rv style="margin-top: 26px">
-              2019년 서울에 육지 1호점을 내면서 알았습니다.
-              산방식당의 힘은 이 세 가지에 있다는 것을.
-            </p>
-            <p data-rv style="margin-top: 44px; font-size: clamp(26px, 4vw, 38px);
-                             font-weight: 500; letter-spacing: -0.05em; line-height: 1.3;
-                             color: var(--ink)">
-              그래서 이 세 가지를<br />나눕니다.
-            </p>
-          </div>
+        <p class="talk-foot" data-rv>네 가지 답을, 아래에서 하나씩 보여 드립니다.</p>
+      </div>
+    </section>
+
+    <section class="wsb" id="sanbang">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2 data-rv>제주에서 서울까지,<br /><em>손님이 줄 서는</em> 55년 밀면집.</h2>
+        </div>
+        <p class="swipe-hint" aria-hidden="true">옆으로 넘겨 보세요 →</p>
+        <div class="queues" data-rv>
+          <figure><video src="../assets/web/queue-moseulpo.mp4" poster="../assets/web/queue-moseulpo-poster.webp" muted autoplay loop playsinline preload="metadata" aria-label="모슬포 본점에 줄 선 손님들"></video><figcaption>모슬포 본점</figcaption></figure>
+          <figure><video src="../assets/web/queue-1.mp4" poster="../assets/web/queue-1-poster.webp" muted autoplay loop playsinline preload="metadata" aria-label="제주점에 줄 선 손님들"></video><figcaption>제주점</figcaption></figure>
+          <figure><video src="../assets/web/queue-2.mp4" poster="../assets/web/queue-2-poster.webp" muted autoplay loop playsinline preload="metadata" aria-label="서울 대한상공회의소점에 줄 선 손님들"></video><figcaption>서울 대한상공회의소점</figcaption></figure>
+        </div>
+        <div class="wsb-nums" data-rv>
+
+          <div><b>1971</b><span>창업</span></div>
+          <div><b>2대</b><span>가족경영</span></div>
+          <div><b>8곳</b><span>산방식당</span></div>
+          <div><b>80여 곳</b><span>파트너 매장</span></div>
         </div>
       </div>
     </section>
 
-    <!-- ═══ ③ 무엇을 드리나 ═══════════════════════════════════════
-         🔴 생면을 '매일 뽑는/직접 뽑은/자가제면'으로 쓰지 않는다 — 스펙으로 말한다.
-         🔴 육수는 멸치 베이스. 사골·돼지뼈로 쓰지 않는다.
-         🔴 만두 제조사 실명(한만두) 금지 — 공급관계 미확인. 스펙만. -->
-    <section>
+    <section class="jj">
       <div class="wrap">
-        <div class="grid12">
-          <div class="c-1-7">
-            <h2 data-rv>네 가지를 드립니다.</h2>
-          </div>
-          <div class="c-9-12" style="align-self: end">
-            <p class="sub" data-rv>
-              흔들리면 안 되는 90%는 저희가 책임집니다.
-              불 조절, 담음새, 곁들임 — 마지막 10%는 사장님 손에 남깁니다.
-            </p>
+        <div data-rv>
+          <h2 class="jj-h">부산과 다른, 55년 동안 사랑받은<br />‘제주식 밀냉면’</h2>
+          <p class="jj-sub"><strong>국내산 멸치와 생강</strong>을 오래 끓여 내고, <strong>고운 고춧가루</strong>로 양념을 만듭니다.<br />짜지 않고 맵지 않은데 끝맛이 깊습니다 — <em>호불호 없이 누구나 좋아하는 맛.</em></p>
+        </div>
+        <div data-rv>
+          <div class="jj-grid">
+            <div class="jj-hl"><span>일반 밀면</span></div>
+            <div aria-hidden="true"></div>
+            <div class="jj-hr">
+              <div class="jj-hr-t"><small>SINCE 1971</small><b>제주 산방식당</b></div>
+              <img src="../assets/web/menu-mil-oh.webp" alt="산방식당 물밀냉면 — 멸치 육수에 도톰한 중면" width="700" height="470" loading="lazy" decoding="async" />
+            </div>
+            <div class="jj-l"><span>진하고 묵직한 구수함</span></div>
+            <div class="jj-m"><span>첫인상</span></div>
+            <div class="jj-r"><span>맑고 시원한 <b>새콤달콤</b></span></div>
+            <div class="jj-l"><span>돼지뼈 · 사골</span></div>
+            <div class="jj-m"><span>육수</span></div>
+            <div class="jj-r"><span>국내산 <b>멸치 · 생강</b>을 오래</span></div>
+            <div class="jj-l end"><span>가는 소면</span></div>
+            <div class="jj-m"><span>면</span></div>
+            <div class="jj-r end"><span><b>도톰한 중면</b> 생면</span></div>
           </div>
         </div>
+        <div class="jj-cards">
+          <div class="jj-card" data-rv>
+            <img class="jj-draw" src="../assets/web/draw-broth.webp" alt="육수 냄비와 접시 위의 멸치, 생강 손그림" width="560" height="542" loading="lazy" />
+            <div><h3>국내산 멸치 육수</h3><p>멸치와 생강을 오래 끓여 냅니다. 짜지 않고 은근한 단맛과 적당한 산미가 도는, 맑고 시원한 국물.</p></div>
+          </div>
+          <div class="jj-card" data-rv>
+            <img class="jj-draw" src="../assets/web/draw-noodle.webp" alt="젓가락으로 든 면 손그림" width="560" height="748" loading="lazy" />
+            <div><h3>도톰한 중면 · 생면</h3><p>건면도 냉동면도 아닌 생면. 가수율 45% 이상이라 국물 속에서도 끝까지 잘 붇지 않습니다.</p></div>
+          </div>
+          <div class="jj-card" data-rv>
+            <img class="jj-draw" src="../assets/web/draw-bonjeom.webp" alt="손님이 줄 서 있는 모슬포 본점 건물 손그림, 세로 간판에 산방식당 로고" width="800" height="566" loading="lazy" />
+            <div><h3>55년, 줄 서는 집</h3><p>여름이면 오픈런이 일상인, 도민도 관광객도 줄 서는 집입니다.</p></div>
+          </div>
+        </div>
+        <div class="wsb-story">
+          <img class="wsb-draw" src="../assets/web/draw-seoul.webp" alt="손님이 줄 서고 자리가 찬 서울 대한상공회의소점 손그림" width="1000" height="307" loading="lazy" data-rv />
+          <p data-rv>2019년 서울에 육지 1호점을 내면서 알았습니다.<br />산방의 힘은 <mark class="hl">육수·비빔장·생면</mark>, 이 세 가지에 있다는 것을.</p>
+          <p data-rv>여기에 분야별 전문 제조사들과 함께, 요즘 입맛에 맞춘 사계절 메인 <strong>냉장 등심 돈까스</strong>를 만들어 갑니다.</p>
 
-        <div class="cards">
-          <article class="card" data-rv>
-            <div class="ph"><img src="/assets/web/item-broth.webp" alt="멸치 육수" loading="lazy" /></div>
-            <div class="body">
-              <h3>육수</h3>
-              <p>국내산 멸치와 생강을 오래 끓입니다. 짜지 않고 개운합니다.</p>
-              <div class="spec">
-                <span>
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
-                  멸치 베이스
-                </span>
-                <span>
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 3v18M5 8l7-5 7 5"/></svg>
-                  생강
-                </span>
-              </div>
-            </div>
-          </article>
-
-          <article class="card" data-rv>
-            <div class="ph"><img src="/assets/web/bibimjang.webp" alt="비빔장" loading="lazy" /></div>
-            <div class="body">
-              <h3>비빔장</h3>
-              <p>고운 고춧가루로 만듭니다. 맵지 않아 누구나 먹습니다.</p>
-              <div class="spec">
-                <span>
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M9 12h6"/></svg>
-                  고운 고춧가루
-                </span>
-                <span>
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 12h16M12 4v16"/></svg>
-                  수육 소스 겸용
-                </span>
-              </div>
-            </div>
-          </article>
-
-          <article class="card" data-rv>
-            <div class="ph"><img src="/assets/web/item-noodle.webp" alt="다가수 생면" loading="lazy" /></div>
-            <div class="body">
-              <h3>생면</h3>
-              <p>일반 면은 가수율 30~35%. 이 면은 45% 이상이라 끝까지 잘 붇지 않습니다.</p>
-              <div class="spec">
-                <span>
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 20V4M12 20V4M19 20V4"/></svg>
-                  가수율 45%+
-                </span>
-                <span>
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-                  자연 숙성
-                </span>
-              </div>
-            </div>
-          </article>
-
-          <article class="card" data-rv>
-            <div class="ph"><img src="/assets/web/item-mandu.webp" alt="만두" loading="lazy" /></div>
-            <div class="body">
-              <h3>만두</h3>
-              <p>국내산 냉장육 100%. 특제 피라 끓여도 잘 터지지 않습니다.</p>
-              <div class="spec">
-                <span>
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 16c0-4 3.6-7 8-7s8 3 8 7"/><path d="M3 16h18"/></svg>
-                  냉장육 100%
-                </span>
-                <span>
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
-                  HACCP
-                </span>
-              </div>
-            </div>
-          </article>
+          <p class="wsb-promise" data-rv>장사가 어려운 시기, 혼자 하지 마세요.</p>
+          <p data-rv>메뉴 개발에 드는 돈과 시간은 줄이고, 전문 제조사와 운영 파트너가 곁에서 같이 갑니다.<br />기준 레시피에서 출발해, 매장에 맞게 바꾸셔도 됩니다.</p>
+          <p class="wsb-tag" data-rv><mark class="hl">간판은 선택, 교육은 필수, 성장은 함께.</mark></p>
         </div>
       </div>
     </section>
 
-    <!-- ═══ ④ 어떻게 진행되나 ═════════════════════════════════════
-         🔴 "무료 샘플 신청"이라고 쓰지 않는다. 개인 무료배송 요청이 몰린다.
-            "상담하신 분께만" 을 명시해 앞단에서 거른다. (사장님 지시 2026-08-10) -->
-    <section>
+    <section class="sets" id="menu">
       <div class="wrap">
-        <div class="grid12">
-          <div class="c-1-7">
-            <h2 data-rv>계약서보다<br />한 그릇이 먼저입니다.</h2>
-          </div>
-          <div class="c-9-12" style="align-self: end">
-            <p class="sub" data-rv>
-              상담하신 분께는 밀키트를 보내 드립니다. 사장님 주방에서 직접 끓여 보시고
-              결정하시면 됩니다.
-            </p>
+        <div class="sec-head">
+          <h2 data-rv>면은 계절을 타도,<br /><em>정식은 사계절</em> 갑니다.</h2>
+          <p data-rv>돈까스를 가운데 두고, 계절마다 곁을 바꿉니다.<br />몇 가지 재료로 메뉴판이 완성됩니다.</p>
+        </div>
+
+        <div class="sf-base" data-rv>
+          <p class="sf-cap">어느 정식이든, 돈까스와 겉절이는 그대로.</p>
+          <div class="eq">
+            <div class="it"><span class="pic"><img src="../assets/web/chip-katsu.webp" alt="돈까스" width="240" height="240" loading="lazy" /></span><em>돈까스</em></div>
+            <div class="it"><span class="pic"><img src="../assets/web/chip-geot.webp" alt="양배추 겉절이" width="240" height="240" loading="lazy" /></span><em>양배추<br />겉절이</em></div>
+            <div class="it"><span class="pic"><span class="txt next">곁</span></span><em>계절마다<br />바뀌는 곁</em></div>
           </div>
         </div>
 
-        <div class="proc">
-          <div class="panel" data-rv>
-            <h3 style="font-size: 26px">맛부터 확인하십시오.</h3>
-            <p style="margin-top: 14px; font-size: 18px; line-height: 1.7; color: var(--body)">
-              드셔 보고 결정하시면 됩니다.
-              맞지 않으면 그 자리에서 말씀드립니다.
-            </p>
-            <div style="margin-top: 30px">
-              <a href="#apply" class="btn btn-line btn-sm" data-cta="proc">전화 상담 신청</a>
-            </div>
-
-            <div class="steplist">
-              <div class="steprow">
-                <div class="n">01</div>
-                <div>
-                  <h3>전화 상담 신청</h3>
-                  <p>연락처만 남겨 주십시오.</p>
-                </div>
-              </div>
-              <div class="steprow">
-                <div class="n">02</div>
-                <div>
-                  <h3>유선 상담</h3>
-                  <p>지역과 매장 형태를 여쭙습니다.</p>
-                </div>
-              </div>
-              <div class="steprow on">
-                <div class="n">03</div>
-                <div>
-                  <h3>밀키트 발송</h3>
-                  <p>주방에서 직접 끓여 보십시오.</p>
-                  <span class="pill">상담하신 분께만</span>
-                </div>
-              </div>
-              <div class="steprow">
-                <div class="n">04</div>
-                <div>
-                  <h3>서울 직영점 방문</h3>
-                  <p>대한상공회의소 지하 1층. 2019년에 낸 육지 1호점입니다.</p>
-                </div>
-              </div>
-              <div class="steprow on">
-                <div class="n">05</div>
-                <div>
-                  <h3>도입이 정해지면 교육</h3>
-                  <p>
-                    메뉴솔루션이 시작된 바로 그 매장에서 배웁니다.
-                    저희가 직접 근무하며 얻은 노하우를 빼놓지 않고 알려 드립니다.
-                  </p>
-                  <span class="pill">교육비 0원 · 한 달 세 곳</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="shot" data-rv>
-            <img src="/assets/web/hmr-front.webp" alt="산방식당 밀키트" loading="lazy" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ ⑤ 사실 숫자 ═══════════════════════════════════════════
-         🔴 수익률·매출 숫자는 절대 넣지 않는다 (효과 보장 금지).
-            아래 셋은 전부 문서로 확인된 사실이다. -->
-    <section>
-      <div class="wrap">
-        <div class="grid12">
-          <div class="c-1-7">
-            <h2 data-rv>말이 아니라<br />숫자로 남은 것들.</h2>
-          </div>
-          <div class="c-9-12" style="align-self: end">
-            <p class="sub" data-rv>
-              매출을 약속드리지 않습니다. 저희가 지금까지 해온 것만 말씀드립니다.
-            </p>
-          </div>
-        </div>
-
-        <div class="stats">
-          <div class="stat" data-rv>
-            <div class="k">모슬포에서 시작한 해</div>
+        <ul class="sf-rows">
+          <li class="sf-row" data-rv>
+            <span class="sf-pic"><img src="../assets/web/chip-mil-both.webp" alt="물밀냉면과 비빔밀냉면을 반씩 담은 사진" width="480" height="480" loading="lazy" /></span>
             <div>
-              <div class="v">1971<em>년</em></div>
-              <div class="gauge"><i style="--w: 92%"></i></div>
-              <p class="d">제주 대정읍 하모리에서 창업했습니다. 올해로 55년째입니다.</p>
+              <span class="season su">여름</span>
+              <h3>돈까스 밀냉면 정식</h3>
+              <p>줄 서는 여름 밀냉면(물·비빔)에, 돈까스 한 덩이.</p>
             </div>
-          </div>
-          <div class="stat" data-rv>
-            <div class="k">생면 가수율</div>
+          </li>
+          <li class="sf-row" data-rv>
+            <span class="sf-pic"><img src="../assets/web/chip-janchi.webp" alt="생소면 잔치국수" width="240" height="240" loading="lazy" /></span>
             <div>
-              <div class="v">45<em>% 이상</em></div>
-              <div class="gauge"><i style="--w: 74%"></i></div>
-              <p class="d">일반 면은 30~35%입니다. 이미 물을 머금은 면은 국물을 더 빨아들이지 않습니다.</p>
+              <span class="season wi">겨울</span>
+              <h3>돈까스 잔치국수 정식</h3>
+              <p>면 손님이 줄어드는 겨울엔, 따뜻한 생면 잔치국수로.</p>
             </div>
-          </div>
-          <!-- 🟡 아워홈·CJ 는 거래 상대가 있는 표기다. 상대 동의를 받아 두는 것이 안전하다.
-                  '육지에서의 10년'도 사장님이 아시는 숫자로 넣었다(서울 1호점은 2019년). -->
-          <div class="stat" data-rv>
-            <div class="k">육지에서</div>
+          </li>
+          <li class="sf-row" data-rv>
+            <span class="sf-pic draw"><img src="../assets/web/draw-rice-cup.webp" alt="밥 한 그릇과 국물 한 컵 손그림" width="496" height="388" loading="lazy" /></span>
             <div>
-              <div class="v words">10<em>년</em></div>
-              <div class="gauge"><i style="--w: 62%"></i></div>
-              <p class="d">아워홈 · CJ 부터 개인 식당 하시는 사장님까지. 여러 형태로 맛을 나눠 왔습니다.</p>
+              <span class="season al">사계절</span>
+              <h3>돈까스 정식</h3>
+              <p>돈까스 두 덩이에 밥, 계절 국물 한 컵까지.</p>
             </div>
-          </div>
+          </li>
+          <li class="sf-row" data-rv>
+            <span class="sf-pic"><img src="../assets/web/chip-jeyuk.webp" alt="제육덮밥" width="240" height="240" loading="lazy" /></span>
+            <div>
+              <span class="season al">사계절</span>
+              <h3>제육 돈까스 정식</h3>
+              <p>든든한 제육덮밥에, 돈까스 한 덩이.</p>
+            </div>
+          </li>
+        </ul>
+
+        <div class="set-foot">
+          <p data-rv><b>계절 국물 한 컵</b> — 여름엔 살얼음 육수, 겨울엔 따뜻한 멸치국물. 아이 손님에겐 겉절이 대신 얇게 채 썬 양배추를 냅니다.</p>
+          <p data-rv><b>단품도 그대로</b> — 물밀냉면 · 비빔밀냉면 · 잔치국수 · 제육덮밥 · 고기만두 · 김치만두 · 돈까스. 여기에 사장님 메뉴를 자유롭게 더하셔도 됩니다.</p>
         </div>
       </div>
     </section>
 
-    <!-- ═══ ⑥ 조건 ════════════════════════════════════════════════
-         🔴 "가맹 아님 / 가맹비 없음"으로 단정하지 않는다.
-            (주)산방에프앤비는 공정위 등록 가맹본부다. 단정하면 사실과 어긋난다.
-            → "간판을 드리지 않습니다 → 그래서 로열티가 0원" 구조로 말한다. -->
-    <section>
+    <section class="noname" id="noname" aria-label="이름 없는 메뉴로는 손님이 찾아오지 않습니다">
       <div class="wrap">
-        <div class="grid12">
-          <div class="c-1-7">
-            <h2 data-rv>간판은 드리지 않습니다.</h2>
-          </div>
-          <div class="c-9-12" style="align-self: end">
-            <p class="sub" data-rv>
-              사장님 간판 그대로입니다. 산방식당 상호도, 로고도 쓰지 않습니다.
-              그래서 로열티가 0원입니다.
-            </p>
-          </div>
-        </div>
-
-        <dl class="terms" data-rv>
-          <div class="term"><dt>로열티</dt><dd class="on">0원</dd></div>
-          <div class="term"><dt>교육비</dt><dd class="on">0원</dd></div>
-          <div class="term"><dt>인테리어 지정</dt><dd>없음</dd></div>
-          <div class="term"><dt>간판 · 상호</dt><dd>드리지 않습니다</dd></div>
-          <div class="term"><dt>받는 곳</dt><dd>한 달 세 곳</dd></div>
-          <div class="term"><dt>제주 지역</dt><dd>진행하지 않습니다</dd></div>
-        </dl>
-        <p class="note" data-rv style="margin-top: 18px">
-          제주는 기존 상권 보호를 위해 받지 않습니다.
-          그 외 지역도 인근에 기존 매장이 있으면 상담 단계에서 말씀드립니다.
+        <img class="nn-draw" src="../assets/web/name-tag-line.webp" alt="이름표가 비어 있는 돈까스, 물밀냉면, 비빔밀냉면 손그림" width="1908" height="497" loading="lazy" data-rv />
+        <p class="nn-lines">
+          <span data-rv><i>이름 없는</i> 돈까스,</span>
+          <span data-rv><i>이름 없는</i> 육수,</span>
+          <span data-rv><i>이름 없는</i> 비빔장,</span>
+          <span data-rv><i>이름 없는</i> 만두.</span>
         </p>
+        <p class="nn-punch" data-rv>이름 없는 메뉴를 찾아오는 손님은 <em>없습니다.</em></p>
+        <p class="nn-sub" data-rv>산방의 메뉴와 재료에는, <b>이름</b>이 있습니다. ↓</p>
       </div>
     </section>
 
-    <!-- ═══ ⑦ 신청 폼 ═════════════════════════════════════════════
-         전송은 Web3Forms — dkfjh1234@gmail.com 으로 바로 온다.
-         외부 폼 서비스로 내보내지 않는 이유: 그 지점에서 픽셀·GA4 전환이 끊긴다. -->
-    <section id="apply">
+    <section class="why" id="why">
       <div class="wrap">
-        <div class="grid12">
-          <div class="c-1-7">
-            <h2 data-rv>연락처만<br />남겨 주십시오.</h2>
+        <div class="sec-head">
+          <h2 data-rv>손님들이 <em>찾는 이유</em>가 있습니다.</h2>
+          <p data-rv>산방식당과 분야별 전문 제조사들이 함께 준비했습니다.</p>
+        </div>
+
+        <nav class="why-nav" aria-label="메뉴 바로 보기">
+          <a href="#w1">돈까스</a>
+          <a href="#w2">겉절이</a>
+          <a href="#w3">제육</a>
+          <a href="#w4">육수</a>
+          <a href="#w5">밀면</a>
+          <a href="#w6">잔치국수</a>
+          <a href="#w7">비빔장</a>
+          <a href="#w8">고기만두</a>
+          <a href="#w9">김치만두</a>
+        </nav>
+
+        <div class="why-grid">
+          <article class="why-card" id="w1" data-rv>
+            <div class="ph">
+            <img src="../assets/web/katsu-card.webp" alt="녹차 시즈닝으로 밑간해 튀긴 냉장 등심 돈까스 단면" loading="lazy" /></div>
+            <div class="bd">
+              <span class="no">01</span>
+              <h3>녹차 시즈닝 돈까스</h3>
+              <p class="t"><strong>냉장 브랜드육 등심</strong>을 <mark class="hl">녹차 시즈닝</mark>으로 밑간합니다.</p>
+            </div>
+          </article>
+          <article class="why-card" id="w2" data-rv>
+
+            <div class="ph"><img src="../assets/web/geot-card.webp" alt="두 손잡이 흰 그릇에 담은 양배추 겉절이" loading="lazy" /></div>
+            <div class="bd">
+              <span class="no">02</span>
+              <h3>양배추 겉절이</h3>
+              <p class="t">돈까스 옆 양배추는 <mark class="hl">겉절이</mark>로. 매콤새콤하게 버무려 <strong>느끼함을 잡습니다</strong>.</p>
+            </div>
+          </article>
+          <article class="why-card" id="w3" data-rv>
+
+            <div class="ph"><img src="../assets/web/jeyuk.webp" alt="밥과 함께 낸 제육볶음 한 상" loading="lazy" style="object-position: 60% 88%" /></div>
+            <div class="bd">
+              <span class="no">03</span>
+              <h3>제육볶음</h3>
+              <p class="t">마늘·생강·고춧가루까지 담은 <mark class="hl">산방제육 소스 하나</mark>로 양념이 끝납니다. <strong>하루 재워 두면</strong> 더 맛있습니다.</p>
+            </div>
+          </article>
+
+          <article class="why-card" id="w4" data-rv>
+            <div class="ph">
+              <video autoplay muted loop playsinline preload="metadata" poster="../assets/web/slush-pour.webp"
+                aria-label="밀냉면에 살얼음 육수를 붓는 장면">
+                <source src="../assets/web/slush-pour.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="bd">
+              <span class="no">04</span>
+              <h3>살얼음 육수</h3>
+              <p class="t"><strong>국내산 멸치와 생강</strong>을 오래 끓인 육수, 여름엔 <mark class="hl">살얼음</mark>으로 냅니다.</p>
+            </div>
+          </article>
+          <article class="why-card" id="w5" data-rv>
+            <div class="ph">
+              <video autoplay muted loop playsinline preload="metadata" poster="../assets/web/noodle-elastic-poster.webp"
+                aria-label="생면을 손으로 당겨 탄력을 보여 주는 장면">
+                <source src="../assets/web/noodle-elastic.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="bd">
+              <span class="no">05</span>
+              <h3>생면 밀면</h3>
+              <p class="t"><mark class="hl">가수율 45% 이상</mark>, 국물 속에서도 끝까지 <strong>잘 붇지 않는 생면</strong>입니다.</p>
+            </div>
+          </article>
+          <article class="why-card" id="w6" data-rv>
+            <div class="ph"><img src="../assets/web/janchi.webp" alt="멸치 육수에 생소면을 만 잔치국수" loading="lazy" /></div>
+            <div class="bd">
+              <span class="no">06</span>
+              <h3>생면 잔치국수</h3>
+              <p class="t">멸치 육수에 <mark class="hl">생소면</mark>을 말아, <strong>겨울에도 따뜻하게</strong> 냅니다.</p>
+            </div>
+          </article>
+
+          <article class="why-card" id="w7" data-rv>
+            <div class="ph"><img src="../assets/web/bibimjang.webp" alt="생면 위에 비빔장을 붓는 장면" loading="lazy" /></div>
+            <div class="bd">
+              <span class="no">07</span>
+              <h3>비빔장</h3>
+              <p class="t"><strong>고운 고춧가루</strong>로 만들어 <mark class="hl">맵지 않아 부담 없이</mark> 드십니다.</p>
+            </div>
+          </article>
+          <article class="why-card" id="w8" data-rv>
+            <div class="ph"><img src="../assets/web/item-mandu.webp" alt="접시에 담은 고기왕만두" loading="lazy" /></div>
+            <div class="bd">
+              <span class="no">08</span>
+              <h3>고기만두</h3>
+              <p class="t"><mark class="hl">국내산 냉장육</mark>으로 속을 꽉 채운 왕만두. <strong>끓여도 잘 터지지 않는</strong> 특제 피입니다.</p>
+            </div>
+          </article>
+          <article class="why-card" id="w9" data-rv>
+            <div class="ph"><img src="../assets/web/kimchimandu.webp" alt="접시에 담은 김치왕만두" loading="lazy" /></div>
+            <div class="bd">
+              <span class="no">09</span>
+              <h3>김치만두</h3>
+              <p class="t"><mark class="hl">국산 배추와 무</mark>로 속을 채운, <strong>아삭한</strong> 김치왕만두입니다.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="meat" id="meat">
+      <div class="wrap">
+        <div class="meat-grid">
+          <div class="meat-ph" data-rv>
+
+            <img src="../assets/web/katsu-dark.webp" alt="썰어 놓은 냉장 등심 돈까스 단면" loading="lazy" />
           </div>
-          <div class="c-9-12" style="align-self: end">
-            <p class="sub" data-rv>
-              남겨 주신 시간대에 저희가 전화드립니다.
-            </p>
+          <div>
+            <p class="meat-eyebrow" data-rv>돈까스 고기</p>
+
+            <h2 data-rv>아직도 일반 냉동 돈까스,<br />그냥 쓰고 계신가요?</h2>
+            <p class="meat-lead" data-rv>55년 동안 제주 돼지 수육을 내 온 산방식당이, <mark class="hl-d">돈까스도 고기부터 골랐습니다.</mark></p>
+            <p class="meat-line" data-rv>이름 없는 고기 대신,<br /><em>이름이 있는 브랜드육</em>으로.</p>
+            <p class="meat-sub" data-rv><strong class="kd">국내 대형 브랜드육 냉장 등심</strong>을, <strong class="kd">100g 산방 전용 규격</strong>으로 손질해 보냅니다.</p>
+
+            <div class="vs2" data-rv role="table" aria-label="일반 냉동 돈육과 산방 돈까스 고기 비교">
+              <div class="r hd" role="row"><span role="columnheader">구분</span><span role="columnheader">일반 냉동 돈육</span><span role="columnheader">산방 돈까스 고기</span></div>
+              <div class="r" role="row"><span role="cell">이름</span><span role="cell">없음</span><span role="cell">국내 대형 브랜드육</span></div>
+              <div class="r" role="row"><span role="cell">이력</span><span role="cell">원산지만</span><span role="cell">이력번호로 농장까지 조회</span></div>
+              <div class="r" role="row"><span role="cell">상태</span><span role="cell">냉동했다 녹여서</span><span role="cell">냉장 그대로, 주 4일 직배송</span></div>
+              <div class="r" role="row"><span role="cell">손질</span><span role="cell">매장에서 두드리고 펴기</span><span role="cell">100g 규격, 손질 끝나서 도착</span></div>
+              <div class="r" role="row"><span role="cell">손님에게</span><span role="cell">설명할 게 없음</span><span role="cell">메뉴판에 쓰는 근거가 된다</span></div>
+            </div>
           </div>
+        </div>
+
+        <div class="shape">
+          <div class="shape-head">
+            <h3 class="shape-h" data-rv>찍어 낸 돈까스가<br /><em>아닙니다.</em></h3>
+
+            <p class="shape-lead" data-rv>등심 모양 그대로라 <mark class="hl-d">한 장 한 장 다릅니다.</mark></p>
+            <p class="shape-lead" data-rv>결을 풀어 손질해 <strong class="kd">육질이 부드럽고</strong>, <mark class="hl-d">식어도 질기지 않습니다.</mark></p>
+            <p class="shape-lead" data-rv>포장 손님에게도 자신 있게 내놓을 수 있습니다.</p>
+          </div>
+          <figure class="shape-ph" data-rv>
+            <div class="float-stage" id="floatStage" role="img" aria-label="공중에 떠 있는, 모양이 서로 다른 생 등심 세 장">
+              <span class="fp" style="--x:2%;--y:6%;--w:52%;--r:-7deg;--rx:14deg;--ry:-16deg;--d:5.2s;--dl:-1.1s;--sp:0.06"><img src="../assets/web/katsu-raw-1.webp" alt="" width="620" height="429" loading="lazy" decoding="async" /></span>
+              <span class="fp" style="--x:53%;--y:24%;--w:43.3%;--r:8deg;--rx:-12deg;--ry:14deg;--d:6.4s;--dl:-3.2s;--sp:-0.05"><img src="../assets/web/katsu-raw-6.webp" alt="" width="620" height="592" loading="lazy" decoding="async" /></span>
+              <span class="fp" style="--x:3%;--y:60%;--w:50.8%;--r:-4deg;--rx:10deg;--ry:-10deg;--d:5.8s;--dl:-0.4s;--sp:0.08"><img src="../assets/web/katsu-raw-3.webp" alt="" width="620" height="424" loading="lazy" decoding="async" /></span>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="cost-sec" id="cost">
+      <div class="wrap">
+
+        <div class="cost">
+          <div class="cost-left">
+            <div class="cost-intro">
+            <h3 data-rv>메뉴별 원가를 드립니다.<br /><em>사장님 매장에 맞게, 따져 보고</em> 들이세요.</h3>
+            <p class="t" data-rv>어떤 메뉴를 주력으로 넣고, 얼마에 팔고, 어떻게 묶을지. <mark class="hl">메뉴 한 그릇의 원가</mark>를 보면서 정합니다.</p>
+            <ul class="cost-pts" data-rv>
+              <li><strong>메뉴별 그릇당 원가</strong> — 재료 하나하나까지</li>
+              <li>우리 가게 판매가·양을 넣으면 <strong>바로 다시 계산</strong>되는 원가판</li>
+              <li>업종과 지금 메뉴판을 보고, <strong>넣을 메뉴·정식 구성·판매가</strong>를 같이</li>
+              <li>산방 기준 레시피에서 출발해, 매장마다 직접 재 보고 <strong>우리 매장 레시피</strong>로 확정</li>
+              <li>매장이 직접 사는 재료(빵가루·배터믹스)는 <strong>추천 제품과 시중 가격</strong>까지</li>
+            </ul>
+            </div>
+
+            <div class="kit2" id="sell">
+              <p class="kit2-h" data-rv>메뉴만 드리지 않습니다.<br /><em>팔리는 이유와 판매 자료까지.</em></p>
+              <ul class="kit2-g" data-rv>
+                <li><img class="kit-ic" src="../assets/web/kit-video.webp" alt="" width="240" height="464" loading="lazy" /><b>메뉴 사진 · 짧은 영상</b><span>매장 메뉴판 · 배달앱 · SNS</span></li>
+                <li><img class="kit-ic" src="../assets/web/kit-note.webp" alt="" width="240" height="174" loading="lazy" /><b>재료 이야기 문구</b><span>메뉴판 · POP에 바로</span></li>
+                <li><img class="kit-ic" src="../assets/web/kit-menu.webp" alt="" width="240" height="244" loading="lazy" /><b>메뉴판 · 세트 구성안</b><span>단품과 세트를 어떻게 묶을지</span></li>
+                <li><img class="kit-ic" src="../assets/web/kit-pin.webp" alt="" width="240" height="252" loading="lazy" /><b>네이버 플레이스 대표 메뉴</b><span>검색했을 때 메뉴가 보이게, 세팅을 돕습니다</span></li>
+              </ul>
+            </div>
+
+            <p class="prog" data-rv><b>파트너 전용 프로그램</b>을 드립니다. 발주부터 원가·레시피, 판매 자료까지 — 사장님은 <mark class="hl">매장과 메뉴 관리에 집중</mark>하세요.</p>
+          </div>
+
+          <div class="cost-side">
+          <div class="cost-phone" data-rv aria-label="메뉴별 원가판 앱 화면 미리 보기 — 실제 금액은 파트너 매장에 제공">
+            <div class="cp-status" aria-hidden="true">
+              <span>9:41</span>
+              <svg viewBox="0 0 54 12" width="54" height="12"><rect x="0" y="7" width="3" height="5" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/><rect x="28" y="1" width="22" height="10" rx="3" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="30" y="3" width="16" height="6" rx="1.5"/><rect x="51" y="4" width="2" height="4" rx="1"/></svg>
+            </div>
+            <div class="cp-nav">
+              <span class="cp-back" aria-hidden="true">‹</span>
+              <b class="cp-navt">메뉴별 원가판</b>
+              <span class="cp-tag">파트너 전용</span>
+            </div>
+            <div class="cp-screen" data-screen="cost" data-title="메뉴별 원가판">
+            <div class="cp-tabs" role="tablist" aria-label="정식 고르기">
+              <button type="button" role="tab" aria-selected="true" data-set="0">밀냉면</button>
+              <button type="button" role="tab" aria-selected="false" data-set="1">잔치국수</button>
+              <button type="button" role="tab" aria-selected="false" data-set="2">돈까스</button>
+              <button type="button" role="tab" aria-selected="false" data-set="3">제육</button>
+            </div>
+            <div class="cp-body">
+              <p class="cp-title">돈까스 밀냉면 정식</p>
+              <p class="cp-meta">단가 기준 2026.11 · 산방 기준 레시피</p>
+              <div class="cp-cols"><span>재료</span><span>금액</span></div>
+              <ul class="cc-list" data-list="0" data-title="돈까스 밀냉면 정식">
+                <li><div><b>물밀냉면</b><small>생밀면 · 육수 · 1인분</small></div><span class="amt" aria-hidden="true">0,000원</span></li>
+                <li><div><b>돈까스</b><small>냉장 등심 · 1덩이</small></div><span class="amt" aria-hidden="true">0,000원</span></li>
+                <li><div><b>양배추 겉절이</b><small>겉절이 양념 · 양배추</small></div><span class="amt" aria-hidden="true">000원</span></li>
+                <li><div><b>돈까스 소스</b><small>전용 소스</small></div><span class="amt" aria-hidden="true">000원</span></li>
+              </ul>
+              <ul class="cc-list" data-list="1" data-title="돈까스 잔치국수 정식" hidden>
+                <li><div><b>잔치국수</b><small>생소면 · 멸치 육수 · 1인분</small></div><span class="amt" aria-hidden="true">0,000원</span></li>
+                <li><div><b>돈까스</b><small>냉장 등심 · 1덩이</small></div><span class="amt" aria-hidden="true">0,000원</span></li>
+                <li><div><b>양배추 겉절이</b><small>겉절이 양념 · 양배추</small></div><span class="amt" aria-hidden="true">000원</span></li>
+                <li><div><b>돈까스 소스</b><small>전용 소스</small></div><span class="amt" aria-hidden="true">000원</span></li>
+              </ul>
+              <ul class="cc-list" data-list="2" data-title="돈까스 정식" hidden>
+                <li><div><b>돈까스</b><small>냉장 등심 · 2덩이</small></div><span class="amt" aria-hidden="true">0,000원</span></li>
+                <li><div><b>밥</b><small>매장 쌀</small></div><span class="amt" aria-hidden="true">000원</span></li>
+                <li><div><b>양배추 겉절이</b><small>겉절이 양념 · 양배추</small></div><span class="amt" aria-hidden="true">000원</span></li>
+                <li><div><b>돈까스 소스</b><small>전용 소스</small></div><span class="amt" aria-hidden="true">000원</span></li>
+                <li><div><b>계절 국물</b><small>멸치 육수 베이스 · 한 컵</small></div><span class="amt" aria-hidden="true">000원</span></li>
+              </ul>
+              <ul class="cc-list" data-list="3" data-title="제육 돈까스 정식" hidden>
+                <li><div><b>제육덮밥</b><small>전지·후지 · 산방제육 소스</small></div><span class="amt" aria-hidden="true">0,000원</span></li>
+                <li><div><b>돈까스</b><small>냉장 등심 · 1덩이</small></div><span class="amt" aria-hidden="true">0,000원</span></li>
+                <li><div><b>양배추 겉절이</b><small>겉절이 양념 · 양배추</small></div><span class="amt" aria-hidden="true">000원</span></li>
+                <li><div><b>돈까스 소스</b><small>전용 소스</small></div><span class="amt" aria-hidden="true">000원</span></li>
+              </ul>
+              <div class="cp-sum">
+                <div class="r t"><span>재료비 합계</span><span class="amt" aria-hidden="true">0,000원</span></div>
+                <div class="r"><span>우리 가게 판매가</span><span class="cp-in">입력 ›</span></div>
+                <div class="r"><span>원가율</span><span class="amt" aria-hidden="true">00%</span></div>
+              </div>
+              <a class="cp-btn" href="#apply" data-cta="costcard">창업·메뉴 상담</a>
+              <p class="cp-foot">실제 금액은 파트너 매장에 제공합니다.</p>
+            </div>
+            </div>
+
+            <div class="cp-screen" data-screen="recipe" data-title="우리 매장 레시피" hidden>
+              <div class="cp-body">
+                <p class="cp-title">우리 매장 레시피</p>
+                <p class="cp-meta">산방 기준에서 출발해, 우리 매장이 직접 재서 확정</p>
+                <ul class="cp-list">
+                  <li><div><b>녹차 시즈닝</b><small>등심 한 덩이에 뿌리는 양</small></div><span class="go">기록 ›</span></li>
+                  <li><div><b>배터믹스 · 빵가루</b><small>추천 제품 · 묻히는 양</small></div><span class="go">기록 ›</span></li>
+                  <li><div><b>튀김</b><small>기름 온도 · 시간</small></div><span class="go">기록 ›</span></li>
+                  <li><div><b>양배추 겉절이</b><small>겉절이 양념 · 양배추</small></div><span class="go">기록 ›</span></li>
+                  <li><div><b>계절 국물</b><small>멸치 육수 베이스 풀기</small></div><span class="go">기록 ›</span></li>
+                </ul>
+                <p class="cp-foot">확정한 레시피로 그릇당 원가가 다시 계산됩니다.</p>
+              </div>
+            </div>
+            <div class="cp-screen" data-screen="kit" data-title="판매 자료" hidden>
+              <div class="cp-body">
+                <p class="cp-title">판매 자료</p>
+                <p class="cp-meta">정식마다 손님에게 말할 포인트를 뽑아 드립니다</p>
+                <ul class="cp-list">
+                  <li><div><b>메뉴 이름 · 재료 이야기 문구</b><small>"녹차 시즈닝으로 밑간한 냉장 등심 돈까스"</small></div><span class="go">받기 ›</span></li>
+                  <li><div><b>메뉴 사진 · 짧은 영상</b><small>매장 메뉴판 · 배달앱 · SNS</small></div><span class="go">받기 ›</span></li>
+                  <li><div><b>POP</b><small>테이블 · 계산대</small></div><span class="go">받기 ›</span></li>
+                  <li><div><b>메뉴판 · 세트 구성안</b><small>단품과 세트를 어떻게 묶을지</small></div><span class="go">보기 ›</span></li>
+                  <li><div><b>네이버 플레이스</b><small>대표 메뉴 세팅 도움</small></div><span class="go">›</span></li>
+                </ul>
+                <p class="cp-foot">새 메뉴가 나오면 자료도 같이 드립니다.</p>
+              </div>
+            </div>
+            <div class="cp-screen" data-screen="order" data-title="발주" hidden>
+              <div class="cp-body">
+                <p class="cp-title">발주</p>
+                <p class="cp-meta">산방오더 — 지금 쓰는 그대로</p>
+                <ul class="cp-list">
+                  <li><div><b>전용상품 주문</b><small>육수 · 면 · 장 · 만두 · 돈까스</small></div><span class="go">›</span></li>
+                  <li><div><b>입금 확인 · 출고</b><small>입금이 확인되면 출고</small></div><span class="go">›</span></li>
+                  <li><div><b>주문 내역</b><small>지난 주문 보기</small></div><span class="go">›</span></li>
+                </ul>
+              </div>
+            </div>
+            <nav class="cp-bar" aria-label="파트너 전용 프로그램 메뉴">
+              <button type="button" class="on" data-go="cost"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg>원가</button>
+              <button type="button" data-go="recipe"><svg viewBox="0 0 24 24"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h11"/></svg>레시피</button>
+              <button type="button" data-go="kit"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.8"/><path d="M21 16l-5-5-8 8"/></svg>판매 자료</button>
+              <button type="button" data-go="order"><svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4v10l-9 4-9-4z"/><path d="M3 7l9 4 9-4M12 11v10"/></svg>발주</button>
+            </nav>
+          </div>
+          <p class="cost-note" data-rv>화면은 예시입니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="together">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2 data-rv>처음부터 <em>같이</em> 갑니다.</h2>
+          <p data-rv>교육부터 오픈 뒤까지, 사장님 곁에서 함께합니다.</p>
+        </div>
+
+        <ol class="tg-grid">
+          <li class="tg-card" data-rv>
+            <span class="n">01</span>
+            <h3>서울 직영점 교육 3일</h3>
+            <p>조리·위생·하루 운영 루틴을 직영점에서 배웁니다.</p>
+          </li>
+          <li class="tg-card" data-rv>
+            <span class="n">02</span>
+            <h3>오픈 현장 지원 2일</h3>
+            <p>사장님 매장에서 오픈을 같이 합니다.</p>
+          </li>
+          <li class="tg-card" data-rv>
+            <span class="n">03</span>
+            <h3>오픈 뒤에도 계속</h3>
+            <p>매장 운영과 신메뉴를 제안합니다.</p>
+          </li>
+        </ol>
+
+        <p class="tg-cta" data-rv><a href="#apply" class="hbtn hbtn-brand" data-cta="proc">창업·메뉴 상담</a></p>
+      </div>
+    </section>
+
+    <section class="keep" id="keep">
+      <div class="wrap">
+
+        <p class="keep-lead" data-rv><b class="keep-motto">계약은 투명하게, 운영은 자유롭게.</b><br />그리고 손님이 계속 찾는 매장이 되도록 함께합니다.</p>
+        <h2 data-rv>사장님 동네 손님들이 <em>찾는 매장</em>이 될 때까지, 산방식당은 파트너들과 계속 연구합니다.</h2>
+
+        <ul class="keep-list">
+          <li data-rv>
+            <span class="no">01</span>
+            <b>서울 직영 주방에서, 분야별 전문 파트너들과 테스트합니다.</b>
+            <span>육수·면·장·고기, 분야별 파트너의 재료로 직접 만들어 보고 다듬습니다.</span>
+          </li>
+          <li data-rv>
+            <span class="no">02</span>
+
+            <b>돈까스가 끝이 아닙니다.<br />다음 메뉴도 전문 제조사들과 준비해, <mark class="hl-d">파트너 매장에 먼저</mark> 드립니다.</b>
+            <span>메뉴만이 아니라 사진·문구까지 같이 갑니다.</span>
+          </li>
+        </ul>
+
+        <p class="keep-quote" data-rv>혼자 하면 시판 소스를 사 쓰지만,<br />함께 크면 <mark>우리만 쓰는 무기</mark>가 계속 생깁니다.</p>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="wrap">
+        <div class="faq-grid">
+          <h2 data-rv>자주 묻는 질문</h2>
+          <div class="faq-list" data-rv>
+            <details class="faq-item" open>
+              <summary>상담 신청하면 바로 전화가 오나요?</summary>
+              <p>아니요. 카카오톡으로 우선 안내드립니다. 전화는 원하시는 분께만 드립니다.</p>
+            </details>
+            <details class="faq-item">
+              <summary>장비와 비용은 얼마나 드나요?</summary>
+              <p>무엇이 필요한지 먼저 여쭤봅니다. 튀김기, 슬러시기 등 필요한 장비만 갖추시면 되니, 장비는 되도록 큰 비용 없이 시작하실 수 있습니다. 교육은 필수이고 교육비는 별도입니다. 금액은 카카오톡으로 안내드립니다.</p>
+            </details>
+            <details class="faq-item">
+              <summary>제 메뉴도 같이 팔 수 있나요?</summary>
+              <p>네. 기본 메뉴로 시작해 사장님 메뉴를 더하시면 됩니다.</p>
+            </details>
+            <details class="faq-item">
+              <summary>산방식당 간판을 달고 싶으면요?</summary>
+              <p>간판은 선택입니다. 산방식당 간판을 쓰시는 경우는 조건이 달라, 상담에서 따로 안내합니다.</p>
+            </details>
+            <details class="faq-item">
+              <summary>우리 지역도 되나요?</summary>
+              <p>제주 지역은 진행하지 않습니다. 그 외 지역도 인근에 기존 매장이 있으면 상담에서 말씀드립니다.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="apply">
+      <div class="apply-bg" aria-hidden="true"></div>
+      <div class="wrap apply-grid">
+        <div class="apply-head">
+          <h2 data-rv>55년의 맛,<br />나누고 같이 갑니다.</h2>
+          <p class="sub" data-rv>
+            카카오톡으로 우선 안내드립니다.<br />전화는 원하시는 분께만 드립니다.
+          </p>
         </div>
 
         <div class="formwrap" data-rv>
@@ -816,39 +1693,33 @@
               <div class="field full">
                 <label for="f-area">지역 — 시 · 군 · 구까지</label>
                 <input id="f-area" name="지역" type="text" placeholder="예) 경기 수원시 팔달구" required />
+                <small class="field-hint">제주 지역은 진행하지 않습니다. 그 외 지역도 인근에 기존 매장이 있으면 상담에서 말씀드립니다.</small>
               </div>
-              <div class="field">
+              <div class="field full">
                 <label for="f-type">지금 상황</label>
                 <select id="f-type" name="상황" required>
-                  <option value="">선택해 주십시오</option>
-                  <option>매장을 하고 있고, 메뉴를 더하고 싶습니다</option>
+                  <option value="">선택해 주세요</option>
+                  <option>매장을 하고 있고, 메뉴를 더하거나 바꾸고 싶습니다</option>
                   <option>창업을 준비 중입니다</option>
                   <option>급식 · 단체 · 대량 공급을 알아봅니다</option>
                   <option>아직 정하지 못했습니다</option>
                 </select>
               </div>
-              <div class="field">
-                <label for="f-time">전화 받기 편한 시간</label>
-                <select id="f-time" name="편한시간">
-                  <option>브레이크타임 (14~17시)</option>
-                  <option>오전 (9~11시)</option>
-                  <option>영업 마감 후 (21시 이후)</option>
-                  <option>아무 때나 괜찮습니다</option>
-                </select>
-              </div>
+              <fieldset class="field full method">
+                <legend>편한 상담 방법</legend>
+                <div class="method-row">
+                  <label class="method-opt"><input type="radio" name="상담방법" value="카카오톡" checked /><span>카카오톡</span></label>
+                  <label class="method-opt"><input type="radio" name="상담방법" value="전화" /><span>전화</span></label>
+                </div>
+              </fieldset>
               <div class="field full">
                 <label for="f-memo">하고 싶은 말 (선택)</label>
                 <textarea id="f-memo" name="메모" rows="2"></textarea>
               </div>
             </div>
 
-            <!-- 사람 눈에는 안 보이는 칸. 채워져 있으면 봇이다. -->
             <input class="hp" type="text" name="botcheck" tabindex="-1" autocomplete="off" />
 
-            <!-- ── 개인정보 수집·이용 동의 ────────────────────────────
-                 개인정보보호법 제15조·제22조. 동의 없이 수집하면 안 된다.
-                 전문은 <details> 로 접어 두어 폼이 길어지지 않게 했다.
-                 🔴 체크박스는 required — 안 누르면 전송되지 않는다. -->
             <div class="consent">
               <div class="row">
                 <input type="checkbox" id="f-agree" name="개인정보동의" value="동의함" required />
@@ -861,102 +1732,103 @@
                 <div class="body">
                   <dl>
                     <dt>수집 항목</dt>
-                    <dd>성함, 연락처, 지역, 지금 상황, 편한 시간, 남기신 말</dd>
+                    <dd>성함, 연락처, 지역, 지금 상황, 편한 상담 방법, 남기신 말, 신청한 페이지 · 들어온 광고 경로</dd>
                     <dt>이용 목적</dt>
-                    <dd>메뉴솔루션 도입 상담 및 안내</dd>
+                    <dd>메뉴 도입 · 창업 상담 및 안내 (카카오톡 · 문자 · 전화), 어떤 광고로 들어오셨는지 확인</dd>
                     <dt>보유 기간</dt>
-                    <dd>상담 종료 후 <b>1년</b>. 삭제를 요청하시면 즉시 파기합니다</dd>
+                    <dd>상담 종료 후 <b>1년</b>. 삭제를 요청하시면 지체 없이 파기합니다</dd>
+                    <dt>보관 위치</dt>
+                    <dd>신청 내용은 메일 전달 서비스(Web3Forms)와 회사 메일함(Google)에 보관됩니다. 두 곳 모두 해외 서비스입니다(처리방침 6항)</dd>
                     <dt>거부 권리</dt>
                     <dd>동의를 거부하실 수 있습니다. 다만 연락처가 없으면 상담을 드릴 수 없습니다</dd>
                     <dt>문의</dt>
                     <dd>070-8121-5880 · contact@jejusanbang.com</dd>
                   </dl>
                   <p style="margin-top: 16px">
-                    광고 · 홍보 문자는 보내지 않습니다. 제3자에게 제공하지 않습니다.
+                    광고 · 홍보 메시지는 보내지 않습니다. 제3자에게 제공하지 않습니다.
+                    자세한 내용은 <a href="privacy.html" target="_blank" rel="noopener" style="text-decoration: underline">개인정보 처리방침</a>을 확인해 주세요.
                   </p>
                 </div>
               </details>
             </div>
 
-            <div style="margin-top: 34px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center">
-              <button type="submit" class="btn btn-dark" id="submitBtn">전화 상담 신청</button>
-              <a href="tel:+827081215880" class="btn btn-line" data-cta="tel-form">바로 전화</a>
-              <a href="https://pf.kakao.com/_KAKAO_ID_HERE" target="_blank" rel="noopener"
-                 class="btn btn-line" data-cta="kakao" id="kakaoBtn">카카오톡 문의</a>
+            <div class="form-submit">
+              <button type="submit" class="btn btn-dark" id="submitBtn">창업·메뉴 상담</button>
             </div>
+            <p class="form-note">광고 · 홍보 메시지는 보내지 않습니다.</p>
           </form>
 
           <div class="ok" id="okBox">
             <div class="done">신청이 접수되었습니다.</div>
-            <p style="color: var(--body); font-size: 18px">
-              남겨 주신 시간대에 <b>070-8121-5880</b> 으로 전화드립니다.<br />
-              급하시면 지금 바로 걸어 주셔도 됩니다.
+            <p style="color: var(--body); font-size: 18px" id="okMsg">
+              카카오톡으로 우선 안내드립니다.
             </p>
-            <div style="margin-top: 26px">
-              <a href="tel:+827081215880" class="btn btn-dark" data-cta="tel-thanks">지금 전화하기</a>
+            <div class="ok-btns">
+              <a href="#apply" target="_blank" rel="noopener" class="btn btn-kakao" data-cta="kakao-thanks" data-kakao><svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.9 3 2.8 6.3 2.8 10.3c0 2.6 1.7 4.9 4.3 6.2l-1.1 4c-.1.3.3.6.6.4l4.7-3.1c.2 0 .5.1.7.1 5.1 0 9.2-3.3 9.2-7.6S17.1 3 12 3z"/></svg>카카오톡으로 바로 상담</a>
+              <a href="tel:+827081215880" class="btn btn-line" data-cta="tel-thanks">전화 070-8121-5880</a>
             </div>
+          </div>
+        </div>
+
+        <div class="quick" data-rv>
+          <p class="quick-t">바로 물어보셔도 됩니다.</p>
+          <div class="quick-btns">
+            <a href="#apply" target="_blank" rel="noopener" class="btn btn-kakao" data-cta="kakao" data-kakao><svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.9 3 2.8 6.3 2.8 10.3c0 2.6 1.7 4.9 4.3 6.2l-1.1 4c-.1.3.3.6.6.4l4.7-3.1c.2 0 .5.1.7.1 5.1 0 9.2-3.3 9.2-7.6S17.1 3 12 3z"/></svg>카카오톡 상담</a>
+            <a href="tel:+827081215880" class="btn btn-line" data-cta="tel-form">전화 070-8121-5880</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ═══ 푸터 ══════════════════════════════════════════════════ -->
-    <footer>
+    <footer class="foot">
       <div class="wrap">
-        <!-- 밀키트몰은 '가볍게 한 줄'로만 — 광고 유입이 B2C 구매로 새는 걸 막는다.
-             다만 실제로 파는 곳이 있다는 신뢰 신호는 된다. (사장님 지시 2026-08-10) -->
-        <a href="https://store.sanbangjeju.com" target="_blank" rel="noopener"
-           class="kitlink" data-cta="store">
-          맛이 궁금하시면 — 밀키트 보러 가기 <span aria-hidden="true">→</span>
-        </a>
+        <div class="foot-top">
+          <div class="foot-brand">
+            <img src="../assets/web/logo-mark.webp" alt="" width="96" height="60" loading="lazy" decoding="async" />
+            <p class="foot-name">제주산방식당</p>
+            <p class="foot-since">1971년 제주 모슬포에서 시작했습니다.</p>
+            <div class="foot-sns">
+              <a href="#apply" target="_blank" rel="noopener" class="foot-kakao" data-cta="kakao-foot" data-kakao="home" aria-label="카카오톡 상담" title="카카오톡 상담"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.9 3 2.8 6.3 2.8 10.3c0 2.6 1.7 4.9 4.3 6.2l-1.1 4c-.1.3.3.6.6.4l4.7-3.1c.2 0 .5.1.7.1 5.1 0 9.2-3.3 9.2-7.6S17.1 3 12 3z"/></svg></a>
+            </div>
+          </div>
+          <div class="foot-col">
+            <p class="foot-h">문의</p>
+            <a href="tel:+827081215880" data-cta="tel-foot">070-8121-5880</a>
+            <a href="mailto:contact@jejusanbang.com">contact@jejusanbang.com</a>
+          </div>
 
-        <p class="info">
-          주식회사 산방에프앤비 · 제주산방식당<br />
-          1971년 제주 모슬포에서 시작했습니다.<br />
-          문의 070-8121-5880 · contact@jejusanbang.com<br />
-          <a href="/" style="border-bottom: 1px solid var(--line)">브랜드 소개</a> ·
-          <a href="/privacy.html" style="border-bottom: 1px solid var(--line)">개인정보 처리방침</a>
-        </p>
+        </div>
+        <div class="foot-legal">
+          <p><a href="privacy.html"><b>개인정보 처리방침</b></a></p>
+          <p><span>산방에프앤비 주식회사</span> · <span>대표 김형섭</span> · <span>사업자등록번호 788-87-01449</span></p>
+          <p>일부 이미지는 연출된 이미지입니다.</p>
+          <p>© 2026 산방에프앤비 주식회사</p>
+        </div>
       </div>
     </footer>
 
-    <!-- 하단 고정 CTA — 히어로를 지나면 올라온다 -->
     <div class="dock" id="dock">
       <div class="in">
-        <a href="#apply" class="btn btn-dark" data-cta="dock">전화 상담 신청</a>
+        <a href="#apply" class="btn btn-dark" data-cta="dock">창업·메뉴 상담</a>
+        <a href="#apply" target="_blank" rel="noopener" class="btn btn-kakao ico" data-cta="kakao" data-kakao aria-label="카카오톡 상담">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 3C6.9 3 2.8 6.3 2.8 10.3c0 2.6 1.7 4.9 4.3 6.2l-1.1 4c-.1.3.3.6.6.4l4.7-3.1c.2 0 .5.1.7.1 5.1 0 9.2-3.3 9.2-7.6S17.1 3 12 3z"/>
+          </svg>
+        </a>
         <a href="tel:+827081215880" class="btn btn-line ico" data-cta="dock-tel" aria-label="전화 걸기">
           <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>
-          </svg>
-        </a>
-        <a href="https://pf.kakao.com/_KAKAO_ID_HERE" target="_blank" rel="noopener"
-           class="btn btn-line ico" data-cta="kakao" id="kakaoDock" aria-label="카카오톡 문의">
-          <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M12 3C6.9 3 2.8 6.3 2.8 10.3c0 2.6 1.7 4.9 4.3 6.2l-1.1 4c-.1.3.3.6.6.4l4.7-3.1c.2 0 .5.1.7.1 5.1 0 9.2-3.3 9.2-7.6S17.1 3 12 3z"/>
           </svg>
         </a>
       </div>
     </div>
 
     <script>
-      /* ══════════════════════════════════════════════════════════════
-         측정 — GA4 + 메타 픽셀
 
-         🔴 전환 이벤트를 나눠 쏜다.
-            폼 제출        → Lead     (광고 최적화의 기준. 진짜 전환)
-            전화·카톡 클릭  → Contact  (참고 지표)
-
-            전화·카톡 클릭에 Lead 를 쏘면 '누르기만 하고 안 거는 사람'까지
-            메타가 학습해서 최적화가 망가진다. 반드시 분리해 둘 것.
-
-         실제 문의 건수는 광고 관리자가 아니라 **메일함에서 센다.**
-         (지금까지 '문의 1건'으로 기록된 것이 전부 테스트였다)
-         ══════════════════════════════════════════════════════════ */
       var GA4_ID = "G-1C5SGFFWEP";
       var META_PIXEL_ID = "2201863730547524";
       var WEB3FORMS_KEY = "033b8d1a-7387-4c24-9790-f395fac54424";
 
-      /* ── GA4 ── */
       window.dataLayer = window.dataLayer || [];
       function gtag() { dataLayer.push(arguments); }
       gtag("js", new Date());
@@ -968,7 +1840,6 @@
         document.head.appendChild(s);
       })();
 
-      /* ── 메타 픽셀 ── */
       !(function (f, b, e, v, n, t, s) {
         if (f.fbq) return;
         n = f.fbq = function () {
@@ -982,29 +1853,70 @@
       fbq("init", META_PIXEL_ID);
       fbq("track", "PageView");
 
-      /* ── 클릭 추적 ─────────────────────────────────────────────
-         전화·카톡만 Contact. 폼으로 이동하는 버튼과 밀키트몰은 제외. */
       document.addEventListener("click", function (e) {
         var el = e.target.closest("[data-cta]");
         if (!el) return;
         var cta = el.getAttribute("data-cta");
         gtag("event", "lead_click", { where: cta });
-        if (cta.indexOf("tel") > -1 || cta === "kakao") fbq("track", "Contact");
+        if (cta.indexOf("tel") > -1 || cta.indexOf("kakao") > -1) fbq("track", "Contact");
       });
 
-      /* ── 카카오 채널 주소가 아직 없으면 버튼을 숨긴다 ────────────
-         🟡 사장님께 pf.kakao.com 주소를 받으면 href 두 곳을 바꾸면 된다.
-            그 순간 버튼이 저절로 나타난다. */
       (function () {
-        ["kakaoBtn", "kakaoDock"].forEach(function (id) {
-          var k = document.getElementById(id);
-          if (k && k.getAttribute("href").indexOf("_KAKAO_ID_HERE") > -1) k.style.display = "none";
+        var nav = document.getElementById("nav");
+        if (!nav) return;
+        var btn = nav.querySelector(".nav-burger");
+        var links = [].slice.call(nav.querySelectorAll(".nav-menu a"));
+        var targets = links.map(function (a) { return document.querySelector(a.getAttribute("href")); });
+        var apply = document.getElementById("apply");
+        var pc = window.matchMedia("(min-width: 1024px)");
+        var lastY = window.scrollY, ticking = false;
+        function setOpen(v) {
+          nav.classList.toggle("open", v);
+          if (v) nav.classList.remove("hide");
+          btn.setAttribute("aria-expanded", v ? "true" : "false");
+          btn.setAttribute("aria-label", v ? "메뉴 닫기" : "메뉴 열기");
+        }
+        btn.addEventListener("click", function () { setOpen(!nav.classList.contains("open")); });
+        links.forEach(function (a) {
+          a.addEventListener("click", function () {
+            setOpen(false);
+            gtag("event", "nav_click", { to: a.getAttribute("href").slice(1) });
+          });
         });
+        document.addEventListener("keydown", function (e) { if (e.key === "Escape") setOpen(false); });
+        document.addEventListener("click", function (e) { if (!nav.contains(e.target)) setOpen(false); });
+        function update() {
+          ticking = false;
+          var y = window.scrollY;
+          nav.classList.toggle("solid", y > 8);
+          if (pc.matches || nav.classList.contains("open")) nav.classList.remove("hide");
+          else if (y > lastY + 4 && y > 160) nav.classList.add("hide");
+          else if (y < lastY - 4) nav.classList.remove("hide");
+          lastY = y;
+          var cur = -1;
+          targets.forEach(function (t, i) { if (t && t.getBoundingClientRect().top <= 120) cur = i; });
+          if (apply && apply.getBoundingClientRect().top <= 120) cur = -1;
+          links.forEach(function (a, i) { a.classList.toggle("on", i === cur); });
+        }
+        window.addEventListener("scroll", function () {
+          if (!ticking) { ticking = true; requestAnimationFrame(update); }
+        }, { passive: true });
+        update();
       })();
 
-      /* ── 스크롤 리빌 ──────────────────────────────────────────
-         🔴 .js 를 여기서 붙인다. 이 스크립트가 안 돌면 CSS가 아무것도 숨기지
-            않으므로 콘텐츠는 그냥 다 보인다(사고 방지). */
+      var KAKAO_URL = "";
+      document.querySelectorAll("[data-kakao]").forEach(function (a) {
+        if (!KAKAO_URL) { a.style.display = "none"; return; }
+        a.href = a.getAttribute("data-kakao") === "home" ? KAKAO_URL : KAKAO_URL.replace(/\/$/, "") + "/chat";
+      });
+      if (!KAKAO_URL) document.querySelectorAll(".foot-sns").forEach(function (el) { el.style.display = "none"; });
+
+      document.querySelectorAll(".faq-item summary").forEach(function (el, i) {
+        el.addEventListener("click", function () {
+          if (!el.parentNode.open) gtag("event", "faq_open", { question: i + 1 });
+        });
+      });
+
       (function () {
         var els = document.querySelectorAll("[data-rv]");
         if (!els.length) return;
@@ -1024,7 +1936,6 @@
           },
           { rootMargin: "0px 0px -10% 0px", threshold: 0.04 }
         );
-        // 같은 줄에 나란히 있는 것들은 조금씩 늦게 뜨게 한다(스태거)
         els.forEach(function (el, i) {
           var sibs = el.parentElement ? [].slice.call(el.parentElement.children).indexOf(el) : 0;
           el.style.transitionDelay = Math.min(sibs, 4) * 90 + "ms";
@@ -1038,23 +1949,134 @@
         });
       })();
 
-      /* ── 하단 고정 CTA — 히어로를 지나면 올라온다 ────────────── */
+      (function () {
+        var app = document.querySelector(".cost-phone");
+        if (!app) return;
+        var bar = app.querySelectorAll(".cp-bar button");
+        var screens = app.querySelectorAll(".cp-screen");
+        var navt = app.querySelector(".cp-navt");
+        var h0 = screens[0] ? screens[0].offsetHeight : 0;
+        if (h0) screens.forEach(function (sc) { sc.style.minHeight = h0 + "px"; });
+        bar.forEach(function (b) {
+          b.addEventListener("click", function () {
+            var go = b.getAttribute("data-go");
+            bar.forEach(function (x) { x.classList.toggle("on", x === b); });
+            screens.forEach(function (sc) {
+              var on = sc.getAttribute("data-screen") === go;
+              sc.hidden = !on;
+              if (on && navt) navt.textContent = sc.getAttribute("data-title");
+            });
+          });
+        });
+      })();
+
+      (function () {
+        var card = document.querySelector(".cost-phone");
+        if (!card) return;
+        var tabs = card.querySelectorAll(".cp-tabs button");
+        var lists = card.querySelectorAll(".cc-list");
+        var title = card.querySelector(".cp-title");
+        tabs.forEach(function (t) {
+          t.addEventListener("click", function () {
+            var n = t.getAttribute("data-set");
+            tabs.forEach(function (x) { x.setAttribute("aria-selected", x === t ? "true" : "false"); });
+            lists.forEach(function (l) {
+              var on = l.getAttribute("data-list") === n;
+              l.hidden = !on;
+              if (on && title) title.textContent = l.getAttribute("data-title");
+            });
+          });
+        });
+      })();
+
+      (function () {
+        var grid = document.querySelector(".why-grid");
+        var nav = document.querySelector(".why-nav");
+        if (!grid || !nav) return;
+        var links = [].slice.call(nav.querySelectorAll("a"));
+        var cards = links.map(function (a) { return document.querySelector(a.getAttribute("href")); });
+        var still = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+        function isSwipe() { return getComputedStyle(grid).display === "flex"; }
+        function offset(card) { return card.getBoundingClientRect().left - grid.getBoundingClientRect().left - 20; }
+        function mark(i) {
+          links.forEach(function (a, n) {
+            a.classList.toggle("on", n === i);
+            if (n === i) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current");
+          });
+        }
+        links.forEach(function (a, i) {
+          a.addEventListener("click", function (e) {
+            if (!isSwipe()) return;
+            e.preventDefault();
+            grid.scrollTo({ left: grid.scrollLeft + offset(cards[i]), behavior: still ? "auto" : "smooth" });
+            mark(i);
+          });
+        });
+        var ticking = false;
+        grid.addEventListener("scroll", function () {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(function () {
+            ticking = false;
+            var best = 0, min = Infinity;
+            cards.forEach(function (c, n) { var d = Math.abs(offset(c)); if (d < min) { min = d; best = n; } });
+            mark(best);
+          });
+        }, { passive: true });
+        mark(0);
+      })();
+
+      (function () {
+        var chat = document.querySelector(".chat");
+        if (!chat) return;
+        var bs = [].slice.call(chat.querySelectorAll(".b.me, a.b.sb"));
+        var still = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+        function showAll() { bs.forEach(function (b) { b.classList.add("on"); }); }
+        if (still || !("IntersectionObserver" in window)) { showAll(); return; }
+        function play() {
+          var t = 0;
+          bs.forEach(function (b) {
+            var isAns = b.classList.contains("sb");
+            if (isAns) {
+              var dots = b.previousElementSibling;
+              setTimeout(function () { dots.classList.add("on"); }, t);
+              t += 480;
+              setTimeout(function () { dots.classList.remove("on"); b.classList.add("on"); }, t);
+              t += 360;
+            } else {
+              setTimeout(function () { b.classList.add("on"); }, t);
+              t += 260;
+            }
+          });
+        }
+        var io = new IntersectionObserver(function (en) {
+          if (!en[0].isIntersecting) return;
+          io.disconnect();
+          play();
+        }, { threshold: 0.3 });
+        io.observe(chat);
+      })();
+
       (function () {
         var dock = document.getElementById("dock");
         var hero = document.querySelector(".hero");
-        if (!dock || !hero || !("IntersectionObserver" in window)) {
+        var apply = document.getElementById("apply");
+        if (!dock || !hero || !apply || !("IntersectionObserver" in window)) {
           if (dock) dock.classList.add("on");
           return;
         }
+        var inHero = true, inApply = false;
+        function update() { dock.classList.toggle("on", !inHero && !inApply); }
         new IntersectionObserver(
-          function (en) { dock.classList.toggle("on", !en[0].isIntersecting); },
+          function (en) { inHero = en[0].isIntersecting; update(); },
           { threshold: 0, rootMargin: "-80% 0px 0px 0px" }
         ).observe(hero);
+        new IntersectionObserver(
+          function (en) { inApply = en[0].isIntersecting; update(); },
+          { threshold: 0 }
+        ).observe(apply);
       })();
 
-      /* ── 폼 전송 ──────────────────────────────────────────────
-         어느 광고·소재에서 온 문의인지 메일 본문에 같이 넣는다.
-         이게 없으면 나중에 소재별 성과를 손으로 맞춰야 한다. */
       var form = document.getElementById("form");
       var btn = document.getElementById("submitBtn");
       var okBox = document.getElementById("okBox");
@@ -1062,7 +2084,7 @@
       form.addEventListener("submit", async function (e) {
         e.preventDefault();
         var fd = new FormData(form);
-        if (fd.get("botcheck")) return; // 봇
+        if (fd.get("botcheck")) return;
         if (!form.checkValidity()) { form.reportValidity(); return; }
 
         btn.disabled = true;
@@ -1071,13 +2093,13 @@
         var q = new URLSearchParams(location.search);
         var payload = {
           access_key: WEB3FORMS_KEY,
-          subject: "[파트너] 전화 상담 신청 — " + (fd.get("성함") || ""),
+          subject: "[파트너] 도입 상담 신청 (" + fd.get("상담방법") + ") — " + (fd.get("성함") || ""),
           from_name: "산방식당 파트너 페이지",
           성함: fd.get("성함"),
           연락처: fd.get("연락처"),
           지역: fd.get("지역"),
           상황: fd.get("상황"),
-          편한시간: fd.get("편한시간"),
+          상담방법: fd.get("상담방법"),
           메모: fd.get("메모") || "",
           개인정보동의: fd.get("개인정보동의") || "미동의",
           유입경로:
@@ -1096,19 +2118,42 @@
           var json = await res.json();
           if (!json.success) throw new Error(json.message || "전송 실패");
 
-          // 🔴 진짜 전환은 여기서만 쏜다
           gtag("event", "generate_lead", { transport_type: "beacon" });
           fbq("track", "Lead");
 
+          if (fd.get("상담방법") === "전화") {
+            document.getElementById("okMsg").textContent = "카카오톡으로 우선 안내드린 뒤, 070-8121-5880 으로 전화드립니다.";
+          }
           form.style.display = "none";
+          document.querySelector("#apply .quick").style.display = "none";
           okBox.classList.add("show");
           okBox.scrollIntoView({ behavior: "smooth", block: "center" });
         } catch (err) {
           btn.disabled = false;
-          btn.textContent = "전화 상담 신청";
+          btn.textContent = "창업·메뉴 상담";
           alert("전송에 실패했습니다. 070-8121-5880 으로 전화 주시면 바로 도와드리겠습니다.");
         }
       });
+    </script>
+    <script>
+
+      (function () {
+        var stage = document.getElementById("floatStage");
+        if (!stage || (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches)) return;
+        var ticking = false;
+        function update() {
+          ticking = false;
+          var r = stage.getBoundingClientRect();
+          var c = r.top + r.height / 2 - window.innerHeight / 2;
+          stage.style.setProperty("--py", String(Math.max(-500, Math.min(500, Math.round(c)))));
+        }
+        function onScroll() {
+          if (!ticking) { ticking = true; requestAnimationFrame(update); }
+        }
+        window.addEventListener("scroll", onScroll, { passive: true });
+        window.addEventListener("resize", onScroll);
+        update();
+      })();
     </script>
   </body>
 </html>
