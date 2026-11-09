@@ -91,7 +91,7 @@
         상담 신청을 받으며 처리하는 개인정보를 아래와 같이 안내합니다.
       </p>
 
-      <div class="updated">시행일 · 2026년 11월 8일 &nbsp;·&nbsp; 이전 방침 · 2026년 7월 29일 시행 &nbsp;·&nbsp; 2026년 11월 9일 8항에 Microsoft Clarity 추가</div>
+      <div class="updated">시행일 · 2026년 11월 8일 &nbsp;·&nbsp; 이전 방침 · 2026년 7월 29일 시행 &nbsp;·&nbsp; 개정 · 2026년 11월 9일 시행 (6 · 8항에 Microsoft Clarity 추가)</div>
 
       <h2>1. 처리하는 개인정보 항목</h2>
       <p>상담 신청 폼에서 받는 항목입니다.</p>
@@ -161,6 +161,17 @@
         국외 이전을 원하지 않으시면 폼 대신 전화(<a href="tel:+827081215880">070-8121-5880</a>)로 상담을 신청하실 수 있습니다.
         이 경우 폼 신청은 이용하실 수 없습니다.
       </p>
+      <p>또 8항의 방문 분석 도구 Microsoft Clarity를 쓰는 동안, 홈페이지 안에서의 행동 기록이 아래와 같이 국외로 전송 · 보관됩니다.</p>
+      <h3>Microsoft Clarity (방문 분석)</h3>
+      <table>
+        <tr><th>받는 곳</th><td>Microsoft Corporation · 개인정보 문의는 <a href="https://privacy.microsoft.com/privacystatement" target="_blank" rel="noopener">privacy.microsoft.com/privacystatement</a>의 문의 경로</td></tr>
+        <tr><th>국가</th><td>미국(운영사 소재지)과 Microsoft 데이터센터 소재 국가</td></tr>
+        <tr><th>항목</th><td>8항의 Microsoft Clarity 항목 (상담 폼에 입력하신 글자 원문은 포함되지 않습니다)</td></tr>
+        <tr><th>시기 · 방법</th><td>홈페이지를 보시는 동안 암호화된 통신(HTTPS)으로 수시 전송</td></tr>
+        <tr><th>목적</th><td>방문 분석 (페이지 개선)</td></tr>
+        <tr><th>보유 기간</th><td>세션 녹화 30일, 즐겨찾기 · 라벨을 단 녹화와 클릭 · 히트맵 통계 9개월 (Microsoft Clarity 기본 보관 기간)</td></tr>
+        <tr><th>거부 방법 · 효과</th><td>8항의 "이 기기에서 Clarity 끄기"를 누르시면 그 기기에서는 전송되지 않습니다. 끄셔도 홈페이지와 상담 신청은 그대로 이용하실 수 있습니다.</td></tr>
+      </table>
 
       <h2>7. 제3자 제공</h2>
       <p>
@@ -186,15 +197,16 @@
       <h3>Microsoft Clarity</h3>
       <table>
         <tr><th>운영 회사</th><td>Microsoft Corporation (미국) · <a href="https://privacy.microsoft.com/privacystatement" target="_blank" rel="noopener">privacy.microsoft.com/privacystatement</a></td></tr>
-        <tr><th>항목</th><td>페이지 안에서 스크롤 · 누른 위치 · 머문 시간, 기기 · 브라우저 정보 (입력하신 글자는 가려져 저장되지 않습니다)</td></tr>
-        <tr><th>목적</th><td>방문 분석 (어느 부분이 읽기 어려운지 살펴 페이지를 고치기)</td></tr>
-        <tr><th>보유 기간</th><td>Microsoft Clarity의 기본 보관 기간에 따릅니다</td></tr>
+        <tr><th>항목</th><td>페이지 안에서의 스크롤 · 누른 위치 · 머문 시간을 다시 볼 수 있게 남기는 기록(세션 녹화), 기기 · 브라우저 정보. 상담 폼 입력칸의 글자 원문은 Clarity에 전송 · 저장되지 않습니다.</td></tr>
+        <tr><th>목적</th><td>방문 분석 (어느 부분이 읽기 어려운지 살펴 페이지를 고치기). Microsoft는 Clarity 이용약관에 따라 이 정보를 자사 서비스와 광고 상품 제공 · 개선에 이용할 수 있습니다.</td></tr>
+        <tr><th>보유 기간</th><td>세션 녹화 30일, 즐겨찾기 · 라벨을 단 녹화와 클릭 · 히트맵 통계 9개월 (Microsoft Clarity 기본 보관 기간)</td></tr>
       </table>
       <p>원하지 않으시면 아래 방법으로 거부하실 수 있습니다. 거부하셔도 홈페이지와 상담 신청은 그대로 이용하실 수 있습니다.</p>
       <ul>
         <li>브라우저 설정에서 쿠키 차단 · 삭제</li>
         <li>Google 애널리틱스 차단 부가 기능: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">tools.google.com/dlpage/gaoptout</a></li>
         <li>Meta 광고 설정: <a href="https://www.facebook.com/adpreferences" target="_blank" rel="noopener">facebook.com/adpreferences</a></li>
+        <li>Microsoft Clarity: <button type="button" id="clarityOff" style="font:inherit;padding:2px 10px;border:1px solid #bbb;border-radius:8px;background:#fff;cursor:pointer">이 기기에서 Clarity 끄기</button> <span id="clarityState"></span> (쿠키를 지워도 Clarity 기록이 다 멈추지는 않으므로 이 버튼을 쓰세요)</li>
         <li>휴대폰 설정에서 광고 ID 재설정 · 맞춤형 광고 끄기 (안드로이드: 설정 &gt; Google &gt; 광고 / 아이폰: 설정 &gt; 개인정보 보호 및 보안 &gt; 추적)</li>
       </ul>
       <p class="note">홈페이지는 GitHub Pages · Cloudflare(미국 회사) 서버를 거쳐 제공되어, 접속 IP 등 접속 기록이 해당 서비스에 남을 수 있습니다.</p>
@@ -230,12 +242,21 @@
       </ul>
 
       <h2>13. 방침의 변경</h2>
-      <p>이 방침이 바뀌면 시행 전에 이 페이지에 알립니다.</p>
+      <p>방침이 바뀌면 변경 내용과 시행일을 이 페이지에 알립니다. 법령상 사전 고지나 동의가 필요한 경우 해당 절차를 따릅니다.</p>
 
       <footer>
         &minus; SINCE 1971 &minus;<br />
         산방에프앤비 주식회사 · 제주산방식당
       </footer>
     </div>
-  </body>
+      <script>
+      (function () {
+        var b = document.getElementById("clarityOff"), s = document.getElementById("clarityState");
+        if (!b) return;
+        function show() { var off = false; try { off = localStorage.getItem("sb_no_clarity") === "1"; } catch (e) {} s.textContent = off ? "· 이 기기에서 꺼져 있습니다" : ""; b.textContent = off ? "다시 켜기" : "이 기기에서 Clarity 끄기"; }
+        b.addEventListener("click", function () { try { if (localStorage.getItem("sb_no_clarity") === "1") localStorage.removeItem("sb_no_clarity"); else localStorage.setItem("sb_no_clarity", "1"); } catch (e) { s.textContent = "· 이 브라우저에서는 저장할 수 없어, 쿠키 · 사이트 데이터 차단을 써 주세요"; return; } show(); });
+        show();
+      })();
+    </script>
+</body>
 </html>
