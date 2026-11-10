@@ -2,46 +2,201 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>제주산방식당 — 창업 메뉴 도입 · 단체 공급 · 밀키트</title>
     <link rel="icon" type="image/webp" href="/assets/web/logo.webp" />
-
-    <!-- 임시 대문 (2026-11-10): 파트너 페이지로 바로 넘긴다. 안내판 대문이 완성되면 교체.
-         주의: app/ 을 다시 빌드(vite build)하면 이 파일이 옛 랜딩으로 덮어써진다. -->
-    <title>제주산방식당 — 산방식당 창업 메뉴 파트너</title>
-    <meta
-      name="description"
-      content="1971년 제주 모슬포에서 시작한 산방식당. 냉장 등심 돈까스와 육수·비빔장·생면·만두를 사장님 매장 주력 메뉴로. 간판은 선택입니다."
-    />
-    <link rel="canonical" href="https://sanbangjeju.com/partner/" />
-    <meta http-equiv="refresh" content="0; url=/partner/" />
-    <script>
-      location.replace("/partner/" + location.search + location.hash);
-    </script>
-
+    <meta name="description" content="1971년 제주 모슬포에서 시작한 산방식당. 파트너 사장님들과 함께 만들어 가는 브랜드입니다. 창업·메뉴 도입, 단체·급식 공급, 비빔밀냉면 밀키트 안내." />
+    <link rel="canonical" href="https://sanbangjeju.com/" />
     <meta name="facebook-domain-verification" content="hn9aum953sy9dgfpn7nsnes8onqbjd" />
-
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="제주산방식당" />
-    <meta property="og:title" content="메뉴 개발 없이도, 55년 산방식당의 그 맛 그대로" />
-    <meta
-      property="og:description"
-      content="냉장 등심 돈까스 · 육수 · 비빔장 · 생면 · 만두. 메뉴부터 팔리는 이유와 판매 자료까지 함께합니다."
-    />
+    <meta property="og:title" content="제주산방식당 — 파트너 사장님들과 함께 만들어 가는 브랜드" />
+    <meta property="og:description" content="창업·메뉴 도입 · 단체·급식 공급 · 비빔밀냉면 밀키트" />
     <meta property="og:image" content="https://sanbangjeju.com/assets/web/og-partner.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:url" content="https://sanbangjeju.com/partner/" />
+    <meta property="og:url" content="https://sanbangjeju.com/" />
     <meta property="og:locale" content="ko_KR" />
     <meta name="twitter:card" content="summary_large_image" />
-
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/paperlogy/Paperlogy-7Bold.woff2" crossorigin />
     <style>
-      body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
-             font-family: system-ui, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-             background: #fff; color: #222; }
-      a { color: #222; font-size: 16px; }
+      @font-face { font-family: "Paperlogy"; font-weight: 400; font-display: swap;
+        src: local("Paperlogy 4 Regular"), local("Paperlogy-4Regular"),
+             url("/assets/fonts/paperlogy/Paperlogy-4Regular.woff2") format("woff2"); }
+      @font-face { font-family: "Paperlogy"; font-weight: 500; font-display: swap;
+        src: local("Paperlogy 5 Medium"), local("Paperlogy-5Medium"),
+             url("/assets/fonts/paperlogy/Paperlogy-5Medium.woff2") format("woff2"); }
+      @font-face { font-family: "Paperlogy"; font-weight: 700; font-display: swap;
+        src: local("Paperlogy 7 Bold"), local("Paperlogy-7Bold"),
+             url("/assets/fonts/paperlogy/Paperlogy-7Bold.woff2") format("woff2"); }
+
+      :root { --brand: #cf5a1c; --ink: #191310; --paper: #f7f5f2; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { height: 100%; }
+      body {
+        font-family: "Paperlogy", "Pretendard", system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+        background: var(--ink); color: #fff; -webkit-font-smoothing: antialiased; word-break: keep-all;
+      }
+      a { color: inherit; text-decoration: none; }
+
+      .stage { position: relative; min-height: 100svh; display: flex; flex-direction: column; overflow: hidden; }
+      .bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; filter: brightness(1.26) contrast(1.04) saturate(1.12); }
+      .shade { position: absolute; inset: 0; z-index: 1;
+        background: linear-gradient(180deg, rgba(25,19,16,.22) 0%, rgba(25,19,16,.02) 40%, rgba(25,19,16,.56) 100%); }
+
+      .wrap { position: relative; z-index: 2; flex: 1; display: flex; flex-direction: column;
+        width: 100%; max-width: 1080px; margin: 0 auto; padding: 22px 16px 20px; }
+
+      .top { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 500; letter-spacing: .02em; }
+      .top img { width: 34px; height: 34px; border-radius: 50%; background: #fff; }
+      .top span { opacity: .9; }
+
+      .head { margin-top: auto; padding-top: 48px; }
+      .head { text-shadow: 0 1px 16px rgba(25,19,16,.7); }
+      .head p { display: inline-block; font-size: 16.5px; font-weight: 700; letter-spacing: -.01em;
+        padding: 8px 14px 7px; border-radius: 999px; background: #fff; color: var(--brand); text-shadow: none; }
+      .head h1 { margin-top: 14px; font-size: clamp(30px, 8.4vw, 60px); font-weight: 700; line-height: 1.18; letter-spacing: -.02em; text-wrap: balance; }
+
+      .doors { margin-top: 26px; display: grid; gap: 10px; grid-template-columns: 1fr 1fr; }
+      .door { display: flex; flex-direction: column; justify-content: space-between; min-height: 118px;
+        padding: 16px 16px 14px; border-radius: 18px;
+        background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.28);
+        backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+        transition: background .2s, transform .2s; }
+      .door:hover, .door:focus-visible { background: rgba(255,255,255,.24); transform: translateY(-2px); }
+      .door:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+      .door b { display: block; font-size: 19px; font-weight: 700; letter-spacing: -.01em; }
+      .door small { display: block; margin-top: 5px; font-size: 13.5px; font-weight: 400; line-height: 1.45; opacity: .88; }
+      .door i { font-style: normal; font-size: 13.5px; font-weight: 500; margin-top: 12px; }
+
+      .door.shop:hover { transform: none; background: rgba(255,255,255,.14); }
+      .shops { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+      .shops a { padding: 7px 11px; border-radius: 999px; font-size: 13.5px; font-weight: 500;
+        background: rgba(255,255,255,.92); color: var(--ink); transition: background .2s; }
+      .shops a:hover, .shops a:focus-visible { background: #fff; outline: 2px solid #fff; outline-offset: 2px; }
+
+      .door.main { grid-column: 1 / -1; min-height: 150px; padding: 20px 18px 18px;
+        background: var(--brand); border-color: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; }
+      .door.main:hover, .door.main:focus-visible { background: #dd6625; }
+      .door.main b { font-size: 26px; }
+      .door.main small { font-size: 15px; opacity: .95; }
+      .door.main i { font-size: 15px; font-weight: 700; }
+
+      .foot { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center;
+        font-size: 13px; opacity: .8; }
+      .foot a { text-decoration: underline; text-underline-offset: 3px; }
+      .foot .co { margin-left: auto; opacity: .75; }
+
+      .biz { background: var(--ink); color: rgba(255,255,255,.72); font-size: 13.5px; line-height: 1.65;
+        border-top: 1px solid rgba(255,255,255,.12); }
+      .biz-in { max-width: 1080px; margin: 0 auto; padding: 26px 16px 30px; display: grid; gap: 18px; }
+      .biz b { display: block; color: #fff; font-size: 14.5px; font-weight: 700; margin-bottom: 3px; }
+      .biz a { text-decoration: underline; text-underline-offset: 3px; }
+      .biz-legal { font-size: 12.5px; opacity: .85; }
+
+      @media (min-width: 768px) {
+        .wrap { padding: 32px 32px 28px; }
+        .doors { grid-template-columns: 1.5fr 1fr 1fr; gap: 14px; }
+        .door { min-height: 190px; padding: 22px; }
+        .door.main { grid-column: auto; min-height: 190px; padding: 24px; }
+        .door.main b { font-size: 30px; }
+        .head p { font-size: 20px; padding: 10px 18px 9px; }
+        .biz-in { padding: 32px 32px 36px; grid-template-columns: 1fr 1fr; }
+        .biz-legal, .biz-stores { grid-column: 1 / -1; }
+        .door b { font-size: 21px; }
+      }
+      @media (prefers-reduced-motion: reduce) { .bg { display: none; } .stage { background: url("/assets/web/hub-loop-poster.webp") center/cover; } .door { transition: none; } }
     </style>
   </head>
   <body>
-    <p><a href="/partner/">산방식당 창업 메뉴 파트너 페이지로 이동</a></p>
+    <main class="stage">
+      <video class="bg" autoplay muted loop playsinline preload="metadata"
+             poster="/assets/web/hub-loop-poster.webp"
+             src="/assets/web/hub-loop.mp4"></video>
+      <div class="shade"></div>
+
+      <div class="wrap">
+        <div class="top">
+          <img src="/assets/web/logo.webp" alt="" />
+          <span>제주산방식당 · 1971 모슬포</span>
+        </div>
+
+        <div class="head">
+          <p>파트너 사장님들과 함께 만들어 가는 브랜드</p>
+          <h1>55년 밀면집의 맛을,<br />필요한 곳에 전합니다</h1>
+        </div>
+
+        <nav class="doors" aria-label="바로가기">
+          <a class="door main" href="/partner/">
+            <span><b>창업 · 메뉴 도입</b><small>내 가게 이름 그대로, 산방식당의 밀냉면·돈까스를 들이세요</small></span>
+            <i>파트너 페이지 보기 →</i>
+          </a>
+          <a class="door" href="https://pf.kakao.com/_CmexeX" target="_blank" rel="noopener">
+            <span><b>단체 · 급식 공급</b><small>구내식당·단체 납품 문의</small></span>
+            <i>카카오톡 문의 →</i>
+          </a>
+          <div class="door shop">
+            <span><b>밀키트</b><small>집에서 먹는 비빔밀냉면</small></span>
+            <span class="shops">
+              <a href="https://mkt.shopping.naver.com/link/6ae16fd677dc1937d99453a8?utm_source=sanbangjeju&utm_medium=hub" target="_blank" rel="noopener">네이버 스토어</a>
+              <a href="https://www.kurly.com/goods/5144561" target="_blank" rel="noopener">컬리</a>
+              <a href="https://www.coupang.com/vp/products/7442390528?itemId=19355792260&vendorItemId=82716447302" target="_blank" rel="noopener">쿠팡</a>
+            </span>
+          </div>
+        </nav>
+
+        <div class="foot">
+          <a href="https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC%EC%82%B0%EB%B0%A9%EC%8B%9D%EB%8B%B9" target="_blank" rel="noopener">매장 찾기</a>
+          <a href="https://www.instagram.com/sanbang_official/" target="_blank" rel="noopener">인스타그램</a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="biz">
+      <div class="biz-in">
+        <div>
+          <b>제주산방식당</b>
+          <p>1971년 제주 모슬포에서 시작했습니다.</p>
+        </div>
+        <div>
+          <b>문의</b>
+          <p><a href="tel:070-8121-5880">070-8121-5880</a><br /><a href="mailto:contact@jejusanbang.com">contact@jejusanbang.com</a></p>
+        </div>
+        <div class="biz-stores">
+          <b>직영점</b>
+          <p>본점 · 제주 서귀포시 대정읍 하모이삼로 62<br />
+             제주점 · 제주 제주시 이도2동<br />
+             대한상공회의소점 · 서울 중구 세종대로 39 대한상공회의소 지하 1층</p>
+        </div>
+        <div class="biz-legal">
+          <p>산방에프앤비 주식회사 · 대표 김형섭 · 사업자등록번호 788-87-01449</p>
+          <p><a href="/partner/privacy.html">개인정보 처리방침</a> · © 2026 산방에프앤비 주식회사</p>
+        </div>
+      </div>
+    </footer>
+    <script>
+      var GA4_ID = "G-1C5SGFFWEP";
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag("js", new Date());
+      gtag("config", GA4_ID);
+      (function () {
+        var s = document.createElement("script");
+        s.async = true;
+        s.src = "https://www.googletagmanager.com/gtag/js?id=" + GA4_ID;
+        document.head.appendChild(s);
+      })();
+      document.addEventListener("click", function (e) {
+        var a = e.target.closest && e.target.closest("a[href]");
+        if (!a) return;
+        gtag("event", "hub_click", { link_text: (a.textContent || "").trim().slice(0, 40), link_url: a.href });
+      });
+      (function () {
+        var q = location.search;
+        if (!q) return;
+        var a = document.querySelector("a.door.main");
+        if (a) a.href = "/partner/" + q;
+      })();
+    </script>
   </body>
 </html>
